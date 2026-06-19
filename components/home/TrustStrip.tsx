@@ -1,45 +1,44 @@
 import Container from "@/components/shared/Container";
 
+const items = [
+  "6 Service Lines",
+  "4-Stage Delivery Method",
+  "Dedicated Point of Contact",
+  "Response Within 2 Business Days",
+];
+
 export default function TrustStrip() {
   return (
-    <section className="bg-[#1A1714] text-white">
+    <section className="border-y border-neutral-200 bg-white">
       <Container>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 text-center">
-          <div>
-            <h3 className="font-semibold">
-              Incorporated
-            </h3>
-            <p className="text-sm opacity-70">
-              Feb 2026
-            </p>
+        <div className="py-5">
+
+          <div className="
+            flex
+            flex-wrap
+            justify-center
+            items-center
+            gap-4
+            text-sm
+            md:text-base
+            text-neutral-600
+          ">
+            {items.map((item, index) => (
+              <div
+                key={item}
+                className="flex items-center gap-4"
+              >
+                <span>{item}</span>
+
+                {index !== items.length - 1 && (
+                  <span className="text-[#E87830]">
+                    •
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
 
-          <div>
-            <h3 className="font-semibold">
-              Location
-            </h3>
-            <p className="text-sm opacity-70">
-              Maharashtra, India
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold">
-              Status
-            </h3>
-            <p className="text-sm opacity-70">
-              MCA Registered
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold">
-              Compliance
-            </h3>
-            <p className="text-sm opacity-70">
-              Corporate Records
-            </p>
-          </div>
         </div>
       </Container>
     </section>

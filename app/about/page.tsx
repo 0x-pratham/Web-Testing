@@ -2,6 +2,10 @@ import Image from "next/image";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import Button from "@/components/shared/Button";
+import SectionLabel from "@/components/shared/SectionLabel";
+import MissionSection from "@/components/about/MissionSection";
+import CorePrinciples from "@/components/about/CorePrinciples";
+import FounderCard from "@/components/about/FounderCard"; // Adjusted path to your card layout
 
 export const metadata = {
   title: "About Cosmolix",
@@ -10,15 +14,25 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  // Executive Leadership Profile Data
+  const leaders = [
+    {
+      name: "Gaurav",
+      role: "Founder & Director",
+      image: "/team/gaurav.jpg", // Replace with your actual asset paths
+      bio: "Leading technology strategy, platform architecture, and enterprise digital engineering initiatives at Cosmolix.",
+    }
+  ];
+
   return (
     <main>
       {/* Hero */}
       <section className="bg-[#1A1714] text-white py-32">
         <Container>
           <div className="max-w-4xl">
-            <p className="uppercase tracking-[0.2em] text-[#E87830] mb-6">
+            <SectionLabel>
               ABOUT COSMOLIX
-            </p>
+            </SectionLabel>
 
             <h1 className="text-6xl font-bold">
               Building Technology
@@ -35,106 +49,81 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Founders */}
+      {/* Mission Section */}
+      <MissionSection />
+
+      {/* Leadership */}
       <Section>
         <Container>
-          <h2 className="text-4xl font-bold mb-12">
+          <h2 className="text-4xl font-bold mb-12 border-b border-neutral-100 pb-4">
             Leadership
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="border p-8">
-              <div className="mb-6">
-                <Image
-                  src="/founders/pratham.png"
-                  alt="Prathamesh Bhil"
-                  width={120}
-                  height={120}
-                  className="
-                    rounded-full
-                    object-cover
-                  "
-                />
-              </div>
-
-              <h3 className="text-2xl font-semibold">
-                Prathamesh Narayan Bhil
-              </h3>
-
-              <p className="text-neutral-600 mt-2">
-                Founder & Director
-              </p>
-            </div>
-
-            <div className="border p-8">
-              <div className="mb-6">
-                <Image
-                  src="/founders/dhanesh.jpeg"
-                  alt="Dhanesh Dinesh Shingade"
-                  width={120}
-                  height={120}
-                  className="
-                    rounded-full
-                    object-cover
-                  "
-                />
-              </div>
-
-              <h3 className="text-2xl font-semibold">
-                Dhanesh Dinesh Shingade
-              </h3>
-
-              <p className="text-neutral-600 mt-2">
-                Director
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {leaders.map((leader) => (
+              <FounderCard
+                key={leader.name}
+                name={leader.name}
+                role={leader.role}
+                image={leader.image}
+                bio={leader.bio}
+              />
+            ))}
           </div>
         </Container>
       </Section>
 
-      {/* Company Facts */}
-      <Section className="bg-neutral-50">
+      {/* How We Work */}
+      <Section className="bg-neutral-50 border-t border-b border-neutral-100">
         <Container>
           <h2 className="text-4xl font-bold mb-12">
-            Company Information
+            How We Work
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-
-            <div className="border p-6">
-              <h3 className="font-semibold mb-2">
-                Incorporation Date
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-semibold text-xl mb-3">
+                Communication
               </h3>
-              <p>17 February 2026</p>
-            </div>
-
-            <div className="border p-6">
-              <h3 className="font-semibold mb-2">
-                Registered State
-              </h3>
-              <p>Maharashtra, India</p>
-            </div>
-
-            <div className="border p-6">
-              <h3 className="font-semibold mb-2">
-                Authorized Capital
-              </h3>
-              <p>₹5,00,000</p>
-            </div>
-
-            <div className="border p-6">
-              <h3 className="font-semibold mb-2">
-                Business Activities
-              </h3>
-              <p>
-                Software Development, AI/ML,
-                Cloud Solutions and IT Services
+              <p className="text-neutral-600 text-sm leading-relaxed">
+                Slack, Email, Weekly Reviews and
+                Dedicated Project Coordination.
               </p>
             </div>
 
+            <div>
+              <h3 className="font-semibold text-xl mb-3">
+                Delivery Process
+              </h3>
+              <p className="text-neutral-600 text-sm leading-relaxed">
+                Discovery → Architecture →
+                Development → Support
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-xl mb-3">
+                Availability
+              </h3>
+              <p className="text-neutral-600 text-sm leading-relaxed">
+                Monday to Saturday
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-xl mb-3">
+                Typical Engagement
+              </h3>
+              <p className="text-neutral-600 text-sm leading-relaxed">
+                2 Weeks – 12 Months
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
+
+      {/* Core Principles */}
+      <CorePrinciples />
 
       {/* CTA */}
       <Section>

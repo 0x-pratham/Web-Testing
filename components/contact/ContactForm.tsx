@@ -30,7 +30,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="border p-12 text-center">
+      <div className="bg-white shadow-sm p-12 text-center">
         <h3 className="text-2xl font-bold">
           Thank You
         </h3>
@@ -40,8 +40,7 @@ export default function ContactForm() {
         </p>
 
         <p className="mt-2 text-neutral-500">
-          We typically respond within
-          2 business days.
+          We typically respond within 2 business days.
         </p>
       </div>
     );
@@ -50,94 +49,96 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="border p-8"
+      className="space-y-6"
     >
-      <div className="space-y-6">
-
-        <div>
-          <input
-            {...register("name")}
-            placeholder="Full Name"
-            className="w-full border p-4"
-          />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.name.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <input
-            {...register("email")}
-            placeholder="Email Address"
-            className="w-full border p-4"
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <input
-            {...register("company")}
-            placeholder="Company"
-            className="w-full border p-4"
-          />
-          {errors.company && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.company.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <select
-            {...register("service")}
-            className="w-full border p-4"
-          >
-            <option>AI & ML</option>
-            <option>Software Development</option>
-            <option>IT Services</option>
-            <option>Training</option>
-            <option>Tender Solutions</option>
-          </select>
-          {errors.service && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.service.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <textarea
-            {...register("message")}
-            placeholder="Tell us about your project..."
-            rows={6}
-            className="w-full border p-4"
-          />
-          {errors.message && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.message.message}
-            </p>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          className="
-            w-full
-            bg-[#E87830]
-            py-4
-            font-semibold
-          "
-        >
-          Send Enquiry
-        </button>
-
+      <div>
+        <input
+          type="text"
+          {...register("name")}
+          placeholder="Name"
+          className="w-full bg-white shadow-sm p-4 outline-none focus:ring-1 focus:ring-[#E87830]"
+        />
+        {errors.name && (
+          <p className="text-red-500 text-sm mt-2">
+            {errors.name.message}
+          </p>
+        )}
       </div>
+
+      <div>
+        <input
+          type="email"
+          {...register("email")}
+          placeholder="Email Address"
+          className="w-full bg-white shadow-sm p-4 outline-none focus:ring-1 focus:ring-[#E87830]"
+        />
+        {errors.email && (
+          <p className="text-red-500 text-sm mt-2">
+            {errors.email.message}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <input
+          type="text"
+          {...register("company")}
+          placeholder="Company"
+          className="w-full bg-white shadow-sm p-4 outline-none focus:ring-1 focus:ring-[#E87830]"
+        />
+        {errors.company && (
+          <p className="text-red-500 text-sm mt-2">
+            {errors.company.message}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <select
+          {...register("service")}
+          className="w-full bg-white shadow-sm p-4 outline-none focus:ring-1 focus:ring-[#E87830]"
+        >
+          <option>AI & ML</option>
+          <option>Software Development</option>
+          <option>IT Services</option>
+          <option>Training</option>
+          <option>Tender Solutions</option>
+        </select>
+        {errors.service && (
+          <p className="text-red-500 text-sm mt-2">
+            {errors.service.message}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <textarea
+          {...register("message")}
+          placeholder="Tell us about your project..."
+          rows={6}
+          className="w-full bg-white shadow-sm p-4 outline-none focus:ring-1 focus:ring-[#E87830]"
+        />
+        {errors.message && (
+          <p className="text-red-500 text-sm mt-2">
+            {errors.message.message}
+          </p>
+        )}
+      </div>
+
+      <button
+        type="submit"
+        className="
+          w-full
+          bg-[#E87830]
+          text-white
+          p-4
+          font-semibold
+          hover:bg-[#cf6624]
+          transition-colors
+        "
+      >
+        Send Message
+      </button>
     </form>
   );
 }

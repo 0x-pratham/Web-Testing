@@ -4,27 +4,29 @@ import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
   return (
-    <section className="bg-[#F5F1EA] min-h-[90vh] flex items-center">
+    <section className="min-h-screen flex items-center bg-[#F5F1EA]">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column */}
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Left */}
           <div className="max-w-4xl">
             <p className="text-[#E87830] uppercase tracking-[0.2em] text-sm mb-6">
               COSMOLIX PRIVATE LIMITED
             </p>
 
-            <h1 className="font-[var(--font-sora)] text-5xl md:text-7xl font-light leading-tight">
-              We Build
+            <h1 className="font-[var(--font-sora)] text-5xl md:text-7xl font-bold leading-[1.05]">
+              Technology Solutions
               <br />
-              <span className="font-bold">
-                Intelligent Systems
+              Built For
+              <span className="text-[#E87830]">
+                {" "}Growth.
               </span>
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg text-neutral-700">
-              Custom software, AI solutions, cloud
-              platforms, and enterprise technology
-              engineered for growth.
+              We help organizations design, build and
+              operate modern technology platforms across
+              software, artificial intelligence, cloud and
+              digital transformation initiatives.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -40,37 +42,40 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="mt-16 grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 gap-8 mt-16">
               <div>
                 <h3 className="text-3xl font-bold">
-                  AI
+                  12+
                 </h3>
+
                 <p className="text-neutral-500">
-                  Research & Deployment
+                  Service Lines
                 </p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold">
-                  SaaS
+                  End-to-End
                 </h3>
+
                 <p className="text-neutral-500">
-                  Cloud Platforms
+                  Technology Delivery
                 </p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold">
-                  IT
+                  Build + Run
                 </h3>
+
                 <p className="text-neutral-500">
-                  Enterprise Services
+                  Technology Services
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column */}
+          {/* Right */}
           <div>
             <HeroVisual />
           </div>

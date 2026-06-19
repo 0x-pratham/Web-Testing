@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Inter, JetBrains_Mono } from "next/font/google";
+import ScrollProgress from "@/components/layout/ScrollProgress";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/react";
@@ -61,11 +62,19 @@ export default function RootLayout({
           ${sora.variable}
           ${inter.variable}
           ${mono.variable}
-          min-h-full flex flex-col
+          font-sans
+          bg-[#F5F1EA]
+          text-neutral-900
+          h-full
+          flex
+          flex-col
         `}
       >
+        <ScrollProgress />
         <Navbar />
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
         <Footer />
         <Analytics />
       </body>

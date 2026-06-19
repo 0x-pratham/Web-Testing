@@ -33,12 +33,13 @@ export default function HeroVisual() {
       {/* Floating Logo Visual */}
       <motion.div
         animate={{
-          y: [0, -12, 0],
+          y: [0, -20, 0],
+          rotate: [0, 2, 0, -2, 0]
         }}
         transition={{
+          duration: 8,
           repeat: Infinity,
-          duration: 5,
-          ease: "easeInOut",
+          ease: "easeInOut"
         }}
         className="relative z-10"
       >

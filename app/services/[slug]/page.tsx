@@ -59,74 +59,119 @@ export default async function ServicePage({
       {/* Hero */}
       <section className="bg-[#1A1714] text-white py-32">
         <Container>
+          <div className="max-w-4xl">
 
-          <Icon
-            size={64}
-            className="text-[#E87830] mb-8"
-          />
+            <div className="mb-6">
+              <Icon
+                size={48}
+                className="text-[#E87830]"
+              />
+            </div>
 
-          <h1 className="text-6xl font-bold">
-            {service.title}
-          </h1>
+            <h1 className="text-6xl font-bold">
+              {service.title}
+            </h1>
 
-          <p className="mt-6 text-xl text-neutral-300">
-            {service.subtitle}
-          </p>
+            <p className="mt-6 text-xl text-neutral-300 max-w-2xl">
+              {service.subtitle}
+            </p>
 
+          </div>
         </Container>
       </section>
 
-      {/* Description */}
+      {/* Overview */}
       <Section>
         <Container>
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold mb-6">
+              Overview
+            </h2>
 
-          <h2 className="text-4xl font-bold mb-6">
-            Overview
-          </h2>
+            <p className="text-lg text-neutral-600 leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        </Container>
+      </Section>
 
-          <p className="text-lg text-neutral-700 max-w-3xl">
-            {service.description}
-          </p>
+      {/* Why This Service Matters */}
+      <Section className="border-t border-neutral-100">
+        <Container>
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold mb-6">
+              Why This Service Matters
+            </h2>
 
+            <p className="text-lg text-neutral-600 leading-relaxed">
+              Organizations increasingly rely on
+              technology systems that are scalable,
+              secure and aligned with business goals.
+            </p>
+          </div>
         </Container>
       </Section>
 
       {/* Capabilities */}
       <Section className="bg-neutral-50">
         <Container>
-
-          <h2 className="text-4xl font-bold mb-10">
+          <h2 className="text-3xl font-bold mb-12">
             Capabilities
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-
             {service.capabilities.map(
               (item) => (
                 <div
                   key={item}
-                  className="border p-6"
+                  className="bg-white p-8 shadow-sm"
                 >
-                  {item}
+                  <h3 className="font-semibold text-lg">
+                    {item}
+                  </h3>
                 </div>
               )
             )}
-
           </div>
-
         </Container>
       </Section>
+
+      {/* Typical Engagement */}
+      <section className="bg-neutral-50 py-24 border-t border-neutral-200">
+        <Container>
+          <h2 className="text-3xl font-bold mb-12">
+            How We Deliver
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            <div className="bg-white p-8 shadow-sm border-l-4 border-[#E87830]">
+              <div className="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">Phase 01</div>
+              <h3 className="font-bold text-xl text-neutral-900">Discovery</h3>
+            </div>
+            <div className="bg-white p-8 shadow-sm border-l-4 border-[#E87830]">
+              <div className="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">Phase 02</div>
+              <h3 className="font-bold text-xl text-neutral-900">Planning</h3>
+            </div>
+            <div className="bg-white p-8 shadow-sm border-l-4 border-[#E87830]">
+              <div className="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">Phase 03</div>
+              <h3 className="font-bold text-xl text-neutral-900">Implementation</h3>
+            </div>
+            <div className="bg-white p-8 shadow-sm border-l-4 border-[#E87830]">
+              <div className="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">Phase 04</div>
+              <h3 className="font-bold text-xl text-neutral-900">Support</h3>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* Benefits */}
       <Section>
         <Container>
-
-          <h2 className="text-4xl font-bold mb-10">
-            Why Choose Cosmolix
+          <h2 className="text-3xl font-bold mb-12">
+            Benefits
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-
             {service.benefits.map(
               (item) => (
                 <div
@@ -137,32 +182,24 @@ export default async function ServicePage({
                 </div>
               )
             )}
-
           </div>
-
         </Container>
       </Section>
 
       {/* CTA */}
       <section className="bg-[#7A3206] py-24">
         <Container>
-
           <div className="text-center text-white">
-
             <h2 className="text-5xl font-bold">
               Let's Build Together
             </h2>
 
             <div className="mt-8">
-
               <Button href="/contact">
                 Start Your Project
               </Button>
-
             </div>
-
           </div>
-
         </Container>
       </section>
 
@@ -185,7 +222,12 @@ export default async function ServicePage({
                   href={`/services/${item.slug}`}
                   className="border p-6"
                 >
-                  {item.title}
+                  <h3 className="font-semibold text-lg text-neutral-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-neutral-500 mt-2 line-clamp-2">
+                    {item.subtitle}
+                  </p>
                 </Link>
               ))}
           </div>

@@ -1,5 +1,6 @@
 import Container from "@/components/shared/Container";
 import ContactForm from "@/components/contact/ContactForm";
+import ContactBenefits from "@/components/contact/ContactBenefits";
 
 export const metadata = {
   title: "Contact Cosmolix",
@@ -23,15 +24,13 @@ export default function ContactPage() {
               </p>
 
               <h1 className="text-6xl font-bold">
-                Start The
+                Let's Discuss
                 <br />
-                Conversation
+                Your Next Initiative
               </h1>
 
               <p className="mt-8 text-lg text-neutral-600">
-                Tell us about your project and
-                we'll get back to you within
-                2 business days.
+                Whether you're evaluating a new product, modernizing an existing platform or exploring AI adoption, our team is ready to help.
               </p>
 
               <div className="mt-12 space-y-6">
@@ -55,6 +54,8 @@ export default function ContactPage() {
                 </div>
 
               </div>
+
+              <ContactBenefits />
 
             </div>
 
