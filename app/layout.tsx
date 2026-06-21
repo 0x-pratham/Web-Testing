@@ -45,6 +45,34 @@ export const metadata: Metadata = {
     "IT Services",
     "Cosmolix",
   ],
+
+  openGraph: {
+    title: "Cosmolix Private Limited",
+    description: "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
+    url: "https://cosmolix.com",
+    siteName: "Cosmolix",
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Cosmolix Private Limited",
+    description: "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
+
+  alternates: {
+    canonical: "https://cosmolix.com",
+  },
 };
 
 export default function RootLayout({
@@ -55,7 +83,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${mono.variable} h-full antialiased`}
+      className={`${sora.variable} ${inter.variable} ${mono.variable} h-full antialiased scroll-smooth`}
     >
       <body
         className={`
@@ -72,9 +100,9 @@ export default function RootLayout({
       >
         <ScrollProgress />
         <Navbar />
-        <div className="flex-grow">
+        <main className="flex-grow">
           {children}
-        </div>
+        </main>
         <Footer />
         <Analytics />
       </body>

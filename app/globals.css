@@ -1,3 +1,4 @@
+@import "../styles/tokens.css";
 @import "tailwindcss";
 
 :root {
@@ -25,14 +26,70 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--cream);
   color: var(--charcoal);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-sora);
+  letter-spacing: -0.03em;
+}
+
+section {
+  position: relative;
+}
+
+.section-padding {
+  padding-top: clamp(5rem, 8vw, 8rem);
+  padding-bottom: clamp(5rem, 8vw, 8rem);
+}
+
+::selection {
+  background: rgba(232, 120, 48, 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f1ea;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7a3206;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e87830;
 }
 
 @layer base {
   img {
     @apply h-auto max-w-full;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

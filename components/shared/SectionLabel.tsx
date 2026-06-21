@@ -6,16 +6,29 @@ export default function SectionLabel({
   children,
 }: Props) {
   return (
-    <p
+    <div
       className="
-        uppercase
-        tracking-[0.2em]
-        text-[#E87830]
-        text-sm
-        mb-4
+        inline-flex
+        items-center
+        rounded-full
+        border
+        border-[#E87830]/20
+        bg-[#E87830]/10
+        px-4
+        py-2
+        mb-6
       "
     >
-      {children}
-    </p>
+      <span
+        className="
+          uppercase
+          tracking-[0.14em]
+          text-xs
+          text-[#E87830]
+        "
+      >
+        {children}
+      </span>
+    </div>
   );
 }

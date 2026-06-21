@@ -11,10 +11,7 @@ export default function Logo({
   showText = true,
 }: LogoProps) {
   return (
-    <Link
-      href="/"
-      className="flex items-center gap-3"
-    >
+    <div className="flex items-center gap-3 select-none">
       <Image
         src="/brand/cosmolix-mark.png"
         alt="Cosmolix Logo"
@@ -25,16 +22,16 @@ export default function Logo({
       />
 
       {showText && (
-        <div>
-          <h2 className="font-[var(--font-sora)] text-lg font-bold tracking-wide">
+        <div className="flex flex-col justify-center">
+          <h2 className="font-[var(--font-sora)] text-base font-bold tracking-[0.15em] text-neutral-900 leading-none">
             COSMOLIX
           </h2>
 
-          <p className="text-xs text-neutral-500">
-            Beyond Limites
+          <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 mt-1 font-medium">
+            Beyond Limits
           </p>
         </div>
       )}
-    </Link>
+    </div>
   );
 }
