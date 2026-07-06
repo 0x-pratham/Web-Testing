@@ -1,7 +1,7 @@
 // WhyChooseCosmolix.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState } from "react";
 import {
   ShieldCheck,
@@ -40,7 +40,7 @@ const items = [
 export default function WhyChooseCosmolix() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -48,12 +48,12 @@ export default function WhyChooseCosmolix() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 140, damping: 22 },
+      transition: { type: "spring" as const, stiffness: 140, damping: 22 },
     },
   };
 

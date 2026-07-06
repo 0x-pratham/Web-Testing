@@ -2,14 +2,14 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { services } from "@/data/services";
 import { useState } from "react";
 
 export default function AllServicesGrid() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -17,12 +17,12 @@ export default function AllServicesGrid() {
     }
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 140, damping: 22 }
+      transition: { type: "spring" as const, stiffness: 140, damping: 22 }
     }
   };
 

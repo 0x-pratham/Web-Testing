@@ -1,7 +1,7 @@
 // FeaturedServices.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Container from "@/components/shared/Container";
 import { services } from "@/data/services";
 import { useState } from "react";
@@ -12,7 +12,7 @@ export default function FeaturedServices() {
   const softwareService = services.find((s) => s.slug === "software");
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -20,12 +20,12 @@ export default function FeaturedServices() {
     },
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 150, damping: 24 }
+      transition: { type: "spring" as const, stiffness: 150, damping: 24 }
     }
   };
 

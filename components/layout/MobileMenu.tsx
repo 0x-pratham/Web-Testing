@@ -38,7 +38,7 @@ export default function MobileMenu() {
 
   const itemVariants = {
     initial: { opacity: 0, y: 12, filter: "blur(4px)" },
-    open: { opacity: 1, y: 0, filter: "blur(0px)", transition: { ease: [0.16, 1, 0.3, 1], duration: 0.28 } }
+    open: { opacity: 1, y: 0, filter: "blur(0px)", transition: { ease: [0.16, 1, 0.3, 1] as any, duration: 0.28 } }
   };
 
   // 2. Services ko unki category ke hisab se filter karne ke liye helper arrays
