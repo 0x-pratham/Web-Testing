@@ -1,6 +1,8 @@
+// WhyChooseCosmolix.tsx
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   ShieldCheck,
   Workflow,
@@ -36,75 +38,120 @@ const items = [
 ];
 
 export default function WhyChooseCosmolix() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 140, damping: 22 },
+    },
+  };
+
   return (
-    <section className="py-24 bg-[#FCFAF8]">
+    <section className="relative py-24 bg-[#FCFBF9] overflow-hidden border-b border-neutral-200/40">
+      {/* Structural Decorative Vertical Studio Line */}
+      <div className="absolute top-0 left-1/3 w-px h-full bg-gradient-to-b from-neutral-200/40 via-transparent to-transparent pointer-events-none hidden lg:block" />
+
       <div className="mx-auto max-w-[1280px] px-6">
-        
-        {/* Section Label */}
-        <span className="text-xs uppercase tracking-[0.25em] text-[#E87830] font-semibold block mb-4">
-          WHY ORGANIZATIONS CHOOSE COSMOLIX
-        </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+          
+          {/* Left Sticky Studio Header Column */}
+          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-4">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 font-semibold">
+                Value Blueprint
+              </span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-950 leading-[1.1]">
+              Why Partners
+              <br />
+              <span className="text-neutral-400 font-normal">Choose Cosmolix.</span>
+            </h2>
 
-        {/* Enhanced Header System */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.06em] leading-[0.95] text-neutral-950">
-          Why Organizations
-          <br />
-          Choose Cosmolix.
-        </h2>
+            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed max-w-sm pt-2">
+              We combine engineering excellence, security-first thinking and scalable delivery processes to create measurable outcomes.
+            </p>
+          </div>
 
-        {/* Premium Core Narrative Description Block */}
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">
-          We combine engineering excellence, security-first thinking
-          and scalable delivery processes to create measurable outcomes.
-        </p>
+          {/* Right Clean Intersect Grid Column */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="lg:col-span-8 grid gap-px bg-neutral-200/50 rounded-xl overflow-hidden grid-cols-1 sm:grid-cols-2"
+          >
+            {items.map((item, idx) => {
+              const Icon = item.icon;
+              const isHovered = hoveredIndex === idx;
 
-        {/* Improved 2-Column Responsive Matrix Layout */}
-        <div className="mt-12 grid gap-8 grid-cols-1 lg:grid-cols-2">
-          {items.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-              >
-                <div className="group relative overflow-hidden rounded-[32px] border border-transparent bg-white p-10 shadow-[0_8px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-[3px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-                  
-                  {/* Cosmolix Premium Signature Thin 1px Top Accent Line */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#E87830] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              return (
+                <motion.div
+                  key={item.title}
+                  variants={itemVariants}
+                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="group relative bg-white p-8 min-h-[260px] flex flex-col justify-between transition-all duration-300 select-none"
+                >
+                  {/* Luxury Ambient Shifter Fill */}
+                  <div 
+                    className={`absolute inset-0 bg-[#FFF9F5]/70 transition-transform duration-500 ease-out origin-left pointer-events-none ${
+                      isHovered ? "scale-x-100" : "scale-x-0"
+                    }`}
                   />
 
-                  {/* Icon Block Architecture Mapping the Services Style */}
-                  <div className="flex h-16 w-16 items-center justify-center rounded-[20px] bg-[#FAF5F1] transition-transform duration-500 group-hover:scale-105">
-                    <Icon className="h-6 w-6 text-[#E87830]" />
+                  {/* Top Architecture Block */}
+                  <div className="relative z-10 w-full">
+                    <div className="mb-6">
+                      <div className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-300 ${
+                        isHovered 
+                          ? "bg-white border-[#E87830]/20 shadow-sm" 
+                          : "bg-neutral-50 border-neutral-100"
+                      }`}>
+                        <Icon className={`h-4 w-4 transition-colors duration-300 ${
+                          isHovered ? "text-[#E87830]" : "text-neutral-600"
+                        }`} />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-base font-bold tracking-tight text-neutral-900 transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs md:text-sm leading-relaxed text-neutral-500 max-w-xs">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Title Typographic Hierarchy */}
-                  <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-neutral-900">
-                    {item.title}
-                  </h3>
-
-                  {/* Description Scales */}
-                  <p className="mt-3 text-[15px] leading-7 text-neutral-600">
-                    {item.description}
-                  </p>
-
-                  {/* Human Distinct Micro-Bullet Footer Indicators */}
-                  <div className="mt-6 flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
-                    <span className="text-sm text-neutral-500">
+                  {/* Bottom Minimal Spec Footer */}
+                  <div className="relative z-10 w-full mt-8 pt-4 border-t border-neutral-100/70 flex items-center gap-2">
+                    <span className={`h-1 w-1 rounded-full transition-colors duration-300 ${
+                      isHovered ? "bg-[#E87830]" : "bg-neutral-300"
+                    }`} />
+                    <span className={`text-[11px] font-medium tracking-wide transition-colors duration-300 ${
+                      isHovered ? "text-neutral-700" : "text-neutral-400"
+                    }`}>
                       {item.detail}
                     </span>
                   </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
 
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
     </section>

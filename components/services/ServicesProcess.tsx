@@ -1,91 +1,146 @@
+// ServicesProcess.tsx
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const steps = [
   {
     label: "Strategy",
     title: "Discover",
-    description: "Understand objectives, requirements and opportunities.",
+    tag: "STRAT",
+    description: "Understand objectives, requirements and opportunities to scope the roadmap.",
   },
   {
     label: "Experience",
     title: "Design",
-    description: "Craft scalable architecture and product experiences.",
+    tag: "DSGN",
+    description: "Craft scalable application architecture, structural wireframes and responsive product experiences.",
   },
   {
     label: "Engineering",
     title: "Build",
-    description: "Develop, test and validate solutions efficiently.",
+    tag: "ENGIN",
+    description: "Develop clean code systems, test architecture, and validate multi-tenant engineering solutions.",
   },
   {
     label: "Growth",
     title: "Scale",
-    description: "Optimize, secure and grow for long-term success.",
+    tag: "SCALE",
+    description: "Optimize cloud infrastructure telemetry, secure core data endpoints and manage long-term traffic.",
   },
 ];
 
 export default function ServicesProcess() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
-    <section className="py-24 bg-[#FCFAF8]">
+    <section className="relative py-28 bg-[#FCFBF9] overflow-hidden border-b border-neutral-200/40">
       <div className="mx-auto max-w-[1280px] px-6">
         
-        {/* Section Label */}
-        <span className="text-xs uppercase tracking-[0.25em] text-[#E87830] font-semibold block mb-4">
-          HOW WE DELIVER
-        </span>
+        {/* Elite Minimal Header */}
+        <div className="max-w-2xl mb-24">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#E87830] font-semibold">
+              Execution Architecture
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.1]">
+            Our Delivery Pipeline.
+            <span className="text-neutral-400 font-normal"> Engineered For Speed.</span>
+          </h2>
+        </div>
 
-        {/* Enhanced Section Header */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.06em] leading-[0.95] text-neutral-950">
-          How We Deliver
-          <br />
-          Exceptional Results.
-        </h2>
+        {/* Visual Phase Pipeline */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Block: Interactive Phase Monitor */}
+          <div className="lg:col-span-4 sticky top-44 hidden lg:block select-none pointer-events-none">
+            <div className="flex flex-col gap-8 pl-2">
+              {steps.map((step, idx) => {
+                const isCurrent = activeIndex === idx;
+                return (
+                  <div key={step.tag} className="flex items-center gap-4">
+                    {/* Status Dot */}
+                    <div className="relative flex items-center justify-center">
+                      <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        isCurrent ? "bg-[#E87830] scale-150" : "bg-neutral-300"
+                      }`} />
+                    </div>
+                    {/* Phase Tag */}
+                    <span className={`text-[11px] font-mono tracking-widest uppercase transition-colors duration-300 ${
+                      isCurrent ? "text-[#E87830] font-bold" : "text-neutral-400"
+                    }`}>
+                      {isCurrent ? `[${step.tag}_ACTIVE]` : `[${step.tag}]`}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
-        {/* Client-Focused Narrative Paragraph */}
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">
-          A proven approach that combines strategy, engineering and execution to deliver measurable outcomes.
-        </p>
+          {/* Right Block: Process Detail List */}
+          <div 
+            className="lg:col-span-8 space-y-2"
+            onMouseLeave={() => setActiveIndex(null)}
+          >
+            {steps.map((step, idx) => {
+              const isActive = activeIndex === idx;
+              const isAnyHovered = activeIndex !== null;
 
-        {/* Improved 2-Column Responsive Matrix Layout Layout */}
-        <div className="mt-16 grid gap-8 grid-cols-1 lg:grid-cols-2">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-              }}
-            >
-              <div className="group relative overflow-hidden rounded-[32px] border border-transparent bg-white p-10 shadow-[0_8px_30px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-[3px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-                
-                {/* Visual Connection Node Header Structure */}
-                <div className="mb-8 flex items-center gap-4">
-                  <div className="h-3 w-3 rounded-full bg-[#E87830]" />
-                  <div className="h-px flex-1 bg-[#E87830]/15" />
+              return (
+                <div
+                  key={step.title}
+                  onMouseEnter={() => setActiveIndex(idx)}
+                  className="relative transition-all duration-500"
+                  style={{ opacity: isAnyHovered && !isActive ? 0.35 : 1 }}
+                >
+                  <div className="relative pl-8 pr-4 py-8 border-b border-neutral-200/50 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-12 justify-between">
+                    
+                    {/* Vertical Line Connector */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[1.5px] bg-neutral-200/60" />
+                    <motion.div 
+                      className="absolute left-0 top-0 bottom-0 w-[1.5px] bg-[#E87830] origin-top"
+                      initial={{ scaleY: 0 }}
+                      animate={{ scaleY: isActive ? 1 : 0 }}
+                      transition={{ duration: 0.35, ease: "easeOut" }}
+                    />
+
+                    {/* Left Meta Sector */}
+                    <motion.div 
+                      className="min-w-[140px] space-y-1"
+                      animate={{ x: isActive ? 6 : 0 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                    >
+                      <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase block">
+                        // {step.tag}
+                      </span>
+                      <span className={`text-xs font-semibold tracking-wide transition-colors duration-300 ${
+                        isActive ? "text-[#E87830]" : "text-neutral-500"
+                      }`}>
+                        {step.label}
+                      </span>
+                    </motion.div>
+
+                    {/* Content Sector */}
+                    <motion.div 
+                      className="flex-1 space-y-2"
+                      animate={{ x: isActive ? 8 : 0 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                    >
+                      <h3 className="text-lg font-bold tracking-tight text-neutral-900">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs md:text-sm leading-relaxed text-neutral-500 max-w-xl">
+                        {step.description}
+                      </p>
+                    </motion.div>
+
+                  </div>
                 </div>
-
-                {/* Tiny Label Indicator */}
-                <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#E87830] font-medium">
-                  {step.label}
-                </p>
-
-                {/* Step Title Typographic Upgrade */}
-                <h3 className="text-2xl font-semibold tracking-[-0.03em] text-neutral-900">
-                  {step.title}
-                </h3>
-
-                {/* Step Contextual Description */}
-                <p className="mt-3 text-[15px] leading-7 text-neutral-600">
-                  {step.description}
-                </p>
-
-              </div>
-            </motion.div>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

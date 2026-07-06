@@ -1,232 +1,216 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Layout, Code2, Rocket, ArrowRight, ShieldCheck, RefreshCw, Users, HelpCircle } from "lucide-react";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
-import Button from "@/components/shared/Button";
 
-// 🚀 Improvement 6 — Better Descriptions & 🚀 Improvement 7 — Add Micro Labels Above Title
-const processItems = [
+const PROCESS_DATA = [
   {
-    step: "01",
-    phase: "STRATEGY",
-    title: "Discover",
-    icon: Search,
-    description: "We start by understanding your goals, challenges and opportunities.",
+    id: "understand",
+    title: "Understand",
+    phrase: "Understand the problem before writing code.",
+    desc: "We understand your business, not just your requirements.",
+    outcome: "Clear project roadmap",
+    timeline: "1–2 Weeks",
+    deliverables: ["Product Roadmap", "Scope Definition", "User Flows"],
+    expectedOutcome: "Alignment on clear engineering goals without the guesswork.",
+    svgAnimation: (
+      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+        <path d="M10 15 H90" strokeDasharray="2 2" opacity="0.3" />
+        <motion.circle 
+          cx="10" cy="15" r="4" 
+          animate={{ r: [4, 6, 4] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          fill="currentColor" 
+          fillOpacity="0.1" 
+        />
+        <motion.path 
+          d="M10 15 Q 50 5, 90 15" 
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+        <circle cx="90" cy="15" r="3" fill="currentColor" />
+      </svg>
+    )
   },
   {
-    step: "02",
-    phase: "PLANNING",
-    title: "Plan",
-    icon: Layout,
-    description: "Define the architecture and roadmap needed to support long-term growth.",
+    id: "architect",
+    title: "Architect",
+    phrase: "Validate design decisions early.",
+    desc: "Technical decisions made precisely before development begins.",
+    outcome: "Technical blueprint",
+    timeline: "1–2 Weeks",
+    deliverables: ["System Architecture", "Database Schema", "UI/UX Wireframes"],
+    expectedOutcome: "A complete bulletproof technical architecture blueprint.",
+    svgAnimation: (
+      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+        <rect x="10" y="5" width="20" height="20" strokeDasharray="1 1" />
+        <rect x="70" y="5" width="20" height="20" strokeDasharray="1 1" />
+        <motion.path 
+          d="M30 15 H70" 
+          initial={{ strokeDasharray: "4 4", strokeDashoffset: 0 }}
+          animate={{ strokeDashoffset: -20 }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 2 }}
+        />
+      </svg>
+    )
   },
   {
-    step: "03",
-    phase: "EXECUTION",
-    title: "Build",
-    icon: Code2,
-    description: "Iterative development, testing and stakeholder reviews.",
+    id: "engineer",
+    title: "Engineer",
+    phrase: "Ship small. Improve fast.",
+    desc: "Clean, scalable implementation using the modern high-performance stacks.",
+    outcome: "Working software",
+    timeline: "2–4 Weeks",
+    deliverables: ["Production Codebase", "API Integration", "Automated Tests"],
+    expectedOutcome: "Production-ready code deployed to live staging environment.",
+    svgAnimation: (
+      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+        <motion.path 
+          d="M10 22 L25 8 L40 22 L55 8 L70 22 L85 8" 
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+        />
+      </svg>
+    )
   },
   {
-    step: "04",
-    phase: "GROWTH",
-    title: "Scale",
-    icon: Rocket,
-    description: "Deployment, monitoring, maintenance and continuous improvement.",
-  },
+    id: "optimize",
+    title: "Optimize",
+    phrase: "Continuous monitoring and long-term scaling.",
+    desc: "Continuous system refinement and data-driven product updates.",
+    outcome: "Continuous improvements",
+    timeline: "Ongoing",
+    deliverables: ["Performance Audits", "Feature Iterations", "Security Patches"],
+    expectedOutcome: "A platform that stays resilient, fast, and secure as you scale.",
+    svgAnimation: (
+      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+        <motion.path 
+          d="M10 25 Q 30 25, 50 15 T 90 5" 
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+        />
+        <motion.circle 
+          cx="90" cy="5" r="2.5" 
+          fill="currentColor"
+          animate={{ scale: [1, 1.5, 1] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        />
+      </svg>
+    )
+  }
 ];
 
-const metricSignals = [
-  { icon: RefreshCw, text: "Transparent Communication" },
-  { icon: ShieldCheck, text: "Weekly Updates" },
-  { icon: Users, text: "Dedicated Delivery Team" },
-  { icon: HelpCircle, text: "Post-Launch Support" },
+const METRICS_DATA = [
+  { label: "Typical Timeline", value: "2–8 Weeks" },
+  { label: "Projects Delivered", value: "50+" },
+  { label: "Support", value: "Lifetime" }
 ];
-
-// 🚀 Improvement 10 — Add Scroll Reveal Orchestration Configuration
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.98 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.16, 1, 0.3, 1] as const, // FIX: Added 'as const' to satisfy strict transition types
-    },
-  },
-};
 
 export default function ProcessSection() {
   return (
-    <Section className="bg-white border-b border-neutral-200/50 relative overflow-hidden">
+    <Section className="relative bg-white pt-24 pb-28 overflow-hidden border-b border-neutral-100">
       <Container>
-        
-        {/* Header Content Frame Layout */}
-        <div className="max-w-3xl mb-16">
-          <p className="uppercase tracking-[0.25em] text-[#E87830] text-xs font-semibold mb-4">
-            DELIVERY
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight">
-            From Vision To Scale
+        <div className="max-w-xl mb-20 select-none">
+          <h2 className="text-[38px] sm:text-[46px] md:text-[52px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-[-0.03em] leading-[1.1]">
+            Our Process
           </h2>
-
-          <p className="mt-6 max-w-2xl text-lg text-neutral-600 leading-relaxed">
-            Every engagement follows a structured delivery framework designed to reduce risk, accelerate execution and ensure long-term success.
+          <p className="mt-4 text-base md:text-[17px] text-[#5A5A5A] font-[var(--font-inter)]">
+            Built around clarity, not complexity.
           </p>
         </div>
 
-        {/* 🚀 Improvement 10 — Parent Animation Wrapper */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative items-stretch"
-        >
-          {processItems.map((item, idx) => {
-            const IconComponent = item.icon;
-            const isFirst = idx === 0;
-
-            return (
-              <motion.div 
-                key={item.step} 
-                variants={itemVariants}
-                className="relative group flex flex-col h-full"
-              >
-                
-                {/* 🚀 Improvement 2 — Beautiful Animated Connector Lines */}
-                {idx !== processItems.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 left-[calc(100%-16px)] w-8 h-[1px] z-20 pointer-events-none overflow-hidden">
-                    <motion.div 
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.12 + 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }} // FIX: Added 'as const' here too
-                      className="w-full h-full bg-gradient-to-r from-[#E87830]/40 to-neutral-200 origin-left"
-                    />
-                  </div>
-                )}
-
-                {/* Main Card Frame Structure */}
-                <div
-                  className={`
-                    relative
-                    overflow-hidden
-                    p-8
-                    rounded-2xl
-                    border
-                    h-full
-                    flex
-                    flex-col
-                    justify-between
-                    shadow-[0_2px_8px_rgba(0,0,0,0.01)]
-                    hover:shadow-xl
-                    ${/* 🚀 Improvement 3 — Humanized Card Hover Transition Configuration Tokens */""}
-                    transition-all
-                    duration-500
-                    ease-[cubic-bezier(0.16,1,0.3,1)]
-                    hover:scale-[1.015]
-                    ${
-                      isFirst
-                        ? "bg-[#1A1714] text-white border-[#1A1714]"
-                        : "bg-white text-neutral-900 border-neutral-200/60 hover:border-[#E87830]/20"
-                    }
-                  `}
-                >
-                  {/* 🚀 Improvement 4 — Subtle Background Depth Radial Flare For First Card */}
-                  {isFirst && (
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-[#E87830]/10 blur-3xl pointer-events-none" />
-                  )}
-
-                  <div className="relative z-10">
-                    {/* Header Layout containing Large Translucent/Premium Numbers */}
-                    <div className="flex items-center justify-between mb-6">
-                      {/* 🚀 Improvement 1 — Remove 'STEP 01' with Elegant Typography Variant */}
-                      <span className={`text-4xl font-light font-mono leading-none tracking-tight ${isFirst ? "text-[#E87830]/40" : "text-neutral-200"}`}>
-                        {item.step}
-                      </span>
-                    </div>
-
-                    {/* Content Assembly — Micro Labels Above Title & Premium Typography */}
-                    <div className="mb-4">
-                      {/* 🚀 Improvement 7 — Micro Labels Placed Above Title */}
-                      <span className={`block text-[10px] uppercase tracking-widest font-bold font-mono mb-1.5 ${isFirst ? "text-[#E87830]" : "text-neutral-400"}`}>
-                        {item.phase}
-                      </span>
-
-                      <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-xl border ${isFirst ? "bg-white/5 border-white/10 text-[#E87830]" : "bg-neutral-50 border-neutral-100 text-[#E87830]"}`}>
-                          <IconComponent size={20} strokeWidth={2} />
-                        </div>
-                        {/* 🚀 Improvement 5 — Elevated Luxury Title Typography */}
-                        <h3 className="font-bold text-[1.5rem] tracking-[-0.03em] leading-none">
-                          {item.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <p className={`text-sm leading-relaxed ${isFirst ? "text-neutral-300" : "text-neutral-500"}`}>
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Micro Interaction Arrow Anchor */}
-                  <div className="relative z-10 mt-8 pt-4 flex items-center gap-1 text-xs font-bold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#E87830]">
-                    <span>Process Detail</span>
-                    <ArrowRight size={12} strokeWidth={2.5} />
-                  </div>
-
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* 🚀 Improvement 8 — Trust Metrics Panel Row Alignment */}
-        <div className="mt-20 bg-[#FCFAF8] rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 border border-neutral-200/20">
-          {metricSignals.map((signal, index) => {
-            const SignalIcon = signal.icon;
-            return (
-              <div key={index} className="flex items-center gap-3 group">
-                <div className="p-2 bg-white rounded-lg text-neutral-400 group-hover:text-[#E87830] group-hover:bg-[#E87830]/5 transition-colors duration-300 border border-neutral-100">
-                  <SignalIcon size={16} strokeWidth={2.5} />
-                </div>
-                <span className="text-xs font-semibold text-neutral-600 group-hover:text-neutral-900 transition-colors duration-300 tracking-tight">
-                  {signal.text}
-                </span>
+        <div className="relative flex flex-col w-full border-t border-neutral-200/60 divide-y divide-neutral-200/60">
+          {PROCESS_DATA.map((step) => (
+            <div 
+              key={step.id} 
+              className="group relative py-12 grid lg:grid-cols-12 gap-8 items-start transition-colors duration-300 hover:bg-[#FCFAF8]/50 px-4"
+            >
+              <div className="lg:col-span-4 flex items-center gap-3">
+                <span className="text-[#E87830] text-sm animate-pulse">●</span>
+                <h3 className="text-[22px] sm:text-[26px] font-bold font-[var(--font-sora)] tracking-tight text-neutral-900 group-hover:text-[#E87830] transition-colors duration-300">
+                  {step.title}
+                </h3>
+                <span className="text-xs font-mono text-neutral-400 ml-auto lg:hidden">{step.timeline}</span>
               </div>
-            );
-          })}
+
+              <div className="lg:col-span-5 space-y-4">
+                <div>
+                  <span className="block text-[12px] font-mono italic text-[#E87830] mb-2">
+                    &ldquo;{step.phrase}&rdquo;
+                  </span>
+                  <p className="text-[15px] font-[var(--font-inter)] text-[#5A5A5A] leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-2">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1.5">
+                      You'll Receive:
+                    </span>
+                    <div className="space-y-1">
+                      {step.deliverables.map((d, i) => (
+                        <div key={i} className="text-[12px] text-neutral-700 font-medium flex items-center gap-1.5">
+                          <span className="text-neutral-300">&rarr;</span>
+                          <span>{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1.5">
+                      Outcome:
+                    </span>
+                    <span className="text-xs font-mono text-neutral-800 font-medium block">{step.outcome}</span>
+                    <p className="text-[11px] text-neutral-500 mt-1 font-[var(--font-inter)] leading-tight">{step.expectedOutcome}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-3 flex flex-col items-end justify-between h-full min-h-[80px] lg:text-right">
+                <span className="hidden lg:block text-xs font-mono font-bold text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded-sm">{step.timeline}</span>
+                <div className="mt-auto pt-4 lg:pt-0">
+                  {step.svgAnimation}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* 🚀 Improvement 9 — Emotionally Charged Conversion Framework Banner */}
-        <div className="mt-20 p-8 md:p-12 bg-neutral-50 border border-neutral-100 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="mt-24 pt-12 border-t border-neutral-100 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left select-none">
+          {METRICS_DATA.map((metric, index) => (
+            <div key={index} className="flex flex-col gap-1">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 block">
+                {metric.label}
+              </span>
+              <span className="text-2xl font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight block">
+                {metric.value}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-20 pt-10 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
-            <h4 className="text-xl font-bold text-neutral-900 tracking-tight font-[var(--font-sora)]">
-              Let's Build Something Exceptional.
+            <h4 className="text-xl font-bold text-neutral-900 font-[var(--font-sora)] tracking-tight">
+              Every great product starts with clarity.
             </h4>
-            <p className="text-sm text-neutral-500 mt-1 max-w-xl">
-              Share your vision and we'll help transform it into a scalable digital product.
-            </p>
           </div>
-          <Button href="/contact">
-            Schedule a Consultation
-          </Button>
+          
+          <a 
+            href="/contact" 
+            className="inline-flex items-center justify-center px-5 py-3 text-xs font-mono font-bold tracking-widest text-white bg-neutral-900 uppercase hover:bg-[#E87830] transition-colors rounded-none shadow-sm"
+          >
+            Talk to our engineers <span className="text-sm ml-2">&rarr;</span>
+          </a>
         </div>
-
       </Container>
     </Section>
   );

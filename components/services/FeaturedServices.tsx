@@ -1,154 +1,177 @@
+// FeaturedServices.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import Container from "@/components/shared/Container";
 import { services } from "@/data/services";
+import { useState } from "react";
 
 export default function FeaturedServices() {
-  // Pulling specific slugs ensuring exact text content matches the dataset
   const cybersecurityService = services.find((s) => s.slug === "cybersecurity");
   const cloudService = services.find((s) => s.slug === "cloud");
   const softwareService = services.find((s) => s.slug === "software");
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  const renderCard = (service: typeof services[0], colSpan: string, isDark = false) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 150, damping: 24 }
+    }
+  };
+
+  const renderCard = (service: typeof services[0], isDark = false) => {
     if (!service) return null;
     const Icon = service.icon;
+    const isHovered = hoveredCard === service.slug;
 
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border p-8 min-h-[410px] transition-all duration-500 hover:-translate-y-[2px] ${colSpan} ${
-          isDark
-            ? "border-[#E87830]/10 bg-[#181411] text-white hover:shadow-[0_25px_60px_rgba(0,0,0,0.06)]"
-            : "border-neutral-200 bg-white hover:border-[#E87830]/20 hover:bg-[#FFFDFB] hover:shadow-[0_25px_60px_rgba(0,0,0,0.06)]"
-        }`}
+        variants={cardVariants}
+        onMouseEnter={() => setHoveredCard(service.slug)}
+        onMouseLeave={() => setHoveredCard(null)}
+        className="group relative flex flex-col h-full cursor-pointer select-none"
       >
-        {/* Top Accent Gradient Line */}
         <div
-          className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#E87830] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        />
-
-        {/* Subtle interior glow for the dark flagship card */}
-        {isDark && (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#E87830]/10 to-transparent pointer-events-none" />
-        )}
-
-        {/* Cloud Card Tiny Indicator */}
-        {!isDark && service.slug === "cloud" && (
-          <div className="absolute top-6 right-6">
-            <div className="h-2 w-2 rounded-full bg-[#E87830]" />
-          </div>
-        )}
-
-        <div className="relative z-10 flex flex-col h-full w-full">
-          {/* Icon Container */}
-          <div
-            className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${
-              isDark ? "bg-white/5" : "bg-[#FFF7F1]"
+          className={`relative flex flex-col justify-between overflow-hidden rounded-xl p-8 min-h-[320px] h-full w-full transition-all duration-300 ease-out border ${
+            isDark
+              ? "bg-[#120e0c] border-neutral-800/80"
+              : "bg-white border-neutral-200/60"
+          } ${
+            isHovered 
+              ? isDark 
+                ? "border-neutral-700 shadow-[0_12px_40px_rgba(0,0,0,0.4)]" 
+                : "border-neutral-300 shadow-[0_12px_40px_rgba(0,0,0,0.02)]"
+              : ""
+          }`}
+        >
+          {/* Handcrafted Elite Left-Border Activation Accent */}
+          <div 
+            className={`absolute left-0 top-0 bottom-0 w-[2px] bg-[#E87830] transition-transform duration-300 ease-out origin-top ${
+              isHovered ? "scale-y-100" : "scale-y-0"
             }`}
-          >
-            <Icon className="h-6 w-6 text-[#E87830]" />
-          </div>
+          />
 
-          {/* Title */}
-          <h3 className={`text-3xl font-bold tracking-[-0.04em] ${isDark ? "text-white" : "text-neutral-900"}`}>
-            {service.title}
-          </h3>
-
-          {/* Description */}
-          <p className={`mt-4 ${isDark ? "text-neutral-400" : "text-neutral-600"}`}>
-            {service.description}
-          </p>
-
-          {/* Flagship Micro Detail for Cybersecurity */}
-          {isDark && (
-            <div className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#E87830]">
-              <span>Flagship Service</span>
-            </div>
-          )}
-
-          {/* Conditional Layouts based on service type */}
-          {isDark ? (
-            /* Cybersecurity Enterprise Checklist Structure (Height Reduced) */
-            <div className="mt-6 grid grid-cols-2 gap-y-2 gap-x-4">
-              {service.capabilities.slice(0, 4).map((capability) => (
-                <div key={capability} className="flex items-center gap-2 text-sm text-neutral-300">
-                  <span className="text-[#E87830] font-medium">✓</span>
-                  <span>{capability}</span>
-                </div>
-              ))}
-            </div>
-          ) : (
-            /* Cloud and Software Pills/Capabilities */
-            <div className="mt-8 flex flex-col flex-grow justify-end gap-4">
-              <div className="flex flex-wrap gap-2">
-                {service.capabilities.slice(0, 3).map((capability) => (
-                  <span
-                    key={capability}
-                    className="rounded-full px-3 py-1 text-xs bg-neutral-100 text-neutral-600"
-                  >
-                    {capability}
-                  </span>
-                ))}
+          <div className="relative z-10 flex flex-col h-full w-full justify-between items-start flex-1">
+            {/* Top Block */}
+            <div className="w-full">
+              <div
+                className={`mb-6 flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-300 ${
+                  isDark ? "bg-neutral-800/50" : "bg-neutral-50"
+                }`}
+              >
+                <Icon className={`h-4 w-4 transition-colors duration-300 ${
+                  isHovered ? "text-[#E87830]" : isDark ? "text-neutral-400" : "text-neutral-600"
+                }`} />
               </div>
-              
-              {/* Software Capability Row Anchored via mt-auto pt-4 */}
-              {service.slug === "software" && (
-                <div className="mt-auto pt-4 flex items-center gap-4 text-xs font-semibold tracking-wider text-neutral-400 uppercase border-t border-neutral-100">
-                  <span>Build</span>
-                  <span className="h-1 w-1 rounded-full bg-neutral-300" />
-                  <span>Launch</span>
-                  <span className="h-1 w-1 rounded-full bg-neutral-300" />
-                  <span>Scale</span>
+
+              <div className="space-y-2">
+                <h3 className={`text-lg font-bold tracking-tight ${
+                  isDark ? "text-white" : "text-neutral-900"
+                }`}>
+                  {service.title}
+                </h3>
+                <p className={`text-xs md:text-sm leading-relaxed ${
+                  isDark ? "text-neutral-400" : "text-neutral-500"
+                }`}>
+                  {service.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Block */}
+            <div className="w-full mt-8">
+              {isDark ? (
+                /* Specialized Flagship Grid details for Cybersecurity */
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 gap-y-2">
+                    {service.capabilities.slice(0, 3).map((capability) => (
+                      <div key={capability} className="flex items-center gap-2 text-xs text-neutral-400">
+                        <span className="h-1 w-1 rounded-full bg-[#E87830]" />
+                        <span className="truncate">{capability}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="pt-3 border-t border-neutral-800/80 flex items-center justify-between">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">Benchmark</span>
+                    <span className="text-xs font-mono text-[#E87830]">99.9% Secure</span>
+                  </div>
+                </div>
+              ) : (
+                /* Capabilities cleanly presented without interaction noise */
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {service.capabilities.slice(0, 3).map((capability) => (
+                      <span
+                        key={capability}
+                        className={`rounded px-2 py-0.5 text-[11px] font-medium tracking-wide transition-colors duration-300 ${
+                          isDark 
+                            ? "bg-neutral-800 text-neutral-300" 
+                            : "bg-neutral-50 text-neutral-600 border border-neutral-200/30"
+                        }`}
+                      >
+                        {capability}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
-          )}
+          </div>
         </div>
       </motion.div>
     );
   };
 
   return (
-    <section className="pt-20 pb-24 relative">
-      <Container>
-        {/* Section Header Upgrade */}
-        <div className="mb-16">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#E87830]">
-            FEATURED CAPABILITIES
-          </span>
+    <section className="relative py-20 md:py-24 bg-white overflow-hidden border-y border-neutral-100">
+      {/* High-End Minimal Gradient Overlays */}
+      <div className="absolute top-0 right-1/4 w-[350px] h-[350px] bg-[#E87830]/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] bg-[#E87830]/3 rounded-full blur-[120px] pointer-events-none" />
 
-          <h2 className="mt-4 max-w-[850px] text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.05em] leading-[0.95] text-neutral-950">
-            Technology Expertise
-            <br className="sm:block hidden" />
-            That Drives Growth.
-          </h2>
-
-          <p className="mt-5 max-w-2xl text-neutral-600 leading-relaxed">
-            We combine engineering, cloud infrastructure and cybersecurity
-            to help organizations build reliable digital products.
-          </p>
+      <Container className="relative z-10">
+        {/* Modern Studio-grade Header Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 mb-16 items-end">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
+              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
+                Core Capabilities
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 leading-tight">
+              Engineering Excellence
+              <span className="text-neutral-400 font-normal"> Built for Modern Businesses.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5 lg:pb-1">
+            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed max-w-md">
+              We combine engineering, cloud infrastructure and cybersecurity
+              to help organizations build reliable digital products.
+            </p>
+          </div>
         </div>
 
-        {/* 12-Column Layout Shift with Alignment Fixed to items-stretch */}
-        <div className="relative grid gap-6 lg:grid-cols-12 items-stretch">
-          
-          {/* Subtle Horizontal Connector Element */}
-          <div
-            className="hidden lg:block absolute left-1/2 top-1/2 -translate-y-1/2 h-px w-16 bg-gradient-to-r from-[#E87830]/20 to-transparent pointer-events-none z-0"
-            style={{ transform: 'translate(-50%, -50%)' }}
-          />
-
-          {/* Flagship Highlight (Cybersecurity) */}
-          {cybersecurityService && renderCard(cybersecurityService, "lg:col-span-6", true)}
-
-          {/* Supporting Standard Highlight Cards */}
-          {cloudService && renderCard(cloudService, "lg:col-span-3", false)}
-          {softwareService && renderCard(softwareService, "lg:col-span-3", false)}
-        </div>
+        {/* 3-Column Clean Balanced Modular Grid Layout */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch"
+        >
+          {cybersecurityService && renderCard(cybersecurityService, true)}
+          {cloudService && renderCard(cloudService, false)}
+          {softwareService && renderCard(softwareService, false)}
+        </motion.div>
       </Container>
     </section>
   );

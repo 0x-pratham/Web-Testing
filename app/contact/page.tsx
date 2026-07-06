@@ -3,230 +3,67 @@ import ContactForm from "@/components/contact/ContactForm";
 import ContactBenefits from "@/components/contact/ContactBenefits";
 
 export const metadata = {
-  title: "Contact Cosmolix",
-  description:
-    "Contact Cosmolix Private Limited for software, AI and IT solutions.",
+  title: "Contact Cosmolix | Let's Build the Future",
+  description: "Get in touch with Cosmolix for enterprise-grade software, AI, and cybersecurity solutions.",
 };
 
 export default function ContactPage() {
   return (
-    <main>
-      <section className="relative pt-28 pb-32 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          {/* Top Right Glow */}
-          <div
-            className="
-              absolute
-              top-0
-              right-0
-              h-[500px]
-              w-[500px]
-              rounded-full
-              bg-[#E87830]/4
-              blur-[120px]
-            "
-          />
-          {/* Bottom Left Glow */}
-          <div
-            className="
-              absolute
-              bottom-0
-              left-0
-              h-[300px]
-              w-[300px]
-              rounded-full
-              bg-cyan-400/[0.02]
-              blur-[120px]
-            "
-          />
+    <main className="bg-[#FDFCFB] min-h-screen">
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#E87830]/5 blur-[120px]" />
+          <div className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-400/[0.03] blur-[100px]" />
         </div>
 
         <Container>
-          <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-16 relative">
-            {/* Subtle Vertical Accent Line */}
-            <div className="hidden lg:block absolute left-0 top-0 h-full w-px bg-gradient-to-b from-[#E87830]/20 to-transparent -ml-8" />
-
+          <div className="grid lg:grid-cols-[1fr_0.9fr] gap-20 items-start">
+            
             {/* Left Side */}
-            <div>
-              <span
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-[#E87830]/15
-                  px-4
-                  py-2
-                  text-[11px]
-                  uppercase
-                  tracking-[0.22em]
-                  text-[#E87830]
-                "
-              >
-                GET IN TOUCH
-              </span>
+            <div className="relative">
+              {/* Humanized Badge */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-neutral-200 bg-white shadow-sm text-neutral-600 text-[11px] font-medium tracking-wide mb-8">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E87830] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E87830]"></span>
+                </span>
+                Currently open to new projects
+              </div>
 
-              <h1
-                className="
-                  mt-6
-                  text-5xl
-                  md:text-6xl
-                  lg:text-7xl
-                  font-semibold
-                  tracking-[-0.07em]
-                  leading-[0.9]
-                "
-              >
-                Technology built for<br />growth, security and{" "}
-                <span className="text-[#C96A2B]">
-                  scale.
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] text-neutral-950 leading-[1.05]">
+                Let's engineer <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E87830] to-[#C96A2B]">
+                  your vision.
                 </span>
               </h1>
 
-              <p className="mt-8 text-lg text-neutral-600">
-                Whether you're launching a new product, modernizing infrastructure or strengthening security, our team is ready to help you move forward with confidence.
+              <p className="mt-8 text-lg text-neutral-600 leading-relaxed max-w-lg">
+                Partner with us to build high-scale software, intelligent AI models, and resilient security frameworks. We turn complex problems into elegant solutions.
               </p>
 
-              <div className="mt-8 h-px w-20 bg-[#E87830]/20" />
-
-              <div className="flex flex-wrap gap-3 mt-10">
-                <span className="
-                  group
-                  rounded-full
-                  border
-                  border-[#E87830]/10
-                  bg-[#E87830]/[0.03]
-                  px-4
-                  py-2.5
-                  text-sm
-                  font-medium
-                  text-neutral-700
-                  transition-all
-                  duration-300
-                  hover:border-[#E87830]/25
-                  hover:bg-[#E87830]/[0.06]
-                ">
-                  Software Engineering
-                </span>
-                <span className="
-                  group
-                  rounded-full
-                  border
-                  border-[#E87830]/10
-                  bg-[#E87830]/[0.03]
-                  px-4
-                  py-2.5
-                  text-sm
-                  font-medium
-                  text-neutral-700
-                  transition-all
-                  duration-300
-                  hover:border-[#E87830]/25
-                  hover:bg-[#E87830]/[0.06]
-                ">
-                  Cloud & SaaS
-                </span>
-                <span className="
-                  group
-                  rounded-full
-                  border
-                  border-[#E87830]/10
-                  bg-[#E87830]/[0.03]
-                  px-4
-                  py-2.5
-                  text-sm
-                  font-medium
-                  text-neutral-700
-                  transition-all
-                  duration-300
-                  hover:border-[#E87830]/25
-                  hover:bg-[#E87830]/[0.06]
-                ">
-                  Cyber Security
-                </span>
+              {/* Contact Info */}
+              <div className="mt-12 grid sm:grid-cols-2 gap-4">
+                {[
+                  { label: "Email Us", value: "info@cosmolix.co.in" },
+                  { label: "Our HQ", value: "Pune, Maharashtra, India" }
+                ].map((item, idx) => (
+                  <div key={idx} className="p-5 rounded-2xl border border-neutral-200 bg-white shadow-sm">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-semibold">{item.label}</p>
+                    <p className="mt-2 font-medium text-neutral-900">{item.value}</p>
+                  </div>
+                ))}
               </div>
 
-              <div className="
-                mt-14
-                flex
-                items-center
-                gap-3
-                text-sm
-                text-neutral-500
-              ">
-              </div>
-
-              <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                <div
-                  className="
-                    rounded-2xl
-                    border
-                    border-neutral-200/60
-                    bg-[linear-gradient(180deg,rgba(255,255,255,1),rgba(248,245,242,0.7))]
-                    p-5
-                    transition-all
-                    duration-300
-                    hover:border-[#E87830]/20
-                  "
-                >
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="h-2 w-2 rounded-full bg-[#E87830]" />
-                    <div className="h-px w-8 bg-[#E87830]/20" />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.15em] text-neutral-400">
-                      Primary Contact
-                    </p>
-                    <p className="mt-2 font-medium">
-                      info@cosmolix.co.in
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="
-                    rounded-2xl
-                    border
-                    border-neutral-200/60
-                    bg-[linear-gradient(180deg,rgba(255,255,255,1),rgba(248,245,242,0.7))]
-                    p-5
-                    transition-all
-                    duration-300
-                    hover:border-[#E87830]/20
-                  "
-                >
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="h-2 w-2 rounded-full bg-[#E87830]" />
-                    <div className="h-px w-8 bg-[#E87830]/20" />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.15em] text-neutral-400">
-                      Based in India
-                    </p>
-                    <p className="mt-2 font-medium">
-                      Pune, Maharashtra, India
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="
-                mt-12
-                rounded-[28px]
-                border
-                border-[#E87830]/10
-                bg-gradient-to-b
-                from-white
-                to-[#FCFAF8]
-                p-6
-              ">
+              <div className="mt-12 p-8 rounded-3xl border border-[#E87830]/10 bg-gradient-to-br from-white to-[#F9F7F4]">
                 <ContactBenefits />
               </div>
             </div>
 
-            {/* Right Side */}
-            <ContactForm />
+            {/* Right Side Sticky Form */}
+            <div className="lg:sticky lg:top-32">
+              <ContactForm />
+            </div>
           </div>
         </Container>
       </section>

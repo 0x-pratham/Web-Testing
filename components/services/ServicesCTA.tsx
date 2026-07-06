@@ -4,55 +4,62 @@ import Link from "next/link";
 
 export default function ServicesCTA() {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-[#FCFBF9]">
       <div className="mx-auto max-w-[1280px] px-6">
         
-        {/* Core CTA Card Container Block with Refined Rounded Profiles */}
-        <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-r from-[#181411] via-[#221A15] to-[#5A2808] p-10 lg:p-16 text-white">
+        {/* Dark Mode Container: 
+          - Using #0A0A0A for a grounded, elite feel.
+          - 24px border radius for consistency.
+          - No gradients, just solid surface.
+        */}
+        <div className="relative rounded-[24px] bg-[#0A0A0A] p-16 border border-neutral-800">
           
-          {/* Cosmolix Premium Signature Thin Top Accent Line */}
-          <div
-            className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#E87830] via-[#E87830]/30 to-transparent"
-          />
+          {/* Header Hierarchy */}
+          <div className="max-w-2xl">
+            <h2 className="text-[56px] font-semibold tracking-[-0.03em] leading-[1.1] text-white">
+              Ready to build something meaningful?
+            </h2>
+            
+            <p className="mt-8 text-lg leading-[1.8] text-neutral-400 max-w-xl">
+              Share your vision with us and we'll help transform it into a secure, 
+              scalable and future-ready digital product.
+            </p>
+          </div>
 
-          {/* Luxury Ambient Glow Creating Subdepth Layering */}
-          <div
-            className="absolute right-[-120px] top-[-120px] h-[300px] w-[300px] rounded-full bg-[#E87830]/10 blur-[120px] pointer-events-none"
-          />
-
-          {/* Premium Outcome-Oriented Header Hierarchy */}
-          <h2 className="max-w-3xl text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.06em] leading-[0.95]">
-            Ready to build
-            <br />
-            something meaningful?
-          </h2>
-
-          {/* Description Block */}
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
-            Share your vision with us and we'll help transform it
-            into a secure, scalable and future-ready digital product.
-          </p>
-
-          {/* Premium Handcrafted Border-Bottom Text Interaction */}
-          <div className="mt-10">
+          {/* Premium CTA Interaction */}
+          <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-8">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 border-b border-[#E87830]/30 pb-1 text-white font-medium tracking-[-0.01em] transition-all duration-300 hover:border-[#E87830]"
+              className="group inline-flex items-center gap-3 text-base font-semibold text-white transition-all duration-300"
             >
-              <span>Let's discuss your idea</span>
+              <span className="border-b-2 border-[#E87830] pb-0.5 group-hover:border-white transition-colors">
+                Start Your Project
+              </span>
               <span className="text-[#E87830] transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
             </Link>
+
+            <div className="flex flex-col gap-1">
+              <span className="text-sm font-medium text-white">Book a Discovery Call</span>
+              <span className="text-[13px] text-neutral-500">Usually reply within 24 hours</span>
+            </div>
           </div>
 
-          {/* Reassuring Structural Human Trust Signals Row with Enhanced Rhythm */}
-          <div className="mt-12 flex flex-wrap items-center gap-4 text-sm text-neutral-400">
-            <span>Security First</span>
-            <div className="h-1 w-1 rounded-full bg-[#E87830]/50" />
-            <span>Enterprise Ready</span>
-            <div className="h-1 w-1 rounded-full bg-[#E87830]/50" />
-            <span>Built To Scale</span>
+          {/* Human Trust Signals */}
+          <div className="mt-16 pt-8 border-t border-neutral-800 flex flex-wrap items-center gap-8 text-[13px] font-medium text-neutral-500">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
+              Security First
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
+              Enterprise Ready
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
+              Built To Scale
+            </span>
           </div>
 
         </div>

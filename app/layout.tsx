@@ -22,30 +22,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase:
-    new URL(
-      "https://cosmolix.com"
-    ),
-
+  metadataBase: new URL("https://cosmolix.com"),
   title: {
-    default:
-      "Cosmolix Private Limited",
-
-    template:
-      "%s | Cosmolix",
+    default: "Cosmolix Private Limited",
+    template: "%s | Cosmolix",
   },
-
-  description:
-    "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
-
-  keywords: [
-    "AI Development",
-    "Software Company",
-    "Cloud Solutions",
-    "IT Services",
-    "Cosmolix",
-  ],
-
+  description: "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
+  keywords: ["AI Development", "Software Company", "Cloud Solutions", "IT Services", "Cosmolix"],
   openGraph: {
     title: "Cosmolix Private Limited",
     description: "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
@@ -54,22 +37,18 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Cosmolix Private Limited",
     description: "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
   },
-
   robots: {
     index: true,
     follow: true,
   },
-
   icons: {
     icon: "/favicon.ico",
   },
-
   alternates: {
     canonical: "https://cosmolix.com",
   },
@@ -96,11 +75,14 @@ export default function RootLayout({
           h-full
           flex
           flex-col
+          m-0
+          p-0
         `}
       >
         <ScrollProgress />
         <Navbar />
-        <main className="flex-grow">
+        {/* Anti-stretching clean matrix tracking layer */}
+        <main className="w-full flex-grow p-0 m-0 space-y-0 gap-0 block">
           {children}
         </main>
         <Footer />

@@ -8,7 +8,7 @@ import CTABanner from "@/components/home/CTABanner";
 
 export default function HomePage() {
   return (
-    <>
+    <div className="flex flex-col w-full p-0 m-0 space-y-0 gap-0">
       <Hero />
       
       <TrustStrip />
@@ -21,7 +21,8 @@ export default function HomePage() {
 
       <WhyCosmolix />
 
+      {/* Target Connection Flow Boundary */}
       <CTABanner />
-    </>
+    </div>
   );
 }

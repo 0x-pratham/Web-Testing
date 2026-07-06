@@ -1,255 +1,246 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export default function ServicesHero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeCycle, setActiveCycle] = useState(0);
+
+  // Smooth Springs for high-end luxury natural tracking feedback
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const springX = useSpring(tiltX, { stiffness: 90, damping: 20 });
+  const springY = useSpring(tiltY, { stiffness: 90, damping: 20 });
+
+  useEffect(() => {
+    // Dynamic progressive active system tracking loop sequence
+    const nodeInterval = setInterval(() => {
+      setActiveCycle((prev) => (prev + 1) % 5);
+    }, 3200);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 3;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * -3;
+      tiltX.set(x);
+      tiltY.set(y);
+    };
+
+    const handleMouseLeave = () => {
+      tiltX.set(0);
+      tiltY.set(0);
+    };
+
+    const currentEl = containerRef.current;
+    if (currentEl) {
+      currentEl.addEventListener("mousemove", handleMouseMove);
+      currentEl.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      clearInterval(nodeInterval);
+      if (currentEl) {
+        currentEl.removeEventListener("mousemove", handleMouseMove);
+        currentEl.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, [tiltX, tiltY]);
+
+  const transformStyle = useMotionTemplate`perspective(1400px) rotateX(${springY}deg) rotateY(${springX}deg)`;
+
+  const firstLineWords = ["Technology", "Solutions"];
+  const secondLineWords = ["Built", "for", "Scale."];
+
   return (
-    <section className="relative overflow-hidden bg-[#FCFAF8] pt-8 pb-20 lg:pt-12 lg:pb-24">
-      {/* Background Grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
+    <section className="relative overflow-hidden bg-[#171412] text-white pt-24 pb-28 select-none border-b border-neutral-900/30">
+      
+      {/* Structural Thin Architectural Ambient Grid Alignment Layer */}
+      <div 
+        aria-hidden="true" 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none"
         style={{
-          backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+          backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+          backgroundSize: "56px 56px"
         }}
       />
 
-      {/* Max Width Polish */}
-      <div className="relative mx-auto max-w-[1320px] px-6">
-        {/* Reduced Grid Gap */}
-        <div className="grid items-center gap-12 lg:gap-16 lg:grid-cols-2">
+      {/* Luxury Warm Vector Soft Ambient Lighting Radial Blend */}
+      <div 
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none bg-[radial-gradient(at_30%_20%,rgba(232,120,48,0.03),transparent_50%),radial-gradient(at_80%_70%,rgba(232,120,48,0.015),transparent_45%)]"
+      />
+
+      <div className="relative mx-auto max-w-[1320px] px-6 z-10">
+        
+        {/* Top Minimal Premium Structural Margin Border */}
+        <div className="w-full flex justify-between items-center border-b border-neutral-900/50 pb-4 mb-16 font-mono text-[10px] uppercase tracking-widest text-neutral-500">
+          <div className="opacity-60 text-[9px]">Continuous Production Matrix</div>
+        </div>
+
+        <div className="grid items-start gap-12 lg:gap-16 lg:grid-cols-12">
           
-          {/* Left Column Content */}
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(8px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.7 }}
-          >
-            {/* Section Label */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#E87830]/15 bg-white px-4 py-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E87830]">
-                Technology Services
-              </span>
+          {/* Left Block Grid Pitch Column Module */}
+          <div className="lg:col-span-6 space-y-8">
+            
+            <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] text-[#E87830] uppercase font-bold">
+              <span>Capabilities Registry</span>
+              <span className="w-8 h-px bg-neutral-800" />
             </div>
 
-            {/* Reduce Heading Width & Refine Typography */}
-            {/* Added max-w-[700px] as requested */}
-            <h1 className="mt-4 max-w-[700px] text-[3rem] md:text-[5rem] font-bold tracking-[-0.06em] text-neutral-950 leading-[0.95]">
-              Technology Solutions
-              <br />
-              <span className="text-[#E87830]">
-                Built For Scale.
+            {/* Pristine Crisp Elegant Typography Layout Node */}
+            <h1 className="font-extrabold font-[var(--font-sora)] tracking-tight uppercase text-white flex flex-col gap-2">
+              <span className="text-4xl sm:text-5xl lg:text-5xl text-neutral-400 flex flex-wrap gap-x-3 font-light tracking-normal lowercase first-letter:uppercase">
+                {firstLineWords.map((word, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: index * 0.05 }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </span>
+              <span className="text-5xl sm:text-6xl lg:text-6xl text-white flex flex-wrap gap-x-3 font-black">
+                {secondLineWords.map((word, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: (index + 2) * 0.05 }}
+                    className={word === "Scale." ? "text-[#E87830]" : ""}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </span>
             </h1>
 
-            {/* Hero Headline Underline Line */}
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: 120 }}
-              transition={{
-                duration: 1,
-                delay: 0.6
-              }}
-              className="mt-6 h-[2px] bg-gradient-to-r from-[#E87830] to-transparent"
-            />
-
-            {/* Statement Below Headline */}
-            <p className="mt-4 text-sm uppercase tracking-[0.2em] text-neutral-400">
-              AI • Software • Cloud • Cybersecurity
+            {/* Premium Clean Proportional Human Text Frame (Weight 450 feel) */}
+            <p className="text-[15px] text-neutral-400 leading-relaxed font-normal tracking-tight max-w-lg font-[var(--font-inter)] opacity-90">
+              Custom software, AI solutions and enterprise technology services designed by engineered standards. We deploy production blueprints that perform consistently at global infrastructure thresholds.
             </p>
 
-            {/* Paragraph Width & Line Height */}
-            <p className="mt-6 max-w-[560px] text-lg text-neutral-600 leading-[1.8]">
-              From AI and software engineering to cybersecurity and cloud
-              infrastructure, we help organizations build, secure and scale
-              digital products.
-            </p>
-
-            {/* Premium, Human & Minimal Cosmolix Button Upgrade */}
-            <div className="mt-10 flex items-center gap-6">
-              <Link
-                href="/contact"
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  gap-3
-                  rounded-full
-                  bg-[#181411]
-                  px-6
-                  py-3.5
-                  text-white
-                  font-medium
-                  transition-all
-                  duration-300
-                  hover:bg-[#E87830]
-                "
-              >
-                Start Your Project
-                <span
-                  className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                  "
-                >
-                  →
+            {/* Luxury Clean Interactive Actions Hub Block */}
+            <div className="flex flex-wrap items-center gap-6 pt-2">
+              <Link href="/contact" className="group relative inline-flex items-center justify-center bg-white text-black px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider overflow-hidden transition-colors duration-300 hover:bg-[#E87830] hover:text-white">
+                <span className="flex items-center gap-2 relative z-10">
+                  Initiate System 
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                 </span>
               </Link>
-              <span className="text-sm text-neutral-500">
-                Typically responds within 24 hours
-              </span>
+              
+              <Link 
+                href="/portfolio" 
+                className="text-xs font-mono text-neutral-500 hover:text-white uppercase tracking-widest transition-colors duration-150"
+              >
+                Track Logs
+              </Link>
             </div>
 
-            {/* Premium Trust Row with Subtle Separators */}
-            <div className="mt-8 flex flex-wrap gap-8 text-sm text-neutral-500">
-              <span>Enterprise Ready</span>
-              <span className="h-1 w-1 rounded-full bg-[#E87830]/40 self-center" />
-              <span>Security First</span>
-              <span className="h-1 w-1 rounded-full bg-[#E87830]/40 self-center" />
-              <span>Built To Scale</span>
+            {/* Micro Precision Balanced Metrics Ruler Row Layout */}
+            <div className="border-t border-neutral-900 pt-6 mt-12 w-full max-w-md font-mono">
+              <div className="grid grid-cols-3 gap-6">
+                <div>
+                  <div className="text-base font-bold tracking-tight text-white">99.98%</div>
+                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Availability</div>
+                </div>
+                <div>
+                  <div className="text-base font-bold tracking-tight text-white">ISO READY</div>
+                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Security Spec</div>
+                </div>
+                <div>
+                  <div className="text-base font-bold tracking-tight text-white">24H RESP</div>
+                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Live Telemetry</div>
+                </div>
+              </div>
             </div>
-          </motion.div>
 
-          {/* Right Column Visual Layout */}
-          {/* Reduced Visual Height to prevent domination */}
-          <div className="relative flex h-[420px] items-center justify-center">
-            {/* Hero Visual Background */}
-            <div className="absolute inset-0 rounded-full border border-[#E87830]/5" />
+          </div>
 
-            {/* Active Glow Behind Logo */}
+          {/* Right Column Interactive Dynamic Surface Instrument Sheet Layer */}
+          <div className="lg:col-span-6 w-full flex items-center justify-center lg:justify-end">
             <motion.div 
-              animate={{
-                opacity: [0.2, 0.4, 0.2]
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute h-40 w-40 rounded-full bg-[#E87830]/10 blur-[100px]" 
-            />
-
-            {/* Breathing Rings */}
-            {/* Outer Ring (520px) */}
-            <motion.div 
-              animate={{
-                scale: [1, 1.02, 1]
-              }}
-              transition={{
-                duration: 12,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute w-[520px] h-[520px] rounded-full border border-[#E87830]/8" 
-            />
-            
-            {/* Inner Ring (380px) */}
-            <motion.div 
-              animate={{
-                scale: [1, 1.02, 1]
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute w-[380px] h-[380px] rounded-full border border-[#E87830]/8" 
-            />
-
-            {/* Simplified Connector Lines */}
-            {/* Vertical Top Line */}
-            <motion.div 
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-[22%] w-px h-[60px] bg-gradient-to-b from-transparent to-[#E87830]/20" 
-            />
-            
-            {/* Horizontal Left Line */}
-            <motion.div 
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute left-[18%] w-[90px] h-px bg-gradient-to-r from-transparent to-[#E87830]/20" 
-            />
-            
-            {/* Horizontal Right Line */}
-            <motion.div 
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute right-[18%] w-[90px] h-px bg-gradient-to-l from-transparent to-[#E87830]/20" 
-            />
-            
-            {/* Vertical Bottom Line */}
-            <motion.div 
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute bottom-[22%] w-px h-[60px] bg-gradient-to-t from-transparent to-[#E87830]/20" 
-            />
-
-            {/* Premium Tighter Ecosystem Capability Nodes with Asymmetric Human Motion */}
-            {/* Top Node: AI & ML (y: -5) */}
-            <motion.div
-              animate={{ y: [0, -5, 0] }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute top-[22%] z-20 rounded-full border border-[#E87830]/15 bg-white/90 px-3 py-1 text-xs font-medium text-neutral-800 shadow-[0_10px_30px_rgba(0,0,0,0.04)] backdrop-blur-md cursor-default select-none"
+              ref={containerRef}
+              style={{ transformStyle: "preserve-3d", transform: transformStyle }}
+              className="w-full max-w-lg bg-[#191614] border border-neutral-900 p-7 rounded-none relative transition-all duration-300 shadow-2xl"
             >
-              AI & ML
-            </motion.div>
+              {/* Dynamic Header Frame Component */}
+              <div className="flex items-center justify-between border-b border-neutral-900/60 pb-4 mb-6 font-mono text-[9px] text-neutral-400">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E87830] opacity-60" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#E87830]" />
+                  </span>
+                  <span className="tracking-wider uppercase font-semibold">Active Operational Matrix</span>
+                </div>
+                <div className="text-[8px] text-neutral-500 tracking-wider">
+                  Engine Stream Status
+                </div>
+              </div>
 
-            {/* Left Node: Cloud (y: -8) */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ y: { duration: 8, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute left-[18%] z-20 rounded-full border border-[#E87830]/15 bg-white/90 px-3 py-1 text-xs font-medium text-neutral-800 shadow-[0_10px_30px_rgba(0,0,0,0.04)] backdrop-blur-md cursor-default select-none"
-            >
-              Cloud
-            </motion.div>
+              {/* Advanced Animated Interactive Capabilities Mapping Stream Stack */}
+              <div className="flex flex-col space-y-1 relative">
+                {[
+                  { label: "AI & Machine Learning", val: "Active Process" },
+                  { label: "Software Engineering", val: "Stable Compile" },
+                  { label: "Cybersecurity Arrays", val: "Monitored Pipeline" },
+                  { label: "Cloud Infrastructure", val: "Live Edge Delivery" },
+                  { label: "Automation Pipelines", val: "Operational Flow" }
+                ].map((node, i) => {
+                  const isCurrent = activeCycle === i;
+                  return (
+                    <div 
+                      key={i} 
+                      className="group relative flex flex-col py-3 px-4 transition-all duration-300 overflow-hidden border-b border-neutral-900/20 last:border-0"
+                    >
+                      {/* Interactive Horizontal Vector Shifting Track Highlight Background */}
+                      <div className={`absolute inset-0 transition-opacity duration-300 -z-10 ${
+                        isCurrent ? "bg-neutral-900/40 opacity-100" : "bg-transparent opacity-0"
+                      }`} />
 
-            {/* Right Node: Security (y: -6) */}
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ y: { duration: 7, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute right-[18%] z-20 rounded-full border border-[#E87830]/15 bg-white/90 px-3 py-1 text-xs font-medium text-neutral-800 shadow-[0_10px_30px_rgba(0,0,0,0.04)] backdrop-blur-md cursor-default select-none"
-            >
-              Security
-            </motion.div>
+                      {/* Content Row Core Metadata Map Layout */}
+                      <div className="flex items-center justify-between z-10">
+                        <span className={`text-[12px] font-medium tracking-wide transition-colors duration-300 ${
+                          isCurrent ? "text-white" : "text-neutral-400"
+                        }`}>
+                          {node.label}
+                        </span>
+                        
+                        <div className="flex items-center gap-3">
+                          <span className={`text-[9px] font-mono tracking-wider transition-colors duration-300 uppercase ${
+                            isCurrent ? "text-[#E87830] font-bold" : "text-neutral-600"
+                          }`}>
+                            {node.val}
+                          </span>
+                        </div>
+                      </div>
 
-            {/* Bottom Node: Engineering (y: -4) */}
-            <motion.div
-              animate={{ y: [0, -4, 0] }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ y: { duration: 9, repeat: Infinity, ease: "easeInOut" } }}
-              className="absolute bottom-[22%] z-20 rounded-full border border-[#E87830]/15 bg-white/90 px-3 py-1 text-xs font-medium text-neutral-800 shadow-[0_10px_30px_rgba(0,0,0,0.04)] backdrop-blur-md cursor-default select-none"
-            >
-              Engineering
-            </motion.div>
+                      {/* Progressive Energy Core Track Laser Bar Indicator Overlay */}
+                      <div className="w-full h-px bg-neutral-900/40 relative mt-2.5 overflow-hidden">
+                        {isCurrent && (
+                          <motion.div 
+                            initial={{ left: "-100%" }}
+                            animate={{ left: "100%" }}
+                            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                            className="absolute top-0 bottom-0 w-24 bg-gradient-to-r from-transparent via-[#E87830]/80 to-transparent shadow-[0_0_8px_rgba(232,120,48,0.4)]"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
 
-            {/* Refined Center Logo Node Engine */}
-            <motion.div
-              animate={{
-                y: [0, -4, 0]
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="relative z-10 rounded-[28px] bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-neutral-100"
-            >
-              <Image
-                src="/icon.png"
-                alt="Cosmolix"
-                width={120}
-                height={120}
-                priority
-              />
+              {/* Polished Clean Human Metric Frame Stamp Footer Specifications */}
+              <div className="border-t border-neutral-900/60 pt-4 mt-6 flex items-center justify-between text-[8px] font-mono text-neutral-500 tracking-widest w-full">
+                <span>SYSTEM CORE INTEGRATION</span>
+                <span>SECURE DEPLOYMENT SPEC</span>
+              </div>
+
             </motion.div>
           </div>
 

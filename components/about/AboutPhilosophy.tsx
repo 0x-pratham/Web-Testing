@@ -1,108 +1,83 @@
+"use client";
+
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import Container from "@/components/shared/Container";
 
 const values = [
-  {
-    title: "Clarity",
-    description:
-      "Every solution begins with understanding the business challenge before proposing technology.",
-  },
-  {
-    title: "Execution",
-    description:
-      "Ideas create value only when they are delivered reliably and effectively.",
-  },
-  {
-    title: "Reliability",
-    description:
-      "Performance, security and scalability are built into every engagement.",
-  },
-  {
-    title: "Partnership",
-    description:
-      "We work alongside our clients as long-term partners, not temporary vendors.",
-  },
+  { title: "Clarity", description: "Every solution begins with understanding the business challenge before proposing technology." },
+  { title: "Execution", description: "Ideas create value only when they are delivered reliably and effectively." },
+  { title: "Reliability", description: "Performance, security and scalability are built into every engagement." },
+  { title: "Partnership", description: "We work alongside our clients as long-term partners, not temporary vendors." },
 ];
 
 export default function AboutPhilosophy() {
-  return (
-    <section className="py-24">
-      <Container>
-        <div className="max-w-3xl">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#E87830]">
-            Engineering with clarity, execution and trust.
-          </span>
+  const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
+  const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-[-0.05em]">
-            Engineering with clarity,
-            <br />
-            execution and trust.
-          </h2>
+  function onMouseMove({ currentTarget, clientX, clientY }: any) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <section className="py-32 bg-[#F9F7F4] selection:bg-[#E87830]/20">
+      <Container>
+        <div className="max-w-3xl mb-24">
+          <motion.span className="text-[10px] uppercase tracking-[0.3em] text-[#E87830] font-bold">
+            Our Core Philosophy
+          </motion.span>
+          <motion.h2 className="mt-6 text-5xl md:text-6xl font-bold tracking-[-0.04em] text-neutral-950 font-[var(--font-sora)]">
+            Engineering with <br /> clarity, execution and trust.
+          </motion.h2>
         </div>
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-8">
-          {values.map((item) => (
-            <div
+        <div className="grid md:grid-cols-2 gap-4">
+          {values.map((item, i) => (
+            <motion.div
               key={item.title}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-[32px]
-                border
-                border-neutral-200/40
-                bg-white
-                p-10
-                transition-all
-                duration-300
-                hover:-translate-y-[2px]
-                hover:shadow-[0_12px_40px_rgba(0,0,0,0.04)]
-              "
+              onMouseMove={onMouseMove}
+              whileHover={{ scale: 1.02, rotateX: 2, rotateY: 2 }} // Added Magnetic Tilt
+              className="group relative p-10 bg-white border border-neutral-200/60 overflow-hidden cursor-default"
             >
-              {/* Handcrafted top border expansion on hover */}
-              <div
-                className="
-                  absolute
-                  left-0
-                  top-0
-                  h-[2px]
-                  w-0
-                  bg-[#E87830]
-                  transition-all
-                  duration-500
-                  group-hover:w-full
-                "
+              {/* Dynamic Glow Effect */}
+              <motion.div
+                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+                style={{
+                  background: useMotionTemplate`radial-gradient(250px circle at ${mouseX}px ${mouseY}px, #E8783015, transparent 80%)`,
+                }}
               />
 
-              {/* Design System Signature Accent */}
-              <div className="mb-8 flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-[#E87830]" />
-                <div className="h-px w-12 bg-[#E87830]/20" />
+              <div className="mb-10 flex items-center gap-4">
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  className="w-1.5 h-1.5 bg-[#E87830] rounded-full" 
+                />
+                <div className="h-px w-8 bg-neutral-200" />
               </div>
 
-              {/* Title Typography */}
-              <h3
-                className="
-                  text-[1.8rem]
-                  font-semibold
-                  tracking-[-0.04em]
-                  leading-none
-                "
-              >
-                {item.title}
-              </h3>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold tracking-[-0.02em] text-neutral-950 font-[var(--font-sora)]">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm text-neutral-500 leading-relaxed font-light max-w-sm">
+                  {item.description}
+                </p>
+              </div>
 
-              {/* Description Matrix */}
-              <p
-                className="
-                  mt-5
-                  text-neutral-600
-                  leading-7
-                  text-[15px]
-                "
-              >
-                {item.description}
-              </p>
-            </div>
+              {/* Advanced SVG Line Animation */}
+              <svg className="absolute top-0 left-0 w-full h-1 pointer-events-none">
+                <motion.path
+                  d="M0 0 H 600"
+                  stroke="#E87830"
+                  strokeWidth="2"
+                  initial={{ pathLength: 0 }}
+                  whileHover={{ pathLength: 1 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                />
+              </svg>
+            </motion.div>
           ))}
         </div>
       </Container>

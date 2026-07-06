@@ -1,94 +1,100 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Container from "@/components/shared/Container";
 
 const items = [
   {
     title: "Build",
     subheading: "Digital products that create value.",
-    description:
-      "Digital products, applications and customer experiences.",
+    description: "Digital products, applications and customer experiences.",
     indicator: "Product Development"
   },
   {
     title: "Run",
     subheading: "Infrastructure that scales with growth.",
-    description:
-      "Cloud infrastructure, automation and operational scale.",
+    description: "Cloud infrastructure, automation and operational scale.",
     indicator: "Operational Scale"
   },
   {
     title: "Secure",
     subheading: "Protection built into every layer.",
-    description:
-      "Cybersecurity, resilience and compliance-driven delivery.",
+    description: "Cybersecurity, resilience and compliance-driven delivery.",
     indicator: "Risk Reduction"
   }
 ];
 
 export default function AboutCapabilities() {
   return (
-    <section className="py-24 bg-[#FCFAF8]">
+    <section className="py-32 bg-[#FCFAF8] relative overflow-hidden selection:bg-[#E87830]/20">
+      {/* Subtle Engineering Grain Texture */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
+      />
+
       <Container>
-        {/* Premium Outcome-Oriented Header Segment */}
-        <div className="max-w-3xl mb-16">
-          <span className="text-xs uppercase tracking-[0.22em] text-[#E87830] font-semibold">
+        <div className="max-w-3xl mb-24">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#E87830] font-[var(--font-inter)]"
+          >
             What We Do
-          </span>
-
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-[-0.05em] leading-[1] text-neutral-950">
-            Technology capabilities built around outcomes.
-          </h2>
-
-          <p className="mt-6 text-lg text-neutral-600 leading-relaxed font-light">
-            We help organizations build digital products, operate scalable
-            infrastructure and protect critical systems through engineering,
-            cloud and cybersecurity expertise.
-          </p>
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mt-6 text-5xl font-bold tracking-[-0.04em] leading-[1.1] text-neutral-950 font-[var(--font-sora)]"
+          >
+            Technology capabilities <br/>built around outcomes.
+          </motion.h2>
         </div>
 
-        {/* Subtle Horizontal Connecting Accent Line */}
-        <div className="mb-10 h-px w-full bg-gradient-to-r from-transparent via-[#E87830]/20 to-transparent" />
-
-        {/* Capabilities Grid Layer */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {items.map((item) => (
-            <div
+        <div className="grid md:grid-cols-3 border-t border-l border-neutral-200">
+          {items.map((item, i) => (
+            <motion.div
               key={item.title}
-              className="group relative overflow-hidden rounded-[32px] bg-white p-10 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-neutral-200/40"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: i * 0.2 }}
+              className="group relative border-r border-b border-neutral-200 p-10 bg-[#FCFAF8] hover:bg-white transition-colors duration-700"
             >
-              {/* Premium Top Micro Accent Active Line */}
-              <div
-                className="absolute left-0 top-0 h-[2px] w-0 bg-[#E87830] transition-all duration-500 group-hover:w-full"
-              />
-
-              {/* Refined Technical Geometric Indicator Row */}
-              <div className="mb-8 flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-[#E87830]" />
-                <div className="h-px w-12 bg-[#E87830]/25" />
+              {/* Architectural Corner Trace Animation */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 left-0 w-0 h-[1px] bg-[#E87830] transition-all duration-500 group-hover:w-full" />
+                <div className="absolute bottom-0 right-0 w-0 h-[1px] bg-[#E87830] transition-all duration-500 group-hover:w-full" />
               </div>
 
-              {/* Premium Headline Element */}
-              <h3 className="text-[2.4rem] font-semibold tracking-[-0.05em] leading-[0.9] text-neutral-950">
+              <div className="mb-16 flex items-center justify-between">
+                <span className="text-[11px] font-mono text-neutral-400">0{i + 1}</span>
+                <motion.div 
+                  whileHover={{ rotate: 90 }}
+                  className="w-1.5 h-1.5 bg-neutral-200 group-hover:bg-[#E87830] transition-colors" 
+                />
+              </div>
+
+              <h3 className="text-4xl font-bold tracking-[-0.03em] text-neutral-950 font-[var(--font-sora)] group-hover:pl-2 transition-all duration-300">
                 {item.title}
               </h3>
 
-              {/* High-Premium Characterizing Contextual Subhead Statement */}
-              <p className="mt-4 text-sm font-medium text-neutral-900">
-                {item.subheading}
-              </p>
+              <div className="mt-10 space-y-4">
+                <p className="text-base font-semibold text-neutral-900 font-[var(--font-inter)] border-l-2 border-neutral-200 pl-4 group-hover:border-[#E87830] transition-colors">
+                  {item.subheading}
+                </p>
+                <p className="text-sm text-neutral-500 font-[var(--font-inter)] leading-relaxed pl-6">
+                  {item.description}
+                </p>
+              </div>
 
-              {/* Functional System Copy Matrix */}
-              <p className="mt-4 text-neutral-600 leading-relaxed font-light text-base">
-                {item.description}
-              </p>
-
-              {/* Targeted Outcome Technical Context Bottom Label */}
-              <div className="mt-10 flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
-                <span className="text-xs uppercase tracking-[0.15em] text-neutral-400 font-medium">
+              <div className="mt-16 flex items-center gap-4">
+                <div className="h-[1px] w-8 bg-neutral-200 group-hover:bg-[#E87830] transition-colors" />
+                <span className="text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-bold group-hover:text-neutral-900 transition-colors">
                   {item.indicator}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Container>

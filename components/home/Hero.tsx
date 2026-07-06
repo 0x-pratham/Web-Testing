@@ -1,223 +1,233 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Container from "@/components/shared/Container";
 import Button from "@/components/shared/Button";
 import HeroVisual from "./HeroVisual";
 import HeroBackground from "./HeroBackground";
 
 export default function Hero() {
-  // Reusable animation configuration variants for secondary elements
-  const fadeUpVariants = {
-    initial: { opacity: 0, filter: "blur(8px)", y: 20 },
-    animate: (customDelay: number) => ({
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Mouse coordinates for Step 12: Interactive Mouse Glow Layer
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth spring physics for fluid movement
+  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
+  const glowX = useSpring(mouseX, springConfig);
+  const glowY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const { left, top } = containerRef.current.getBoundingClientRect();
+      mouseX.set(e.clientX - left);
+      mouseY.set(e.clientY - top);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  // Step 3 & 4: Word-by-word reveal configurations
+  const headingText = "We Engineer Digital Experiences That Drive Business.";
+  const words = headingText.split(" ");
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
       opacity: 1,
-      filter: "blur(0px)",
+      transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+    },
+  };
+
+  const wordVariants = {
+    hidden: { opacity: 0, y: 25, filter: "blur(4px)" },
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.8, delay: customDelay, ease: [0.16, 1, 0.3, 1] as const },
+      filter: "blur(0px)",
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  // Generic premium fade up for secondary layers
+  const premiumFadeUp = {
+    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
+    visible: (customDelay: number) => ({
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, delay: customDelay, ease: [0.16, 1, 0.3, 1] },
     }),
   };
 
   return (
     <section
+      ref={containerRef}
       className="
         relative
         overflow-hidden
-        min-h-[78vh]
+        min-h-screen
+        lg:min-h-[100svh]
         flex
         items-center
+        bg-white
       "
     >
-      {/* Improvement 8: Alpha Background Motion wrapped safely inside contextual container */}
-      <motion.div 
-        className="absolute inset-0 z-0 pointer-events-none"
-        animate={{
-          opacity: [0.4, 0.55, 0.4]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <HeroBackground />
-      </motion.div>
+      {/* Step 13: Enhanced Dynamic Background Context */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Noise overlay for micro-texture detail */}
+        <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]" />
+        
+        {/* Animated Background Mesh wrapper */}
+        <motion.div 
+          className="absolute inset-0 opacity-40"
+          animate={{
+            opacity: [0.35, 0.5, 0.35],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <HeroBackground />
+        </motion.div>
 
-      {/* Content layout wrapper */}
-      <div className="relative z-10 w-full pt-24 py-20 md:py-0">
+        {/* Step 12: Precision Orange Mouse Glow Tracker Layer */}
+        <motion.div
+          className="absolute w-[450px] h-[450px] rounded-full bg-[#E87830]/[0.06] blur-[90px] mix-blend-multiply pointer-events-none hidden md:block"
+          style={{
+            left: useTransform(glowX, (x) => x - 225),
+            top: useTransform(glowY, (y) => y - 225),
+          }}
+        />
+      </div>
+
+      {/* Step 1: Premium Responsive Spacing Metric Blueprint */}
+      <div className="relative z-10 w-full pt-32 pb-20 lg:pt-40">
         <Container>
-          {/* Main Grid Layout Frame */}
-          <div className="grid lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-10 items-center">
+          <div className="grid lg:grid-cols-[1fr_0.95fr] gap-12 lg:gap-14 items-center">
             
-            {/* Left Column Layout Frame — Position relative to anchor the ambient glow positioning context */}
-            <div className="relative max-w-[620px]">
-              
-              {/* Improvement 3: Ambient Brand Glow Layer Behind Headline */}
-              <div
-                className="
-                  absolute
-                  top-20
-                  left-20
-                  w-64
-                  h-64
-                  bg-[#E87830]/8
-                  rounded-full
-                  blur-[120px]
-                  pointer-events-none
-                  z-0
-                "
-              />
-              
-              {/* Context Label Badge Layer */}
-              <motion.div
-                custom={0.0}
-                variants={fadeUpVariants}
-                initial="initial"
-                animate="animate"
-                className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-950/[0.03] border border-neutral-950/5 mb-6 backdrop-blur-md"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
-                {/* Improvement 5: Copper Tint Premium Badge Typography */}
-                <span className="text-[11px] font-medium tracking-wider uppercase font-mono text-[#E87830]">
-                  AI-Native Digital Engineering
-                </span>
-              </motion.div>
+            {/* Left Content Engine */}
+            <div className="relative max-w-[640px]">
 
-              {/* Primary Premium Hero Headline Statement */}
-              {/* Improvement 2: Soft Text Reveal Specific Settings */}
-              {/* Improvement 10: Tailored Sharp Text Shadow Metric */}
+              {/* Step 3, 4 & 5: Premium Word Reveal Heading with Shimmer Accent Core */}
               <motion.h1
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                  filter: "blur(10px)"
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  filter: "blur(0px)"
-                }}
-                transition={{
-                  duration: 1,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                className="relative z-10 text-[2.75rem] sm:text-[4rem] md:text-[5rem] font-extrabold font-[var(--font-sora)] tracking-tight text-neutral-900 leading-[0.95] [text-shadow:0_1px_0_rgba(255,255,255,0.15)]"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="relative z-10 text-[2.75rem] sm:text-[4rem] md:text-[4.75rem] font-extrabold font-[var(--font-sora)] tracking-tight text-neutral-900 leading-[1.02] [text-shadow:0_1px_0_rgba(255,255,255,0.15)] mb-6"
               >
-                Engineering <br className="hidden sm:inline" />
-                {/* Improvement 1: Highlighted Copper Accent Focus Word Block */}
-                <span className="text-[#E87830]">
-                  Digital Products
-                </span>{" "}
-                <br className="hidden sm:inline" />
-                For High-Stakes Scale
+                {words.map((word, index) => {
+                  // Explicitly match "Digital" and "Experiences" to build Step 5 & 6 multi-layer gradient system
+                  if (word === "Digital" || word === "Experiences") {
+                    return (
+                      <React.Fragment key={index}>
+                        <span className="bg-gradient-to-r from-[#E87830] via-[#ffb36a] to-[#E87830] bg-clip-text text-transparent relative inline-block">
+                          {word}
+                          {/* Step 6: Luxury Moving Shine Overlay Module */}
+                          <motion.span
+                            animate={{
+                              backgroundPosition: [
+                                "0%",
+                                "100%"
+                              ]
+                            }}
+                            transition={{
+                              repeat: Infinity,
+                              duration: 4
+                            }}
+                            className="absolute inset-0"
+                            style={{
+                              backgroundSize: "200%"
+                            }}
+                          />
+                        </span>{" "}
+                      </React.Fragment>
+                    );
+                  }
+
+                  return (
+                    <motion.span key={index} variants={wordVariants} className="inline-block">
+                      {word}{" "}
+                    </motion.span>
+                  );
+                })}
               </motion.h1>
 
-              {/* Improvement 4: Luxury Linear Gradient Underline Decoupled Flow Anchor */}
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: 120 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.6,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                className="
-                  mt-6
-                  h-[2px]
-                  rounded-full
-                  bg-gradient-to-r
-                  from-[#E87830]
-                  to-transparent
-                  z-10
-                  relative
-                "
-              />
-
-              {/* Context Narrative Secondary Subtitle Paragraph */}
-              {/* Improvement 7: Refined Vertical Breathing Rhythm spacing mt-5 */}
+              {/* Step 7: Highly Humanized Secondary Subtitle Layer */}
               <motion.p
-                custom={0.3}
-                variants={fadeUpVariants}
-                initial="initial"
-                animate="animate"
-                className="mt-5 text-base sm:text-lg text-neutral-600 leading-relaxed max-w-[480px] relative z-10"
+                custom={0.5}
+                variants={premiumFadeUp}
+                initial="hidden"
+                animate="visible"
+                className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-[520px] mb-8"
               >
-                We design, build and deploy custom enterprise software, advanced automation systems and secure cloud infrastructure tailored to your exact operational requirements.
+                From ambitious startups to enterprise organizations, we design, engineer and scale secure software, AI systems and cloud infrastructure that deliver measurable business outcomes.
               </motion.p>
 
-              {/* Conversion Actions Row Framework */}
+              {/* Step 8: Refined Micro-Interaction Conversion Matrix */}
               <motion.div
-                custom={0.45}
-                variants={fadeUpVariants}
-                initial="initial"
-                animate="animate"
-                className="mt-8 flex flex-wrap items-center gap-3 relative z-10"
+                custom={0.62}
+                variants={premiumFadeUp}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-wrap items-center gap-4"
               >
-                {/* Improvement 9: Premium Subtle Button Hover Micro-Interactions */}
-                <div className="transition-all duration-500 hover:-translate-y-[1px]">
-                  <Button href="/contact">
-                    Start Your Project
+                {/* Primary Button Wrapper: Lifts, expands background, shifts micro shadows */}
+                <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0">
+                  <Button 
+                    href="/contact" 
+                    className="shadow-sm hover:shadow-[0_12px_24px_rgba(232,120,48,0.2)] transition-shadow duration-500"
+                  >
+                    <span className="flex items-center gap-2">
+                      Start Your Project
+                      <span className="inline-block transition-transform duration-300 transform group-hover:translate-x-1 group-hover:-rotate-12">→</span>
+                    </span>
                   </Button>
                 </div>
-                <div className="transition-all duration-500 hover:-translate-y-[1px]">
-                  <Button href="/services" variant="secondary">
+                
+                {/* Secondary Button Wrapper: Interactive Glass Border Glow */}
+                <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0">
+                  <Button 
+                    href="/services" 
+                    variant="secondary"
+                    className="backdrop-blur-md bg-neutral-50/40 border border-neutral-200/80 hover:border-[#E87830]/40 hover:bg-white/80 transition-all duration-300"
+                  >
                     Explore Services
                   </Button>
                 </div>
               </motion.div>
-
-              {/* Stats Grid Framework with Enhanced Breathing Room Spacing Metric */}
-              <motion.div
-                custom={0.6}
-                variants={fadeUpVariants}
-                initial="initial"
-                animate="animate"
-                className="grid grid-cols-3 gap-6 mt-10 pt-6 border-t border-neutral-100 relative z-10"
-              >
-                {/* Improvement 6: Humanized Passive Interactive Stats Layout Links (Group 1) */}
-                <div className="group cursor-default">
-                  <div className="text-2xl sm:text-3xl font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight transition-colors duration-500 group-hover:text-[#E87830]">
-                    50+
-                  </div>
-                  <div className="text-[11px] uppercase font-bold tracking-wider text-neutral-400 mt-1">
-                    Projects Delivered
-                  </div>
-                </div>
-
-                {/* Group 2 */}
-                <div className="group cursor-default">
-                  <div className="text-2xl sm:text-3xl font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight transition-colors duration-500 group-hover:text-[#E87830]">
-                    10+
-                  </div>
-                  <div className="text-[11px] uppercase font-bold tracking-wider text-neutral-400 mt-1">
-                    Industries Served
-                  </div>
-                </div>
-
-                {/* Group 3 */}
-                <div className="group cursor-default">
-                  <div className="text-2xl sm:text-3xl font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight transition-colors duration-500 group-hover:text-[#E87830]">
-                    99%
-                  </div>
-                  <div className="text-[11px] uppercase font-bold tracking-wider text-neutral-400 mt-1">
-                    Commitment
-                  </div>
-                </div>
-              </motion.div>
             </div>
 
-            {/* Right Column Layout Frame — Preserved safely for subsequent visuals audit */}
+            {/* Right Column Visual Workspace Framework */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10"
+              initial={{ opacity: 0, scale: 0.97, filter: "blur(4px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 lg:pl-4 w-full h-full flex items-center justify-center"
             >
               <HeroVisual />
             </motion.div>
 
           </div>
         </Container>
+      </div>
+
+      {/* Step 11: Floating Real-time Scroll Indicator Engine */}
+      <div className="absolute bottom-8 left-8 z-20 hidden xl:block select-none">
+        <motion.div 
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-400/80 font-mono"
+        >
+          <span className="text-base text-[#E87830] font-sans">↓</span>
+          <span>Scroll</span>
+        </motion.div>
       </div>
     </section>
   );
