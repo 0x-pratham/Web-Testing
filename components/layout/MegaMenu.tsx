@@ -22,10 +22,9 @@ export default function MegaMenu() {
         transition={{ duration: 0.22, ease: easeCustom }}
         className="w-[720px] bg-[#FFFCFA]/95 backdrop-blur-xl rounded-[24px] border border-[#ECE8E3] shadow-[0_18px_45px_rgba(0,0,0,0.06)] p-6 overflow-hidden"
       >
-        {/* Header content remains same... */}
         <div className="mb-6">
-          <h3 className="text-[18px] font-semibold text-[#111] leading-tight">Our Expertise</h3>
-          <p className="text-[13px] text-[#6B6B6B] mt-1 font-normal">Crafting software that businesses rely on.</p>
+          <h3 className="text-[18px] font-semibold text-[#111] leading-tight">Our Services</h3>
+          <p className="text-[13px] text-[#6B6B6B] mt-1 font-normal">Explore the technologies and solutions we build for modern businesses.</p>
         </div>
 
         <div className="h-[1px] w-full bg-[#111]/[0.08] mb-5" />
@@ -68,12 +67,23 @@ export default function MegaMenu() {
 
           {/* Premium CTA Panel */}
           <div className="col-span-4 border-l border-[#ECE8E3] pl-5 flex flex-col justify-center gap-4">
-             <div className="bg-[#FFF6EF] p-4 rounded-xl border border-[#E87830]/10">
-                <p className="text-[12px] font-semibold text-[#111] mb-1">Book a Discovery Call</p>
-                <p className="text-[11px] text-[#6B6B6B] leading-relaxed mb-3">15 mins • Response within 24h</p>
-                <Link href="/contact" className="text-[12px] font-bold text-[#E87830] flex items-center gap-1">
-                   Schedule now →
+             <div className="bg-[#FFF6EF] p-5 rounded-xl border border-[#E87830]/10 hover:border-[#E87830]/20 hover:shadow-md transition-all duration-300">
+                <p className="text-[13px] font-bold text-[#111] mb-2">Explore Everything We Build</p>
+                <p className="text-[12px] text-[#6B6B6B] leading-relaxed mb-4">Browse our complete portfolio of software, AI, cloud and cybersecurity services.</p>
+                
+                <Link 
+                  href="/services" 
+                  className="block w-full py-2 mb-3 text-center text-[12px] font-bold text-[#111] border border-[#111] rounded-[6px] hover:bg-[#111] hover:text-white transition-colors duration-300"
+                >
+                  View All Services →
                 </Link>
+
+                <div className="pt-2 border-t border-[#E87830]/10">
+                  <p className="text-[11px] text-[#6B6B6B] mb-1">Need guidance?</p>
+                  <Link href="/contact" className="text-[12px] font-bold text-[#E87830] flex items-center gap-1 hover:underline">
+                    Talk to our team →
+                  </Link>
+                </div>
              </div>
           </div>
         </div>
