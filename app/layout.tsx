@@ -14,7 +14,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cosmolix.com"),
   title: {
-    default: "Cosmolix Private Limited",
+    default: "Cosmolix | Beyond Limits",
     template: "%s | Cosmolix",
   },
   description: "Custom Software Development, AI Solutions, Cloud Platforms and IT Services.",
@@ -37,7 +37,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/brand/cosmolix-mark.png",
+    shortcut: "/brand/cosmolix-mark.png",
+    apple: "/brand/cosmolix-mark.png",
   },
   alternates: {
     canonical: "https://cosmolix.com",
