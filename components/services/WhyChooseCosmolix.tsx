@@ -69,18 +69,18 @@ export default function WhyChooseCosmolix() {
           <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-4">
             <div className="inline-flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 font-semibold">
+              <span className="text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
                 Value Blueprint
               </span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-950 leading-[1.1]">
+            <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold tracking-tight text-neutral-950 leading-[1.1]">
               Why Partners
               <br />
               <span className="text-neutral-400 font-normal">Choose Cosmolix.</span>
             </h2>
 
-            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed max-w-sm pt-2">
+            <p className="text-[17px] md:text-[19px] text-neutral-500 leading-8 max-w-sm pt-2">
               We combine engineering excellence, security-first thinking and scalable delivery processes to create measurable outcomes.
             </p>
           </div>
@@ -127,10 +127,10 @@ export default function WhyChooseCosmolix() {
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-base font-bold tracking-tight text-neutral-900 transition-colors duration-300">
+                      <h3 className="text-[26px] font-bold tracking-tight text-neutral-900 transition-colors duration-300">
                         {item.title}
                       </h3>
-                      <p className="text-xs md:text-sm leading-relaxed text-neutral-500 max-w-xs">
+                      <p className="text-[16px] md:text-[17px] leading-7 text-neutral-500 max-w-xs">
                         {item.description}
                       </p>
                     </div>
@@ -141,7 +141,7 @@ export default function WhyChooseCosmolix() {
                     <span className={`h-1 w-1 rounded-full transition-colors duration-300 ${
                       isHovered ? "bg-[#E87830]" : "bg-neutral-300"
                     }`} />
-                    <span className={`text-[11px] font-medium tracking-wide transition-colors duration-300 ${
+                    <span className={`text-[14px] font-medium tracking-wide transition-colors duration-300 ${
                       isHovered ? "text-neutral-700" : "text-neutral-400"
                     }`}>
                       {item.detail}

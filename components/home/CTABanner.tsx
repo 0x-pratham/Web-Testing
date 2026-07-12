@@ -76,10 +76,10 @@ export default function CTABanner() {
   const backgroundLight = useMotionTemplate`radial-gradient(450px circle at ${mouseX}px ${mouseY}px, rgba(232, 120, 48, 0.04), transparent 80%)`;
 
   const STEPS = [
-    { id: "01", title: "ARCHITECTURAL BLUEPRINT", desc: "System design & protocol analysis" },
-    { id: "02", title: "CORE DEPLOYMENT PHASE", desc: "Infrastructure isolation & compile" },
-    { id: "03", title: "INTEGRITY & COMPLIANCE", desc: "Automated penetration vectors" },
-    { id: "04", title: "GLOBAL EDGE PROVISION", desc: "CDN routing & live telemetry" },
+    { id: "01", title: "Requirement Analysis", desc: "Understanding your goals and business needs." },
+    { id: "02", title: "Planning & Strategy", desc: "Creating a clear roadmap and architecture." },
+    { id: "03", title: "Development & Testing", desc: "Building secure, scalable software." },
+    { id: "04", title: "Launch & Support", desc: "Deployment, optimization and ongoing support." },
   ];
 
   return (
@@ -97,22 +97,14 @@ export default function CTABanner() {
             
             {/* Left Content Pitch Block */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-[#E87830]/30 bg-[#E87830]/5 font-mono text-[10px] tracking-widest text-[#E87830] uppercase">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E87830] opacity-40"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#E87830]"></span>
-                </span>
-                Scale Confidently
-              </div>
-
-              <h2 className="text-3xl md:text-5xl font-bold font-[var(--font-sora)] tracking-tight leading-[1.1] uppercase">
+              <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold font-[var(--font-sora)] tracking-tight leading-[1.1] uppercase">
                 Ready to build <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
                   beyond limits?
                 </span>
               </h2>
 
-              <p className="text-[15px] text-neutral-400 font-normal leading-relaxed max-w-lg tracking-tight">
+              <p className="text-[17px] md:text-[19px] text-neutral-400 font-normal leading-relaxed max-w-lg tracking-tight">
                 Let's architect digital products that perform. Partner with an elite engineering group committed to clean structures, robust execution, and transparent operations.
               </p>
 
@@ -122,7 +114,7 @@ export default function CTABanner() {
                 </Button>
                 <Link 
                   href="/about" 
-                  className="text-xs font-mono text-neutral-400 hover:text-white uppercase tracking-widest transition-colors duration-200"
+                  className="text-[14px] font-mono text-neutral-400 hover:text-white uppercase tracking-widest transition-colors duration-200"
                 >
                   Explore Capabilities
                 </Link>
@@ -143,10 +135,7 @@ export default function CTABanner() {
                 <div className="flex items-center justify-between border-b border-neutral-800/80 pb-4 mb-5 relative z-10">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-sm bg-[#E87830]/80" />
-                    <span className="text-[10px] font-mono text-neutral-400 tracking-wider font-semibold uppercase">SYSTEM_CORE_MATRIX</span>
-                  </div>
-                  <div className="text-[9px] font-mono text-neutral-500 bg-neutral-900 px-2 py-0.5 rounded border border-neutral-800">
-                    REV // 2026.PROD
+                    <span className="text-[10px] font-mono text-neutral-400 tracking-wider font-semibold uppercase">PROJECT DELIVERY</span>
                   </div>
                 </div>
 
@@ -190,18 +179,18 @@ export default function CTABanner() {
                           {/* Technical Information Description Output Content Block */}
                           <div className="flex-grow flex flex-col justify-center min-w-0">
                             <div className="flex items-center justify-between">
-                              <h4 className={`text-[11px] font-mono tracking-wider font-bold transition-colors duration-300 ${
+                              <h4 className={`text-[14px] font-mono tracking-wider font-bold transition-colors duration-300 ${
                                 isCurrent ? "text-[#E87830]" : "text-neutral-400 group-hover/item:text-neutral-300"
                               }`}>
                                 {step.title}
                               </h4>
-                              <span className={`text-[9px] font-mono transition-colors duration-300 ${
+                              <span className={`text-[11px] font-mono transition-colors duration-300 ${
                                 isCurrent ? "text-[#E87830]/60" : "text-neutral-600"
                               }`}>
                                 {step.id}
                               </span>
                             </div>
-                            <p className="text-[12px] text-neutral-500 font-sans mt-0.5 leading-normal tracking-tight min-h-[16px]">
+                            <p className="text-[15px] text-neutral-500 font-sans mt-0.5 leading-normal tracking-tight min-h-[16px]">
                               {step.desc}
                             </p>
                           </div>
@@ -213,11 +202,9 @@ export default function CTABanner() {
 
                 {/* Frame Stamp Production Footer Specifications */}
                 <div className="border-t border-neutral-800/80 pt-4 mt-5 flex items-center justify-between font-mono text-[9px] text-neutral-500 relative z-10 w-full">
-                  <span>ENG SINCE 2025</span>
+                  <span>EST. 2026</span>
                   <span className="text-neutral-700">•</span>
-                  <span>MAHARASHTRA • INDIA</span>
-                  <span className="text-neutral-700">•</span>
-                  <span>LIVE OVERFLOW PROOF</span>
+                  <span>PUNE, MAHARASHTRA, INDIA</span>
                 </div>
               </motion.div>
             </div>

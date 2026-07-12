@@ -1,3 +1,4 @@
+// ServicesCTA.tsx
 "use client";
 
 import Link from "next/link";
@@ -14,52 +15,61 @@ export default function ServicesCTA() {
         */}
         <div className="relative rounded-[24px] bg-[#0A0A0A] p-16 border border-neutral-800">
           
-          {/* Header Hierarchy */}
-          <div className="max-w-2xl">
-            <h2 className="text-[56px] font-semibold tracking-[-0.03em] leading-[1.1] text-white">
-              Ready to build something meaningful?
-            </h2>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             
-            <p className="mt-8 text-lg leading-[1.8] text-neutral-400 max-w-xl">
-              Share your vision with us and we'll help transform it into a secure, 
-              scalable and future-ready digital product.
-            </p>
-          </div>
+            {/* Left Side: Header & Primary CTA */}
+            <div className="space-y-12">
+              <div className="max-w-2xl">
+                <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-semibold tracking-[-0.03em] leading-[1.1] text-white">
+                  Ready to build something meaningful?
+                </h2>
+                
+                <p className="mt-8 text-[17px] md:text-[19px] leading-8 text-neutral-400 max-w-xl">
+                  Tell us about your idea, business goals or project requirements. We'll help you plan, build and launch a secure, scalable digital solution.
+                </p>
+              </div>
 
-          {/* Premium CTA Interaction */}
-          <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-8">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 text-base font-semibold text-white transition-all duration-300"
-            >
-              <span className="border-b-2 border-[#E87830] pb-0.5 group-hover:border-white transition-colors">
-                Start Your Project
-              </span>
-              <span className="text-[#E87830] transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-3 text-[18px] font-semibold text-white transition-all duration-300"
+                >
+                  <span className="border-b-2 border-[#E87830] pb-0.5 group-hover:border-white transition-colors">
+                    Start Your Project
+                  </span>
+                  <span className="text-[#E87830] transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
 
-            <div className="flex flex-col gap-1">
-              <span className="text-sm font-medium text-white">Book a Discovery Call</span>
-              <span className="text-[13px] text-neutral-500">Usually reply within 24 hours</span>
+                <div className="flex flex-col gap-1">
+                  <span className="text-[17px] font-semibold text-white">Book a Discovery Call</span>
+                  <span className="text-[15px] text-neutral-500">Usually reply within 24 hours</span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Human Trust Signals */}
-          <div className="mt-16 pt-8 border-t border-neutral-800 flex flex-wrap items-center gap-8 text-[13px] font-medium text-neutral-500">
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
-              Security First
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
-              Enterprise Ready
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E87830]" />
-              Built To Scale
-            </span>
+            {/* Right Side: Information Card */}
+            <div className="bg-[#141414] rounded-xl p-8 border border-neutral-800 h-full flex flex-col justify-between">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-[28px] font-semibold text-white mb-2">Why Businesses Choose Cosmolix</h3>
+                  <p className="text-[17px] leading-8 text-neutral-400">
+                    We work closely with every client to understand their goals and deliver secure, scalable and high-quality digital solutions.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {['Free Consultation', 'Business Requirement Analysis', 'Dedicated Development Team', 'Transparent Communication', 'Long-Term Support'].map((item) => (
+                    <div key={item} className="flex items-center gap-3 text-[17px] text-neutral-300">
+                      <span className="text-[#E87830]">✓</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>

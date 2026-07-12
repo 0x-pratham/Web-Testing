@@ -15,8 +15,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-body: var(--font-body);
+
+  --font-sans: var(--font-body);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,13 +35,16 @@ html {
 body {
   background: var(--cream);
   color: var(--charcoal);
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
 }
 
 h1,
 h2,
-h3 {
-  font-family: var(--font-sora);
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Times New Roman", Times, serif;
   letter-spacing: -0.03em;
 }
 
@@ -92,4 +97,8 @@ section {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+@utility font-body {
+  font-family: var(--font-body);
 }

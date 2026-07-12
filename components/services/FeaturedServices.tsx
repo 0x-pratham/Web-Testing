@@ -75,12 +75,12 @@ export default function FeaturedServices() {
               </div>
 
               <div className="space-y-2">
-                <h3 className={`text-lg font-bold tracking-tight ${
+                <h3 className={`text-[26px] font-bold tracking-tight ${
                   isDark ? "text-white" : "text-neutral-900"
                 }`}>
                   {service.title}
                 </h3>
-                <p className={`text-xs md:text-sm leading-relaxed ${
+                <p className={`text-[16px] md:text-[17px] leading-relaxed ${
                   isDark ? "text-neutral-400" : "text-neutral-500"
                 }`}>
                   {service.description}
@@ -95,15 +95,15 @@ export default function FeaturedServices() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 gap-y-2">
                     {service.capabilities.slice(0, 3).map((capability) => (
-                      <div key={capability} className="flex items-center gap-2 text-xs text-neutral-400">
+                      <div key={capability} className="flex items-center gap-2 text-[15px] text-neutral-400">
                         <span className="h-1 w-1 rounded-full bg-[#E87830]" />
                         <span className="truncate">{capability}</span>
                       </div>
                     ))}
                   </div>
                   <div className="pt-3 border-t border-neutral-800/80 flex items-center justify-between">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">Benchmark</span>
-                    <span className="text-xs font-mono text-[#E87830]">99.9% Secure</span>
+                    <span className="text-[13px] font-mono uppercase tracking-wider text-neutral-500">Benchmark</span>
+                    <span className="text-[15px] font-mono text-[#E87830]">99.9% Secure</span>
                   </div>
                 </div>
               ) : (
@@ -113,7 +113,7 @@ export default function FeaturedServices() {
                     {service.capabilities.slice(0, 3).map((capability) => (
                       <span
                         key={capability}
-                        className={`rounded px-2 py-0.5 text-[11px] font-medium tracking-wide transition-colors duration-300 ${
+                        className={`rounded px-2 py-0.5 text-[13px] font-medium tracking-wide transition-colors duration-300 ${
                           isDark 
                             ? "bg-neutral-800 text-neutral-300" 
                             : "bg-neutral-50 text-neutral-600 border border-neutral-200/30"
@@ -144,19 +144,18 @@ export default function FeaturedServices() {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-1.5 w-1.5 rounded-full bg-[#E87830]" />
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
-                Core Capabilities
+              <span className="text-[15px] md:text-[16px] font-semibold tracking-[0.18em] uppercase text-neutral-400">
+                Featured Services
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 leading-tight">
-              Engineering Excellence
-              <span className="text-neutral-400 font-normal"> Built for Modern Businesses.</span>
+            <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold tracking-tight text-neutral-900 leading-tight">
+              Technology That <br />
+              Moves Your Business Forward.
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pb-1">
-            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed max-w-md">
-              We combine engineering, cloud infrastructure and cybersecurity
-              to help organizations build reliable digital products.
+            <p className="text-[17px] md:text-[19px] text-neutral-500 leading-8 max-w-lg">
+              We design and develop secure, scalable digital solutions that help businesses grow, innovate and deliver better customer experiences.
             </p>
           </div>
         </div>

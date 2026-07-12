@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionTemplate, useSpring } from "framer-motion";
 import Container from "@/components/shared/Container";
 
 const values = [
@@ -21,24 +21,24 @@ export default function AboutPhilosophy() {
   }
 
   return (
-    <section className="py-32 bg-[#F9F7F4] selection:bg-[#E87830]/20">
+    <section className="py-20 md:py-24 lg:py-32 bg-[#F9F7F4] selection:bg-[#E87830]/20">
       <Container>
-        <div className="max-w-3xl mb-24">
-          <motion.span className="text-[10px] uppercase tracking-[0.3em] text-[#E87830] font-bold">
+        <div className="max-w-3xl mb-14 md:mb-20 lg:mb-24">
+          <motion.span className="text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.18em] text-[#E87830] font-[var(--font-inter)]">
             Our Core Philosophy
           </motion.span>
-          <motion.h2 className="mt-6 text-5xl md:text-6xl font-bold tracking-[-0.04em] text-neutral-950 font-[var(--font-sora)]">
+          <motion.h2 className="mt-6 text-[42px] sm:text-[50px] md:text-[58px] lg:text-[64px] font-bold tracking-[-0.04em] leading-[1.05] text-neutral-950 font-[var(--font-sora)]">
             Engineering with <br /> clarity, execution and trust.
           </motion.h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {values.map((item, i) => (
             <motion.div
               key={item.title}
               onMouseMove={onMouseMove}
               whileHover={{ scale: 1.02, rotateX: 2, rotateY: 2 }} // Added Magnetic Tilt
-              className="group relative p-10 bg-white border border-neutral-200/60 overflow-hidden cursor-default"
+              className="group relative p-6 md:p-8 lg:p-10 bg-white border border-neutral-200/60 overflow-hidden cursor-default"
             >
               {/* Dynamic Glow Effect */}
               <motion.div
@@ -48,7 +48,7 @@ export default function AboutPhilosophy() {
                 }}
               />
 
-              <div className="mb-10 flex items-center gap-4">
+              <div className="mb-8 md:mb-10 flex items-center gap-4">
                 <motion.div 
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -58,10 +58,10 @@ export default function AboutPhilosophy() {
               </div>
 
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold tracking-[-0.02em] text-neutral-950 font-[var(--font-sora)]">
+                <h3 className="text-[30px] md:text-[34px] font-bold tracking-[-0.02em] text-neutral-950 font-[var(--font-sora)]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm text-neutral-500 leading-relaxed font-light max-w-sm">
+                <p className="mt-5 md:mt-6 text-[17px] text-neutral-600 leading-8 font-light max-w-sm">
                   {item.description}
                 </p>
               </div>

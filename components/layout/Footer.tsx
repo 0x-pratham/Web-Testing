@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1A1714] text-white border-t-2 border-[#E87830]">
       <Container>
-        <div className="grid md:grid-cols-4 gap-12 py-20">
+        <div className="grid md:grid-cols-4 gap-12 py-24">
 
           {/* Column 1: Brand */}
           <div>
@@ -15,7 +15,7 @@ export default function Footer() {
               showText={false}
             />
 
-            <p className="mt-4 text-sm text-neutral-400">
+            <p className="mt-4 text-[17px] leading-8 text-neutral-400">
               Custom software, AI solutions and
               enterprise technology services.
             </p>
@@ -23,11 +23,11 @@ export default function Footer() {
 
           {/* Column 2: Services */}
           <div>
-            <h3 className="font-semibold mb-4">
+            <h3 className="text-[24px] font-semibold tracking-tight mb-4">
               Services
             </h3>
 
-            <div className="flex flex-col space-y-3 text-sm text-neutral-400">
+            <div className="flex flex-col space-y-3 text-[17px] text-neutral-400">
               <Link href="/services/ai-ml" className="hover:text-white transition">
                 AI & ML
               </Link>
@@ -52,11 +52,11 @@ export default function Footer() {
 
           {/* Column 3: Company */}
           <div>
-            <h3 className="font-semibold mb-4">
+            <h3 className="text-[24px] font-semibold tracking-tight mb-4">
               Company
             </h3>
 
-            <div className="flex flex-col space-y-3 text-sm text-neutral-400">
+            <div className="flex flex-col space-y-3 text-[17px] text-neutral-400">
               <Link href="/about" className="hover:text-white transition">
                 About
               </Link>
@@ -69,11 +69,11 @@ export default function Footer() {
 
           {/* Column 4: Contact */}
           <div>
-            <h3 className="font-semibold mb-4">
+            <h3 className="text-[24px] font-semibold tracking-tight mb-4">
               Contact
             </h3>
 
-            <div className="space-y-3 text-sm text-neutral-400">
+            <div className="space-y-3 text-[17px] leading-8 text-neutral-400">
               <p>
                 info@cosmolix.co.in
               </p>
@@ -86,7 +86,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 py-6 text-center text-sm text-neutral-500">
+        <div className="border-t border-white/10 py-8 text-center text-[15px] tracking-wide text-neutral-500">
           © {new Date().getFullYear()} COSMOLIX PRIVATE LIMITED. All rights reserved.
         </div>
       </Container>

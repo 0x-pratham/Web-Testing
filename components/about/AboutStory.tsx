@@ -7,7 +7,6 @@ import Container from "@/components/shared/Container";
 export default function AboutStory() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
-  const xOffset = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const capabilities = [
     { title: "Software Engineering", desc: "Designing reliable software that scales with your business." },
@@ -17,25 +16,23 @@ export default function AboutStory() {
   ];
 
   return (
-    <section ref={containerRef} className="bg-[#FCFAF8] py-32 text-neutral-900 selection:bg-[#E87830]/20 overflow-hidden">
+    <section ref={containerRef} className="bg-[#FCFAF8] py-24 md:py-32 text-neutral-900 selection:bg-[#E87830]/20 overflow-hidden">
       <Container>
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left: Editorial Anchor - Full width utilization */}
-          <div className="lg:col-span-4 sticky top-32">
-            <motion.div style={{ x: useTransform(scrollYProgress, [0, 0.5], [0, -20]) }}>
-              <span className="text-[12px] font-bold uppercase tracking-[0.25em] text-[#E87830] font-[var(--font-inter)]">
+        {/* Why Cosmolix Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-32">
+          <div className="lg:col-span-4 lg:sticky lg:top-32">
+            <motion.div>
+              <span className="text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.18em] text-[#E87830] font-[var(--font-inter)]">
                 Why Cosmolix
               </span>
-              <h2 className="mt-6 text-5xl font-bold tracking-[-0.04em] leading-[1] text-neutral-950 font-[var(--font-sora)]">
+              <h2 className="mt-6 text-[42px] sm:text-[50px] md:text-[58px] lg:text-[64px] font-bold tracking-[-0.04em] leading-[1.05] text-neutral-950 font-[var(--font-sora)]">
                 Engineering <br/>With Intent.
               </h2>
             </motion.div>
           </div>
 
-          {/* Right: Narrative Engine */}
           <div className="lg:col-span-8">
-            <div className="relative border-l border-neutral-200 pl-10 space-y-24">
+            <div className="relative border-l border-neutral-200 pl-6 md:pl-10 space-y-14 md:space-y-24">
               {[
                 "Technology should help organizations move faster, operate securely and scale with confidence.",
                 "Our approach combines engineering expertise, cloud infrastructure and cybersecurity to create solutions that remain reliable as businesses grow.",
@@ -49,67 +46,84 @@ export default function AboutStory() {
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                   className="relative"
                 >
-                  <div className="absolute -left-[45px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-[#E87830] bg-[#FCFAF8]" />
-                  <p className="max-w-2xl text-2xl leading-relaxed text-neutral-700 font-light font-[var(--font-inter)]">
+                  <div className="absolute -left-[35px] md:-left-[45px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-[#E87830] bg-[#FCFAF8]" />
+                  <p className="max-w-2xl text-[20px] sm:text-[24px] md:text-[28px] leading-[1.8] text-neutral-700 font-light font-[var(--font-inter)]">
                     {text}
                   </p>
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
 
-            {/* Engineering Excellence: Magnetic Border + Glow Effect */}
-            <div className="mt-32">
-              <div className="flex items-center gap-6 mb-12">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 font-[var(--font-inter)]">
-                  Engineering Excellence
-                </span>
-                <div className="h-[1px] flex-1 bg-neutral-200" />
-              </div>
+        {/* Engineering Excellence Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div
+            className="
+              lg:col-span-4
+              lg:sticky
+              lg:top-32
+              flex
+              items-center
+              lg:min-h-[720px]
+            "
+          >
+            <motion.div className="w-full flex flex-col justify-center h-full">
+              <span className="text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.18em] text-[#E87830] font-[var(--font-inter)]">
+                ENGINEERING EXCELLENCE
+              </span>
+              <h2 className="mt-6 text-[42px] sm:text-[50px] md:text-[58px] lg:text-[64px] font-bold tracking-[-0.04em] leading-[1.05] text-neutral-950 font-[var(--font-sora)]">
+                Technology <br/>Built With <br/>Purpose.
+              </h2>
+            </motion.div>
+          </div>
 
-              <div className="grid w-full">
-                {capabilities.map((cap, i) => (
-                  <motion.div
-                    key={cap.title}
-                    whileHover={{ x: 10 }}
-                    className="group relative flex items-center justify-between py-12 border-b border-neutral-200/60 cursor-pointer"
-                  >
-                    {/* Unique Effect: Border Pulse on Hover */}
-                    <div className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#E87830] group-hover:w-full transition-all duration-700" />
-                    
-                    <div className="flex items-start gap-12">
-                      <span className="text-[14px] font-mono text-neutral-400 pt-1 group-hover:text-[#E87830] transition-colors">
-                        0{i + 1}
-                      </span>
-                      <div className="flex flex-col gap-2">
-                        <h4 className="text-2xl font-bold text-neutral-950 font-[var(--font-sora)]">
-                          {cap.title}
-                        </h4>
-                        <p className="text-sm text-neutral-500 font-[var(--font-inter)] max-w-sm">
-                          {cap.desc}
-                        </p>
-                      </div>
+          <div className="lg:col-span-8">
+            <div className="grid w-full">
+              {capabilities.map((cap, i) => (
+                <motion.div
+                  key={cap.title}
+                  whileHover={{ x: 10 }}
+                  className="group relative flex items-center justify-between py-8 md:py-12 border-b border-neutral-200/60 cursor-pointer"
+                >
+                  <div className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#E87830] group-hover:w-full transition-all duration-700" />
+                  
+                  <div className="flex items-start gap-6 md:gap-12">
+                    <span className="text-[16px] font-semibold font-mono text-neutral-400 pt-1 group-hover:text-[#E87830] transition-colors">
+                      0{i + 1}
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      <h4 className="text-[30px] font-bold text-neutral-950 font-[var(--font-sora)]">
+                        {cap.title}
+                      </h4>
+                      <p className="text-[17px] leading-8 text-neutral-500 font-[var(--font-inter)] max-w-sm">
+                        {cap.desc}
+                      </p>
                     </div>
+                  </div>
 
-                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-[#E87830]">
-                      <div className="w-8 h-8 rounded-full border border-[#E87830] flex items-center justify-center">
-                        <span className="text-lg">↗</span>
-                      </div>
+                  <div className="hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-300 text-[#E87830]">
+                    <div className="w-8 h-8 rounded-full border border-[#E87830] flex items-center justify-center">
+                      <span className="text-lg">↗</span>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
+          </div>
 
-            {/* Final Positioning */}
-            <div className="mt-32 border-t border-neutral-200 pt-20">
-              <p className="text-3xl font-medium text-neutral-950 font-[var(--font-sora)] leading-tight max-w-2xl">
+          {/* Full Width Final Section */}
+          <div className="lg:col-span-12">
+            <div className="mt-32 border-t border-neutral-200 pt-20 flex flex-col items-center justify-center text-center">
+              <p className="max-w-5xl mx-auto text-[34px] md:text-[42px] font-medium text-neutral-950 font-[var(--font-sora)] leading-tight">
                 Building secure, scalable and future-ready technology for organizations that value long-term growth.
               </p>
-              <div className="mt-10 flex items-center gap-6">
-                <span className="text-[11px] text-[#E87830] tracking-[0.2em] uppercase font-[var(--font-inter)] font-bold">
+              <div className="mt-10 w-full flex items-center justify-center gap-6 mx-auto">
+                <div className="w-20 h-px bg-neutral-900" />
+                <span className="text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.2em] text-[#E87830] font-[var(--font-inter)]">
                   Technology with intent.
                 </span>
-                <div className="h-[2px] w-12 bg-neutral-950" />
+                <div className="w-20 h-px bg-neutral-900" />
               </div>
             </div>
           </div>

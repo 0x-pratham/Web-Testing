@@ -33,23 +33,21 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`
         fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-        ${scrolled ? "pt-3 px-4 md:px-8" : "pt-6 px-4 md:px-8"}
+        ${scrolled ? "pt-2 px-4 md:px-8" : "pt-4 px-4 md:px-8"}
       `}
     >
       {/* Problem 1 & 2: Floating Layout with Premium Interaction System */}
       <div
         className={`
           mx-auto max-w-7xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-          /* Suggestion: 2% Luxury Warm Tint (#FFFCFA) & Glass Layer */
-          bg-[#FFFCFA]/90 backdrop-blur-xl
-          /* Problem 9 & Feature 3: Custom Horizontal Breathing & Luxury Gradient Border Structure */
+          bg-[#FFFCFA]
           px-6 sm:px-8
           rounded-2xl
           shadow-[0_2px_8px_rgba(0,0,0,0.02)]
           ${
             scrolled
-              ? "border-t border-white/60 border-b border-neutral-200/50 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] scale-[0.99]"
-              : "border border-neutral-200/30"
+              ? "border border-neutral-200 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)]"
+              : "border border-neutral-200"
           }
         `}
       >

@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import { Sora, Inter, JetBrains_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const sora = Sora({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-sora",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
@@ -62,14 +52,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${mono.variable} h-full antialiased scroll-smooth`}
+      className={`${manrope.variable} h-full antialiased scroll-smooth`}
     >
       <body
         className={`
-          ${sora.variable}
-          ${inter.variable}
-          ${mono.variable}
-          font-sans
+          ${manrope.variable}
           bg-[#F5F1EA]
           text-neutral-900
           h-full

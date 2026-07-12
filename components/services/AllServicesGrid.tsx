@@ -37,14 +37,14 @@ export default function AllServicesGrid() {
         {/* Studio-Grade Split Header block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
           <div className="lg:col-span-7">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.1]">
-              Technology Capabilities
-              <span className="text-neutral-400 font-normal"> Built Around Outcomes.</span>
+            <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold tracking-tight text-neutral-950 leading-[1.1]">
+              Technology Solutions
+              <span className="text-neutral-400 font-normal"> Built for Business Growth.</span>
             </h2>
           </div>
           <div className="lg:col-span-5">
-            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed max-w-md">
-              From product engineering and cloud infrastructure to cybersecurity and AI, we deliver the expertise required to build modern digital experiences.
+            <p className="text-[17px] md:text-[19px] text-neutral-500 leading-8 max-w-lg">
+              We build secure, scalable and future-ready digital solutions that help businesses innovate, improve efficiency and achieve long-term growth.
             </p>
           </div>
         </div>
@@ -105,48 +105,37 @@ export default function AllServicesGrid() {
 
                     {/* Service Main Content Metadata */}
                     <div className="space-y-2.5">
-                      <h3 className="text-base font-bold tracking-tight text-neutral-900 transition-colors duration-300">
+                      <h3 className="text-[26px] font-bold tracking-tight text-neutral-900 transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-xs font-medium text-[#E87830] tracking-wide">
+                      <p className="text-[15px] font-semibold text-[#E87830] tracking-wide">
                         {service.subtitle}
                       </p>
-                      {/* Dynamic Core Detailed Service Description Layer */}
+                      {/* Dynamic Clean Service Description Layer */}
                       {service.description && (
-                        <p className="text-xs leading-relaxed text-neutral-500 pt-1 max-w-[240px]">
+                        <p className="text-[16px] leading-7 text-neutral-500 pt-1">
                           {service.description}
                         </p>
                       )}
                     </div>
                   </div>
 
-                  {/* Bottom Segment Architecture: Extended Scope Array */}
+                  {/* Bottom Segment Architecture */}
                   <div className="relative z-10 w-full mt-10">
                     {service.capabilities && service.capabilities.length > 0 && (
-                      <div className="space-y-4">
-                        {/* Dynamic Clean Capability Horizontal Stack */}
-                        <div className="flex flex-wrap gap-1.5">
-                          {service.capabilities.slice(0, 3).map((item) => (
-                            <span
-                              key={item}
-                              className={`rounded-md px-2.5 py-1 text-[10px] font-medium tracking-wide transition-all duration-300 ${
-                                isHovered 
-                                  ? "bg-white text-[#E87830] border border-[#E87830]/10 shadow-sm" 
-                                  : "bg-neutral-50 text-neutral-400 border border-neutral-100"
-                              }`}
-                            >
-                              {item}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Flat Architecture Spec Line */}
-                        <div className="pt-3 border-t border-neutral-100/80 flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                          <span className="tracking-wide">SERVICE TRACK SPEC</span>
-                          <span className={`transition-colors duration-300 ${isHovered ? "text-neutral-800" : ""}`}>
-                            {service.capabilities.length} Core Nodes
+                      <div className="flex flex-wrap gap-2">
+                        {service.capabilities.slice(0, 3).map((item) => (
+                          <span
+                            key={item}
+                            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium tracking-wide transition-all duration-300 border ${
+                              isHovered 
+                                ? "bg-white text-[#E87830] border-[#E87830]/20 shadow-sm" 
+                                : "bg-white text-neutral-600 border-neutral-200"
+                            }`}
+                          >
+                            {item}
                           </span>
-                        </div>
+                        ))}
                       </div>
                     )}
                   </div>

@@ -118,10 +118,10 @@ export default function ProcessSection() {
     <Section className="relative bg-white pt-24 pb-28 overflow-hidden border-b border-neutral-100">
       <Container>
         <div className="max-w-xl mb-20 select-none">
-          <h2 className="text-[38px] sm:text-[46px] md:text-[52px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-[-0.03em] leading-[1.1]">
+          <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-[-0.03em] leading-[1.1]">
             Our Process
           </h2>
-          <p className="mt-4 text-base md:text-[17px] text-[#5A5A5A] font-[var(--font-inter)]">
+          <p className="mt-4 text-[17px] md:text-[19px] text-[#5A5A5A] font-[var(--font-inter)]">
             Built around clarity, not complexity.
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function ProcessSection() {
             >
               <div className="lg:col-span-4 flex items-center gap-3">
                 <span className="text-[#E87830] text-sm animate-pulse">●</span>
-                <h3 className="text-[22px] sm:text-[26px] font-bold font-[var(--font-sora)] tracking-tight text-neutral-900 group-hover:text-[#E87830] transition-colors duration-300">
+                <h3 className="text-[24px] sm:text-[30px] font-bold font-[var(--font-sora)] tracking-tight text-neutral-900 group-hover:text-[#E87830] transition-colors duration-300">
                   {step.title}
                 </h3>
                 <span className="text-xs font-mono text-neutral-400 ml-auto lg:hidden">{step.timeline}</span>
@@ -145,7 +145,7 @@ export default function ProcessSection() {
                   <span className="block text-[12px] font-mono italic text-[#E87830] mb-2">
                     &ldquo;{step.phrase}&rdquo;
                   </span>
-                  <p className="text-[15px] font-[var(--font-inter)] text-[#5A5A5A] leading-relaxed">
+                  <p className="text-[16px] md:text-[17px] font-[var(--font-inter)] text-[#5A5A5A] leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -157,7 +157,7 @@ export default function ProcessSection() {
                     </span>
                     <div className="space-y-1">
                       {step.deliverables.map((d, i) => (
-                        <div key={i} className="text-[12px] text-neutral-700 font-medium flex items-center gap-1.5">
+                        <div key={i} className="text-[13px] md:text-[14px] text-neutral-700 font-medium flex items-center gap-1.5">
                           <span className="text-neutral-300">&rarr;</span>
                           <span>{d}</span>
                         </div>
@@ -168,8 +168,8 @@ export default function ProcessSection() {
                     <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1.5">
                       Outcome:
                     </span>
-                    <span className="text-xs font-mono text-neutral-800 font-medium block">{step.outcome}</span>
-                    <p className="text-[11px] text-neutral-500 mt-1 font-[var(--font-inter)] leading-tight">{step.expectedOutcome}</p>
+                    <span className="text-sm font-mono text-neutral-800 font-medium block">{step.outcome}</span>
+                    <p className="text-[13px] text-neutral-500 mt-1 font-[var(--font-inter)] leading-tight">{step.expectedOutcome}</p>
                   </div>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function ProcessSection() {
               <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 block">
                 {metric.label}
               </span>
-              <span className="text-2xl font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight block">
+              <span className="text-[30px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight block">
                 {metric.value}
               </span>
             </div>
@@ -199,7 +199,7 @@ export default function ProcessSection() {
 
         <div className="mt-20 pt-10 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
-            <h4 className="text-xl font-bold text-neutral-900 font-[var(--font-sora)] tracking-tight">
+            <h4 className="text-[26px] font-bold text-neutral-900 font-[var(--font-sora)] tracking-tight">
               Every great product starts with clarity.
             </h4>
           </div>

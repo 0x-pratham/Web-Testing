@@ -123,7 +123,7 @@ export default function ServicesGrid() {
   const activeService = SERVICES_DATA.find((s) => s.id === activeId) || SERVICES_DATA[0];
 
   return (
-    <Section className="relative bg-[#FCFAF8] pt-24 pb-28 overflow-hidden">
+    <Section className="relative bg-[#FCFAF8] pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-28 overflow-hidden">
       <div 
         className="absolute inset-0 opacity-[0.01] pointer-events-none select-none z-0"
         style={{
@@ -133,18 +133,18 @@ export default function ServicesGrid() {
 
       <Container className="relative z-10">
         <div className="max-w-xl mb-16 select-none relative">
-          <h2 className="text-[38px] sm:text-[46px] md:text-[52px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-[-0.03em] leading-[1.1]">
+          <h2 className="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[58px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-[-0.03em] leading-[1.1]">
             Software. <br />
             <span className="hover:text-[#E87830] transition-colors duration-300 cursor-pointer">
               Built to perform.
             </span>
           </h2>
-          <p className="mt-4 text-base md:text-[17px] text-[#5A5A5A] font-[var(--font-inter)] font-normal">
+          <p className="mt-4 text-[16px] sm:text-[17px] md:text-[19px] text-[#5A5A5A] font-[var(--font-inter)] font-normal">
             Enterprise software, AI systems and cloud platforms engineered for long-term growth.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* LEFT COLUMN: Clean Service List Trackers with Premium Hover Gradients */}
           <div className="lg:col-span-7 flex flex-col relative">
             {SERVICES_DATA.map((service) => {
@@ -152,8 +152,9 @@ export default function ServicesGrid() {
               return (
                 <div
                   key={service.id}
-                  className="group relative pt-8 pb-8 cursor-pointer border-t border-neutral-200/70 last:border-b overflow-hidden transition-all duration-300"
-                  onMouseEnter={() => setActiveId(service.id)}
+                  className="group relative py-6 sm:py-8 cursor-pointer border-t border-neutral-200/70 last:border-b overflow-hidden transition-all duration-300"
+                  onClick={() => setActiveId(service.id)}
+                    onMouseEnter={() => setActiveId(service.id)}
                   style={{
                     background: isCurrent 
                       ? "linear-gradient(90deg, rgba(232,120,48,0.04), transparent)" 
@@ -175,16 +176,16 @@ export default function ServicesGrid() {
                           {service.category}
                         </span>
                         
-                        <h3 className="text-[26px] font-bold tracking-tight text-neutral-900 font-[var(--font-sora)] group-hover:text-[#E87830] transition-colors duration-300">
+                        <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-bold tracking-tight text-neutral-900 font-[var(--font-sora)] group-hover:text-[#E87830] transition-colors duration-300">
                           {service.title}
                         </h3>
                         
-                        <p className="mt-2 text-[15px] font-[var(--font-inter)] text-[#5A5A5A] leading-relaxed opacity-90">
+                        <p className="mt-2 text-[16px] sm:text-[17px] font-[var(--font-inter)] text-[#5A5A5A] leading-relaxed opacity-90">
                           {service.desc}
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 group-hover:text-[#E87830] transition-colors whitespace-nowrap self-end sm:self-start mt-2 sm:mt-0">
+                      <div className="flex items-center gap-1.5 text-[13px] font-mono font-bold uppercase tracking-wider text-neutral-400 group-hover:text-[#E87830] transition-colors whitespace-nowrap self-start sm:self-start mt-2 sm:mt-0">
                         <span>Explore Our Service</span>
                         <span className="text-sm transform group-hover:-rotate-45 transition-transform duration-200">&rarr;</span>
                       </div>
@@ -209,7 +210,9 @@ export default function ServicesGrid() {
 
           {/* RIGHT COLUMN: Highly Elegant Minimal Service Spec Explorer Knowledge Panel */}
           <div className="lg:col-span-5 lg:sticky lg:top-[120px] mt-8 lg:mt-0">
-            <div className="bg-[#FAF6F2] border border-neutral-200/50 rounded-lg p-7 shadow-[0_8px_30px_rgba(0,0,0,0.01)] min-h-[460px] flex flex-col justify-between overflow-hidden">
+            <div className="bg-[#FAF6F2] border border-neutral-200/50 rounded-lg p-5 sm:p-6 lg:p-7
+min-h-auto
+lg:min-h-[460px] flex flex-col justify-between overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeId}
@@ -227,7 +230,7 @@ export default function ServicesGrid() {
                       <span className="text-[#E87830] font-bold">{activeService.title.toUpperCase()}</span>
                     </div>
 
-                    <p className="text-[14px] font-[var(--font-inter)] text-neutral-700 leading-relaxed font-normal">
+                    <p className="text-[16px] font-[var(--font-inter)] text-neutral-700 leading-relaxed font-normal">
                       {activeService.preview.summary}
                     </p>
                   </div>
@@ -242,9 +245,9 @@ export default function ServicesGrid() {
                       <span className="block text-[12px] font-mono text-neutral-400 uppercase tracking-wider mb-2">
                         Capabilities
                       </span>
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
                         {activeService.preview.capabilities.map((cap, idx) => (
-                          <div key={idx} className="flex items-center gap-1.5 text-[12px] text-neutral-800 font-[var(--font-inter)]">
+                          <div key={idx} className="flex items-center gap-1.5 text-[14px] text-neutral-800 font-[var(--font-inter)]">
                             <span className="text-[#E87830] text-[10px]">✓</span>
                             <span>{cap}</span>
                           </div>
@@ -261,7 +264,7 @@ export default function ServicesGrid() {
                         {activeService.preview.technologies.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="text-[11px] font-mono bg-white border border-neutral-200 px-2.5 py-0.5 text-neutral-600 transition-colors duration-200 hover:border-[#E87830] hover:text-[#E87830]"
+                            className="text-[12px] sm:text-[13px] font-mono bg-white border border-neutral-200 px-2 py-1 sm:px-2.5 sm:py-0.5 text-neutral-600 transition-colors duration-200 hover:border-[#E87830] hover:text-[#E87830]"
                           >
                             {tech}
                           </span>
@@ -274,7 +277,7 @@ export default function ServicesGrid() {
                       <span className="block text-[12px] font-mono text-neutral-400 uppercase tracking-wider mb-1.5">
                         Ideal For
                       </span>
-                      <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-neutral-500 font-[var(--font-inter)]">
+                      <div className="flex flex-wrap gap-x-2 sm:gap-x-3 gap-y-1 text-[13px] text-neutral-500 font-[var(--font-inter)]">
                         {activeService.preview.idealFor.map((item, idx) => (
                           <span key={idx} className="after:content-['•'] after:ml-3 after:text-neutral-300 last:after:content-none font-medium">
                             {item}

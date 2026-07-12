@@ -29,9 +29,6 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const headingText = "We Engineer Digital Experiences That Drive Business.";
-  const words = headingText.split(" ");
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -94,37 +91,33 @@ export default function Hero() {
 
       <div className="relative z-10 w-full pt-32 pb-20 lg:pt-40">
         <Container>
-          <div className="grid lg:grid-cols-[1fr_0.95fr] gap-12 lg:gap-14 items-center">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-14 items-center">
             
-            <div className="relative max-w-[640px]">
+            <div className="relative max-w-[620px]">
               <motion.h1
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 text-[2.75rem] sm:text-[4rem] md:text-[4.75rem] font-extrabold font-[var(--font-sora)] tracking-tight text-neutral-900 leading-[1.02] [text-shadow:0_1px_0_rgba(255,255,255,0.15)] mb-6"
+                className="relative z-10 text-[3.2rem] sm:text-[4rem] md:text-[4.8rem] xl:text-[5.6rem] font-black font-heading tracking-[-0.03em] text-neutral-900 leading-[1.04] [text-shadow:0_1px_0_rgba(255,255,255,0.15)] mb-6"
               >
-                {words.map((word, index) => {
-                  if (word === "Digital" || word === "Experiences") {
-                    return (
-                      <React.Fragment key={index}>
-                        <span className="bg-gradient-to-r from-[#E87830] via-[#ffb36a] to-[#E87830] bg-clip-text text-transparent relative inline-block">
-                          {word}
-                          <motion.span
-                            animate={{ backgroundPosition: ["0%", "100%"] }}
-                            transition={{ repeat: Infinity, duration: 4 }}
-                            className="absolute inset-0"
-                            style={{ backgroundSize: "200%" }}
-                          />
-                        </span>{" "}
-                      </React.Fragment>
-                    );
-                  }
-                  return (
-                    <motion.span key={index} variants={wordVariants} className="inline-block">
-                      {word}{" "}
-                    </motion.span>
-                  );
-                })}
+                <motion.span variants={wordVariants} className="block">
+                  We Engineer
+                </motion.span>
+
+                <motion.span
+                  variants={wordVariants}
+                  className="block text-[#E87830] font-black"
+                >
+                  Digital Experiences
+                </motion.span>
+
+                <motion.span variants={wordVariants} className="block">
+                  That Drive
+                </motion.span>
+
+                <motion.span variants={wordVariants} className="block">
+                  Business.
+                </motion.span>
               </motion.h1>
 
               <motion.p
@@ -132,7 +125,7 @@ export default function Hero() {
                 variants={premiumFadeUp}
                 initial="hidden"
                 animate="visible"
-                className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-[520px] mb-8"
+                className="text-[18px] sm:text-[20px] text-neutral-600 leading-relaxed max-w-[500px] mb-8"
               >
                 From ambitious startups to enterprise organizations, we design, engineer and scale secure software, AI systems and cloud infrastructure that deliver measurable business outcomes.
               </motion.p>
@@ -142,7 +135,7 @@ export default function Hero() {
                 variants={premiumFadeUp}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-wrap items-center gap-4"
+                className="flex flex-wrap items-center gap-4 sm:gap-5"
               >
                 <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0 shadow-sm hover:shadow-[0_12px_24px_rgba(232,120,48,0.2)] transition-shadow duration-500 rounded-lg">
                   <Button href="/contact">
@@ -178,9 +171,9 @@ export default function Hero() {
         <motion.div 
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-400/80 font-mono"
+          className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] text-neutral-400/80"
         >
-          <span className="text-base text-[#E87830] font-sans">↓</span>
+          <span className="text-base text-[#E87830] font-body">↓</span>
           <span>Scroll</span>
         </motion.div>
       </div>

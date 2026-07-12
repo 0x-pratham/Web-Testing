@@ -86,13 +86,13 @@ export default function ServicesHero() {
           <div className="lg:col-span-6 space-y-8">
             
             <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] text-[#E87830] uppercase font-bold">
-              <span>Capabilities Registry</span>
+              <span>Our Services</span>
               <span className="w-8 h-px bg-neutral-800" />
             </div>
 
             {/* Pristine Crisp Elegant Typography Layout Node */}
             <h1 className="font-extrabold font-[var(--font-sora)] tracking-tight uppercase text-white flex flex-col gap-2">
-              <span className="text-4xl sm:text-5xl lg:text-5xl text-neutral-400 flex flex-wrap gap-x-3 font-light tracking-normal lowercase first-letter:uppercase">
+              <span className="text-[42px] sm:text-[50px] md:text-[58px] text-neutral-400 flex flex-wrap gap-x-3 font-light tracking-normal lowercase first-letter:uppercase">
                 {firstLineWords.map((word, index) => (
                   <motion.span
                     key={index}
@@ -104,7 +104,7 @@ export default function ServicesHero() {
                   </motion.span>
                 ))}
               </span>
-              <span className="text-5xl sm:text-6xl lg:text-6xl text-white flex flex-wrap gap-x-3 font-black">
+              <span className="text-[50px] sm:text-[58px] md:text-[66px] text-white flex flex-wrap gap-x-3 font-black">
                 {secondLineWords.map((word, index) => (
                   <motion.span
                     key={index}
@@ -120,24 +120,24 @@ export default function ServicesHero() {
             </h1>
 
             {/* Premium Clean Proportional Human Text Frame (Weight 450 feel) */}
-            <p className="text-[15px] text-neutral-400 leading-relaxed font-normal tracking-tight max-w-lg font-[var(--font-inter)] opacity-90">
-              Custom software, AI solutions and enterprise technology services designed by engineered standards. We deploy production blueprints that perform consistently at global infrastructure thresholds.
+            <p className="text-[17px] md:text-[19px] text-neutral-400 leading-relaxed font-normal tracking-tight max-w-lg font-[var(--font-inter)] opacity-90">
+              We build custom software, AI solutions and secure digital platforms that help businesses grow with confidence.
             </p>
 
             {/* Luxury Clean Interactive Actions Hub Block */}
             <div className="flex flex-wrap items-center gap-6 pt-2">
               <Link href="/contact" className="group relative inline-flex items-center justify-center bg-white text-black px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider overflow-hidden transition-colors duration-300 hover:bg-[#E87830] hover:text-white">
                 <span className="flex items-center gap-2 relative z-10">
-                  Initiate System 
+                  Start Your Project 
                   <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                 </span>
               </Link>
               
               <Link 
-                href="/portfolio" 
+                href="/about" 
                 className="text-xs font-mono text-neutral-500 hover:text-white uppercase tracking-widest transition-colors duration-150"
               >
-                Track Logs
+                About Us →
               </Link>
             </div>
 
@@ -146,15 +146,15 @@ export default function ServicesHero() {
               <div className="grid grid-cols-3 gap-6">
                 <div>
                   <div className="text-base font-bold tracking-tight text-white">99.98%</div>
-                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Availability</div>
+                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Uptime</div>
                 </div>
                 <div>
                   <div className="text-base font-bold tracking-tight text-white">ISO READY</div>
-                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Security Spec</div>
+                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Security</div>
                 </div>
                 <div>
                   <div className="text-base font-bold tracking-tight text-white">24H RESP</div>
-                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Live Telemetry</div>
+                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Support</div>
                 </div>
               </div>
             </div>
@@ -175,21 +175,21 @@ export default function ServicesHero() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E87830] opacity-60" />
                     <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#E87830]" />
                   </span>
-                  <span className="tracking-wider uppercase font-semibold">Active Operational Matrix</span>
+                  <span className="tracking-wider uppercase font-semibold">Our Core Services</span>
                 </div>
                 <div className="text-[8px] text-neutral-500 tracking-wider">
-                  Engine Stream Status
+                  What We Deliver
                 </div>
               </div>
 
               {/* Advanced Animated Interactive Capabilities Mapping Stream Stack */}
               <div className="flex flex-col space-y-1 relative">
                 {[
-                  { label: "AI & Machine Learning", val: "Active Process" },
-                  { label: "Software Engineering", val: "Stable Compile" },
-                  { label: "Cybersecurity Arrays", val: "Monitored Pipeline" },
-                  { label: "Cloud Infrastructure", val: "Live Edge Delivery" },
-                  { label: "Automation Pipelines", val: "Operational Flow" }
+                  { label: "AI & Machine Learning", val: "Available" },
+                  { label: "Custom Software Development", val: "Business Ready" },
+                  { label: "Cybersecurity", val: "Secure" },
+                  { label: "Cloud Solutions", val: "Cloud Ready" },
+                  { label: "Business Automation", val: "Optimized" }
                 ].map((node, i) => {
                   const isCurrent = activeCycle === i;
                   return (
@@ -204,14 +204,14 @@ export default function ServicesHero() {
 
                       {/* Content Row Core Metadata Map Layout */}
                       <div className="flex items-center justify-between z-10">
-                        <span className={`text-[12px] font-medium tracking-wide transition-colors duration-300 ${
+                        <span className={`text-[18px] font-medium tracking-wide transition-colors duration-300 ${
                           isCurrent ? "text-white" : "text-neutral-400"
                         }`}>
                           {node.label}
                         </span>
                         
                         <div className="flex items-center gap-3">
-                          <span className={`text-[9px] font-mono tracking-wider transition-colors duration-300 uppercase ${
+                          <span className={`text-[13px] font-mono tracking-wider transition-colors duration-300 uppercase ${
                             isCurrent ? "text-[#E87830] font-bold" : "text-neutral-600"
                           }`}>
                             {node.val}
@@ -237,8 +237,8 @@ export default function ServicesHero() {
 
               {/* Polished Clean Human Metric Frame Stamp Footer Specifications */}
               <div className="border-t border-neutral-900/60 pt-4 mt-6 flex items-center justify-between text-[8px] font-mono text-neutral-500 tracking-widest w-full">
-                <span>SYSTEM CORE INTEGRATION</span>
-                <span>SECURE DEPLOYMENT SPEC</span>
+                <span>Trusted by Businesses</span>
+                <span>Built for Growth</span>
               </div>
 
             </motion.div>

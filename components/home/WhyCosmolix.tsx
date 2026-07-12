@@ -52,11 +52,11 @@ export default function WhyCosmolix() {
         <svg className="absolute w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth="0.5">
           <circle cx="15%" cy="25%" r="3" />
           <line x1="15%" y1="25%" x2="45%" y2="25%" strokeDasharray="2 4" />
-          <text x="16%" y="22%" className="font-mono text-[9px]">COORD // 45.12.NX</text>
+          <text x="16%" y="22%" className="font-mono text-[12px]">COORD // 45.12.NX</text>
           
           <circle cx="75%" cy="65%" r="3" />
           <line x1="75%" y1="65%" x2="75%" y2="85%" strokeDasharray="2 4" />
-          <text x="76%" y="62%" className="font-mono text-[9px]">SYS_NODE // TR-09</text>
+          <text x="76%" y="62%" className="font-mono text-[12px]">SYS_NODE // TR-09</text>
         </svg>
       </div>
 
@@ -65,16 +65,16 @@ export default function WhyCosmolix() {
         {/* Header Block Configuration */}
         <div className="grid lg:grid-cols-12 gap-8 items-end mb-24">
           <div className="lg:col-span-7 space-y-4">
-            <span className="text-[16px] font-mono font-bold uppercase tracking-[0.2em] text-[#E87830] block">
+            <span className="text-[18px] font-mono font-bold uppercase tracking-[0.2em] text-[#E87830] block">
               WHY COSMOLIX
             </span>
-            <h2 className="text-[36px] sm:text-[44px] font-bold tracking-[-0.03em] font-[var(--font-sora)] leading-[1.1] text-white">
+            <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold tracking-[-0.03em] font-[var(--font-sora)] leading-[1.1] text-white">
               Built by engineers.<br />
               Chosen by businesses.
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pl-6">
-            <p className="text-sm md:text-base text-neutral-400 font-[var(--font-inter)] leading-relaxed max-w-md">
+            <p className="text-[17px] md:text-[19px] text-neutral-400 font-[var(--font-inter)] leading-relaxed max-w-md">
               We don't just deliver software. We design systems that stay reliable as your business grows.
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function WhyCosmolix() {
                 <div className="grid md:grid-cols-12 gap-6 items-center py-8 px-6 sm:px-8">
                   {/* Identification Meta Number */}
                   <div className="md:col-span-1 flex items-center gap-4">
-                    <span className="text-xs font-mono tracking-widest text-neutral-600 group-hover:text-[#E87830] transition-colors duration-300">
+                    <span className="text-[12px] font-mono tracking-widest text-neutral-600 group-hover:text-[#E87830] transition-colors duration-300">
                       {item.num}
                     </span>
                     <motion.div
@@ -139,7 +139,7 @@ export default function WhyCosmolix() {
                         hover: { x: 4 }
                       }}
                       transition={{ duration: 0.3 }}
-                      className="text-lg font-bold font-[var(--font-sora)] tracking-tight text-white group-hover:text-[#E87830] transition-colors duration-300"
+                      className="text-[26px] font-bold font-[var(--font-sora)] tracking-tight text-white group-hover:text-[#E87830] transition-colors duration-300"
                     >
                       {item.title}
                     </motion.h3>
@@ -153,14 +153,14 @@ export default function WhyCosmolix() {
                         hover: { opacity: 0.9 }
                       }}
                       transition={{ duration: 0.3 }}
-                      className="text-xs sm:text-sm text-neutral-300 font-[var(--font-inter)] leading-relaxed"
+                      className="text-[15px] sm:text-[16px] text-neutral-300 font-[var(--font-inter)] leading-relaxed"
                     >
                       {item.desc}
                     </motion.p>
                   </div>
 
                   {/* Engineering Spec Metadata Indicator Column */}
-                  <div className="hidden md:col-span-2 md:flex justify-end font-mono text-[10px] text-neutral-600 uppercase tracking-wider group-hover:text-neutral-400 transition-colors duration-300">
+                  <div className="hidden md:col-span-2 md:flex justify-end font-mono text-[12px] text-neutral-600 uppercase tracking-wider group-hover:text-neutral-400 transition-colors duration-300">
                     {item.meta}
                   </div>
 
@@ -187,10 +187,10 @@ export default function WhyCosmolix() {
         <div className="mt-28 grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-neutral-900 pb-12">
           {ENGINEERING_FOCUS.map((focus, index) => (
             <div key={index} className="space-y-1.5 pl-4 border-l border-neutral-800">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+              <span className="block text-[12px] font-mono uppercase tracking-widest text-neutral-500">
                 {focus.label}
               </span>
-              <p className="text-sm font-medium font-[var(--font-sora)] text-neutral-200">
+              <p className="text-[17px] font-medium font-[var(--font-sora)] text-neutral-200">
                 {focus.value}
               </p>
             </div>
@@ -202,10 +202,10 @@ export default function WhyCosmolix() {
           <div className="absolute right-0 top-0 bottom-0 w-[40%] bg-gradient-to-l from-[#E87830]/5 to-transparent pointer-events-none" />
           
           <div className="space-y-2 max-w-xl">
-            <h4 className="text-xl font-bold tracking-tight font-[var(--font-sora)] text-white">
+            <h4 className="text-[28px] font-bold tracking-tight font-[var(--font-sora)] text-white">
               Let's discuss your product.
             </h4>
-            <p className="text-sm text-neutral-400 font-[var(--font-inter)]">
+            <p className="text-[17px] text-neutral-400 font-[var(--font-inter)]">
               Skip the marketing cycle. Book a deep technical consultation directly with our engineering architects.
             </p>
           </div>

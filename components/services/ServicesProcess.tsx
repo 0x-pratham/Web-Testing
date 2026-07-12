@@ -6,28 +6,24 @@ import { useState } from "react";
 
 const steps = [
   {
-    label: "Strategy",
-    title: "Discover",
-    tag: "STRAT",
-    description: "Understand objectives, requirements and opportunities to scope the roadmap.",
+    label: "01",
+    title: "Discovery",
+    description: "We begin by understanding your goals, business challenges and project requirements.",
   },
   {
-    label: "Experience",
-    title: "Design",
-    tag: "DSGN",
-    description: "Craft scalable application architecture, structural wireframes and responsive product experiences.",
+    label: "02",
+    title: "Planning",
+    description: "We create a clear strategy, user experience and technical roadmap.",
   },
   {
-    label: "Engineering",
-    title: "Build",
-    tag: "ENGIN",
-    description: "Develop clean code systems, test architecture, and validate multi-tenant engineering solutions.",
+    label: "03",
+    title: "Development",
+    description: "Our team develops, tests and refines every feature with quality in mind.",
   },
   {
-    label: "Growth",
-    title: "Scale",
-    tag: "SCALE",
-    description: "Optimize cloud infrastructure telemetry, secure core data endpoints and manage long-term traffic.",
+    label: "04",
+    title: "Launch",
+    description: "After launch, we provide ongoing support, optimization and future enhancements.",
   },
 ];
 
@@ -41,13 +37,13 @@ export default function ServicesProcess() {
         {/* Elite Minimal Header */}
         <div className="max-w-2xl mb-24">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#E87830] font-semibold">
-              Execution Architecture
+            <span className="text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.18em] text-[#E87830]">
+              Our Process
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.1]">
-            Our Delivery Pipeline.
-            <span className="text-neutral-400 font-normal"> Engineered For Speed.</span>
+          <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold tracking-tight text-neutral-950 leading-[1.1]">
+            How We Work.
+            <span className="text-neutral-400 font-normal"> From Idea to Launch.</span>
           </h2>
         </div>
 
@@ -56,22 +52,22 @@ export default function ServicesProcess() {
           
           {/* Left Block: Interactive Phase Monitor */}
           <div className="lg:col-span-4 sticky top-44 hidden lg:block select-none pointer-events-none">
-            <div className="flex flex-col gap-8 pl-2">
+            <div className="flex flex-col gap-10 pl-2">
               {steps.map((step, idx) => {
                 const isCurrent = activeIndex === idx;
                 return (
-                  <div key={step.tag} className="flex items-center gap-4">
+                  <div key={step.title} className="flex items-center gap-6">
                     {/* Status Dot */}
                     <div className="relative flex items-center justify-center">
-                      <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        isCurrent ? "bg-[#E87830] scale-150" : "bg-neutral-300"
+                      <div className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        isCurrent ? "bg-[#E87830] scale-125" : "bg-neutral-300"
                       }`} />
                     </div>
-                    {/* Phase Tag */}
-                    <span className={`text-[11px] font-mono tracking-widest uppercase transition-colors duration-300 ${
-                      isCurrent ? "text-[#E87830] font-bold" : "text-neutral-400"
+                    {/* Phase Number & Title */}
+                    <span className={`text-[18px] font-semibold transition-colors duration-300 ${
+                      isCurrent ? "text-[#E87830]" : "text-neutral-400"
                     }`}>
-                      {isCurrent ? `[${step.tag}_ACTIVE]` : `[${step.tag}]`}
+                      {step.label} {step.title}
                     </span>
                   </div>
                 );
@@ -95,7 +91,7 @@ export default function ServicesProcess() {
                   className="relative transition-all duration-500"
                   style={{ opacity: isAnyHovered && !isActive ? 0.35 : 1 }}
                 >
-                  <div className="relative pl-8 pr-4 py-8 border-b border-neutral-200/50 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-12 justify-between">
+                  <div className="relative pl-8 pr-4 py-10 border-b border-neutral-200/50 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-12 justify-between">
                     
                     {/* Vertical Line Connector */}
                     <div className="absolute left-0 top-0 bottom-0 w-[1.5px] bg-neutral-200/60" />
@@ -106,32 +102,16 @@ export default function ServicesProcess() {
                       transition={{ duration: 0.35, ease: "easeOut" }}
                     />
 
-                    {/* Left Meta Sector */}
-                    <motion.div 
-                      className="min-w-[140px] space-y-1"
-                      animate={{ x: isActive ? 6 : 0 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                    >
-                      <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase block">
-                        // {step.tag}
-                      </span>
-                      <span className={`text-xs font-semibold tracking-wide transition-colors duration-300 ${
-                        isActive ? "text-[#E87830]" : "text-neutral-500"
-                      }`}>
-                        {step.label}
-                      </span>
-                    </motion.div>
-
                     {/* Content Sector */}
                     <motion.div 
-                      className="flex-1 space-y-2"
+                      className="flex-1 space-y-3"
                       animate={{ x: isActive ? 8 : 0 }}
                       transition={{ type: "spring", stiffness: 200, damping: 25 }}
                     >
-                      <h3 className="text-lg font-bold tracking-tight text-neutral-900">
+                      <h3 className="text-[28px] font-bold tracking-tight text-neutral-900">
                         {step.title}
                       </h3>
-                      <p className="text-xs md:text-sm leading-relaxed text-neutral-500 max-w-xl">
+                      <p className="text-[17px] md:text-[19px] leading-8 text-neutral-500 max-w-xl">
                         {step.description}
                       </p>
                     </motion.div>
