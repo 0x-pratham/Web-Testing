@@ -5,8 +5,10 @@ import { motion, Variants } from "framer-motion";
 import Container from "@/components/shared/Container";
 import { services } from "@/data/services";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function FeaturedServices() {
+  const router = useRouter();
   const cybersecurityService = services.find((s) => s.slug === "cybersecurity");
   const cloudService = services.find((s) => s.slug === "cloud");
   const softwareService = services.find((s) => s.slug === "software");
@@ -39,6 +41,7 @@ export default function FeaturedServices() {
         variants={cardVariants}
         onMouseEnter={() => setHoveredCard(service.slug)}
         onMouseLeave={() => setHoveredCard(null)}
+        onClick={() => router.push(`/services/${service.slug}`)}
         className="group relative flex flex-col h-full cursor-pointer select-none"
       >
         <div

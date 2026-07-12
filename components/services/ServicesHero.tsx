@@ -85,7 +85,7 @@ export default function ServicesHero() {
           {/* Left Block Grid Pitch Column Module */}
           <div className="lg:col-span-6 space-y-8">
             
-            <div className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] text-[#E87830] uppercase font-bold">
+            <div className="inline-flex items-center gap-3 font-mono text-[12px] tracking-[0.2em] text-[#E87830] uppercase font-bold">
               <span>Our Services</span>
               <span className="w-8 h-px bg-neutral-800" />
             </div>
@@ -146,15 +146,15 @@ export default function ServicesHero() {
               <div className="grid grid-cols-3 gap-6">
                 <div>
                   <div className="text-base font-bold tracking-tight text-white">99.98%</div>
-                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Uptime</div>
+                  <div className="text-[12px] text-neutral-500 uppercase tracking-widest mt-1">Uptime</div>
                 </div>
                 <div>
                   <div className="text-base font-bold tracking-tight text-white">ISO READY</div>
-                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Security</div>
+                  <div className="text-[12px] text-neutral-500 uppercase tracking-widest mt-1">Security</div>
                 </div>
                 <div>
                   <div className="text-base font-bold tracking-tight text-white">24H RESP</div>
-                  <div className="text-[9px] text-neutral-500 uppercase tracking-widest mt-1">Support</div>
+                  <div className="text-[12px] text-neutral-500 uppercase tracking-widest mt-1">Support</div>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function ServicesHero() {
               className="w-full max-w-lg bg-[#191614] border border-neutral-900 p-7 rounded-none relative transition-all duration-300 shadow-2xl"
             >
               {/* Dynamic Header Frame Component */}
-              <div className="flex items-center justify-between border-b border-neutral-900/60 pb-4 mb-6 font-mono text-[9px] text-neutral-400">
+              <div className="flex items-center justify-between border-b border-neutral-900/60 pb-4 mb-6 font-mono text-[12px] text-neutral-400">
                 <div className="flex items-center gap-2.5">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E87830] opacity-60" />
@@ -177,7 +177,7 @@ export default function ServicesHero() {
                   </span>
                   <span className="tracking-wider uppercase font-semibold">Our Core Services</span>
                 </div>
-                <div className="text-[8px] text-neutral-500 tracking-wider">
+                <div className="text-[12px] text-neutral-500 tracking-wider">
                   What We Deliver
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default function ServicesHero() {
               </div>
 
               {/* Polished Clean Human Metric Frame Stamp Footer Specifications */}
-              <div className="border-t border-neutral-900/60 pt-4 mt-6 flex items-center justify-between text-[8px] font-mono text-neutral-500 tracking-widest w-full">
+              <div className="border-t border-neutral-900/60 pt-4 mt-6 flex items-center justify-between text-[12px] font-mono text-neutral-500 tracking-widest w-full">
                 <span>Trusted by Businesses</span>
                 <span>Built for Growth</span>
               </div>
