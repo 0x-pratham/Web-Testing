@@ -79,7 +79,7 @@ export default function Footer() {
               </p>
 
               <p>
-                Maharashtra, India
+                Pune, Maharashtra, India
               </p>
             </div>
           </div>

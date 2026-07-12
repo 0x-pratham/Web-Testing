@@ -1,45 +1,29 @@
 "use client";
 import { motion } from "framer-motion";
 
-const items = ["Infrastructure Online", "AI Pipeline Ready", "Security Active", "Deployment Successful"];
+const items = [
+  "Custom Software Development", 
+  "Cloud Infrastructure", 
+  "Cybersecurity Solutions", 
+  "AI & Automation"
+];
 
 export default function SystemTerminal() {
   return (
-    <div className="
-      w-full
-      max-w-[220px]
-      sm:max-w-[250px]
-      lg:max-w-[280px]
-      bg-white/80
-      backdrop-blur-xl
-      border
-      border-neutral-200
-      p-3
-      sm:p-4
-      lg:p-5
-      rounded-xl
-      shadow-2xl
-    ">
-      <p className="text-[9px] sm:text-[10px] font-bold text-neutral-400 mb-3 tracking-widest uppercase">Cosmolix Engine</p>
-      <div className="
-        font-mono
-        text-[8px]
-        sm:text-[9px]
-        lg:text-[10px]
-        text-neutral-800
-        space-y-2
-        sm:space-y-3
-      ">
+    <div className="w-full max-w-[280px] sm:max-w-[320px] bg-white/80 backdrop-blur-xl border border-neutral-200 p-4 rounded-xl shadow-lg">
+      <p className="text-[10px] font-bold text-neutral-400 mb-3 tracking-widest uppercase">Core Expertise</p>
+      <div className="text-[11px] text-neutral-800 space-y-2">
         {items.map((item, i) => (
-          <motion.p 
+          <motion.div 
             key={i} 
-            className="break-words"
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: i * 0.5 }}
+            initial={{ opacity: 0, x: -10 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+            className="flex items-center gap-2"
           >
-            ● {item}
-          </motion.p>
+            <span className="w-1 h-1 bg-[#E87830] rounded-full" />
+            {item}
+          </motion.div>
         ))}
       </div>
     </div>
