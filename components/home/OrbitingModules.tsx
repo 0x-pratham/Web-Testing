@@ -3,10 +3,14 @@ import { motion } from "framer-motion";
 import { BrainCircuit, Cloud, ShieldCheck, Cpu } from "lucide-react";
 
 const modules = [
-  { title: "AI Solutions", icon: BrainCircuit, pos: "-top-10 left-1/2 -translate-x-1/2" },
-  { title: "Cloud Infrastructure", icon: Cloud, pos: "left-[-45px] top-1/2 -translate-y-1/2" },
-  { title: "Cybersecurity", icon: ShieldCheck, pos: "right-[-45px] top-1/2 -translate-y-1/2" },
-  { title: "Digital Infrastructure", icon: Cpu, pos: "bottom-[-10px] left-1/2 -translate-x-1/2" },
+  { title: "AI Solutions", icon: BrainCircuit, pos: "-top-6 left-1/2 -translate-x-1/2" },
+  { title: "Cloud Infrastructure", icon: Cloud, pos: "left-[-30px] top-1/2 -translate-y-1/2" },
+  { title: "Cybersecurity", icon: ShieldCheck, pos: "right-[-30px] top-1/2 -translate-y-1/2" },
+  {
+  title: "Digital Infrastructure",
+  icon: Cpu,
+  pos: "bottom-[-10px] left-1/2 -translate-x-1/2"
+}
 ];
 
 export default function OrbitingModules() {
