@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import Container from "@/components/shared/Container";
 
 export default function AboutStory() {
@@ -9,10 +10,26 @@ export default function AboutStory() {
   const { scrollYProgress } = useScroll({ target: containerRef });
 
   const capabilities = [
-    { title: "Software Engineering", desc: "Designing reliable software that scales with your business." },
-    { title: "Cloud Infrastructure", desc: "Modern cloud environments optimized for performance." },
-    { title: "Cybersecurity", desc: "Security integrated into every stage of development." },
-    { title: "Artificial Intelligence", desc: "Practical AI solutions built for real-world impact." },
+    {
+      title: "Software Engineering",
+      desc: "Designing reliable software that scales with your business.",
+      href: "/services/software",
+    },
+    {
+      title: "Cloud Infrastructure",
+      desc: "Modern cloud environments optimized for performance.",
+      href: "/services/cloud",
+    },
+    {
+      title: "Cybersecurity",
+      desc: "Security integrated into every stage of development.",
+      href: "/services/cybersecurity",
+    },
+    {
+      title: "Artificial Intelligence",
+      desc: "Practical AI solutions built for real-world impact.",
+      href: "/services/ai-ml",
+    },
   ];
 
   return (
@@ -81,33 +98,34 @@ export default function AboutStory() {
           <div className="lg:col-span-8">
             <div className="grid w-full">
               {capabilities.map((cap, i) => (
-                <motion.div
-                  key={cap.title}
-                  whileHover={{ x: 10 }}
-                  className="group relative flex items-center justify-between py-8 md:py-12 border-b border-neutral-200/60 cursor-pointer"
-                >
-                  <div className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#E87830] group-hover:w-full transition-all duration-700" />
-                  
-                  <div className="flex items-start gap-6 md:gap-12">
-                    <span className="text-[16px] font-semibold font-mono text-neutral-400 pt-1 group-hover:text-[#E87830] transition-colors">
-                      0{i + 1}
-                    </span>
-                    <div className="flex flex-col gap-2">
-                      <h4 className="text-[30px] font-bold text-neutral-950 font-[var(--font-sora)]">
-                        {cap.title}
-                      </h4>
-                      <p className="text-[17px] leading-8 text-neutral-500 font-[var(--font-inter)] max-w-sm">
-                        {cap.desc}
-                      </p>
+                <Link key={cap.title} href={cap.href}>
+                  <motion.div
+                    whileHover={{ x: 10 }}
+                    className="group relative flex items-center justify-between py-8 md:py-12 border-b border-neutral-200/60 cursor-pointer"
+                  >
+                    <div className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#E87830] group-hover:w-full transition-all duration-700" />
+                    
+                    <div className="flex items-start gap-6 md:gap-12">
+                      <span className="text-[16px] font-semibold font-mono text-neutral-400 pt-1 group-hover:text-[#E87830] transition-colors">
+                        0{i + 1}
+                      </span>
+                      <div className="flex flex-col gap-2">
+                        <h4 className="text-[30px] font-bold text-neutral-950 font-[var(--font-sora)]">
+                          {cap.title}
+                        </h4>
+                        <p className="text-[17px] leading-8 text-neutral-500 font-[var(--font-inter)] max-w-sm">
+                          {cap.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-300 text-[#E87830]">
-                    <div className="w-8 h-8 rounded-full border border-[#E87830] flex items-center justify-center">
-                      <span className="text-lg">↗</span>
+                    <div className="hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-300 text-[#E87830]">
+                      <div className="w-8 h-8 rounded-full border border-[#E87830] flex items-center justify-center">
+                        <span className="text-lg">↗</span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </div>
