@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Container from "@/components/shared/Container";
 import Button from "@/components/shared/Button";
@@ -18,14 +18,23 @@ export default function Hero() {
   const glowY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Throttling mouse movement to optimize performance
+    let ticking = false;
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      const { left, top } = containerRef.current.getBoundingClientRect();
-      mouseX.set(e.clientX - left);
-      mouseY.set(e.clientY - top);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (!containerRef.current) return;
+          const { left, top } = containerRef.current.getBoundingClientRect();
+          mouseX.set(e.clientX - left);
+          mouseY.set(e.clientY - top);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
@@ -89,7 +98,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 w-full pt-32 pb-20 lg:pt-40">
+      <div className="relative z-10 w-full pt-24 pb-20 lg:pt-32">
         <Container>
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-14 items-center">
             
@@ -98,7 +107,7 @@ export default function Hero() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 text-[3.2rem] sm:text-[4rem] md:text-[4.8rem] xl:text-[5.6rem] font-black font-heading tracking-[-0.03em] text-neutral-900 leading-[1.04] [text-shadow:0_1px_0_rgba(255,255,255,0.15)] mb-6"
+                className="hero-title relative z-10 text-neutral-900 mb-6"
               >
                 <motion.span variants={wordVariants} className="block">
                   We Engineer
@@ -106,7 +115,7 @@ export default function Hero() {
 
                 <motion.span
                   variants={wordVariants}
-                  className="block text-[#E87830] font-black"
+                  className="block text-[#E87830]"
                 >
                   Digital Experiences
                 </motion.span>
@@ -125,7 +134,7 @@ export default function Hero() {
                 variants={premiumFadeUp}
                 initial="hidden"
                 animate="visible"
-                className="text-[18px] sm:text-[20px] text-neutral-600 leading-relaxed max-w-[500px] mb-8"
+                className="body-lg text-neutral-600 max-w-[500px] mb-8"
               >
                 From ambitious startups to enterprise organizations, we design, engineer and scale secure software, AI systems and cloud infrastructure that deliver measurable business outcomes.
               </motion.p>
@@ -137,7 +146,7 @@ export default function Hero() {
                 animate="visible"
                 className="flex flex-wrap items-center gap-4 sm:gap-5"
               >
-                <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0 shadow-sm hover:shadow-[0_12px_24px_rgba(232,120,48,0.2)] transition-shadow duration-500 rounded-lg">
+                <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0 shadow-sm hover:shadow-[0_12px_24px_rgba(232,120,48,0.2)] rounded-lg">
                   <Button href="/contact">
                     <span className="flex items-center gap-2">
                       Start Your Project
@@ -146,7 +155,7 @@ export default function Hero() {
                   </Button>
                 </div>
                 
-                <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0 backdrop-blur-md bg-neutral-50/40 border border-neutral-200/80 hover:border-[#E87830]/40 hover:bg-white/80 transition-all duration-300 rounded-lg">
+                <div className="group transition-all duration-500 hover:-translate-y-[2px] active:translate-y-0 backdrop-blur-md bg-neutral-50/40 border border-neutral-200/80 hover:border-[#E87830]/40 hover:bg-white/80 rounded-lg">
                   <Button href="/services" variant="secondary">
                     Explore Services
                   </Button>
@@ -173,7 +182,7 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] text-neutral-400/80"
         >
-          <span className="text-base text-[#E87830] font-body">↓</span>
+          <span className="text-base text-[#E87830]">↓</span>
           <span>Scroll</span>
         </motion.div>
       </div>

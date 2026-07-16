@@ -1,16 +1,95 @@
 export const devopsService = {
   title: "DevOps & Automation",
-  subtitle: "Streamlining delivery through automation.",
-  description: "We bridge the gap between development and operations. Our team implements CI/CD pipelines that automate testing and deployment, allowing your teams to deliver features rapidly. By leveraging automated provisioning and observability tools, we create self-healing environments that reduce manual errors and foster a culture of continuous delivery.",
-  whyMatters: "DevOps maturity is the primary bottleneck for rapid innovation. We remove operational friction so your engineering team can focus on product development.",
-  technologies: ["CI/CD", "GitHub Actions", "Docker", "Kubernetes", "Prometheus", "Grafana", "Ansible"],
-  capabilities: ["CI/CD Pipeline Design", "Infrastructure as Code", "Container Orchestration", "Observability Setup", "Security Automation"],
-  process: [
-    { phase: "01", title: "Audit", desc: "Analyzing existing delivery bottlenecks." },
-    { phase: "02", title: "Design", desc: "Mapping pipeline requirements." },
-    { phase: "03", title: "Automation", desc: "Implementing CI/CD and monitoring." },
-    { phase: "04", title: "Scaling", desc: "Fine-tuning deployment throughput." }
+  subtitle: "Accelerating delivery with robust CI/CD and infrastructure automation.",
+  description: "We streamline your development lifecycle by implementing modern DevOps practices, ensuring faster releases, higher code quality, and reliable production environments.",
+  whyMatters: "In modern software development, speed and stability are not mutually exclusive. DevOps bridges the gap between development and operations to drive continuous value delivery.",
+
+  technologies: [
+    "Jenkins",
+    "GitHub Actions",
+    "Kubernetes",
+    "Terraform",
+    "Ansible",
+    "Prometheus"
   ],
-  benefits: ["Faster Time-to-Market", "Improved System Reliability", "Consistent Environments", "Reduced Operational Costs"],
-  seo: { title: "DevOps & Automation Services | Cosmolix", description: "Accelerate software delivery with CI/CD and automation." }
+
+  capabilities: [
+    {
+      title: "CI/CD Pipeline Design",
+      description: "Building automated workflows that ensure code quality and deployment efficiency.",
+      icon: "rocket"
+    },
+    {
+      title: "Infrastructure as Code",
+      description: "Managing and provisioning infrastructure through declarative code for consistency.",
+      icon: "layers3"
+    },
+    {
+      title: "Monitoring & Observability",
+      description: "Real-time visibility into system performance and automated alerts for proactive resolution.",
+      icon: "brainCircuit"
+    }
+  ],
+
+  process: [
+    {
+      step: "01",
+      title: "Workflow Audit",
+      description: "Analyzing current manual bottlenecks in development and deployment cycles."
+    },
+    {
+      step: "02",
+      title: "Pipeline Automation",
+      description: "Setting up automated builds, testing, and deployment gates."
+    },
+    {
+      step: "03",
+      title: "Scaling & Orchestration",
+      description: "Implementing container orchestration to handle traffic spikes effectively."
+    },
+    {
+      step: "04",
+      title: "Performance Tuning",
+      description: "Continuous refinement based on operational metrics and feedback loops."
+    }
+  ],
+
+  benefits: [
+    {
+      title: "Faster Time-to-Market",
+      description: "Automation reduces manual intervention, accelerating product releases.",
+      icon: "trendingUp"
+    },
+    {
+      title: "Improved Reliability",
+      description: "Automated testing and rollbacks minimize production downtime.",
+      icon: "shieldCheck"
+    },
+    {
+      title: "Operational Efficiency",
+      description: "Streamlined processes reduce overhead and resource wastage.",
+      icon: "database"
+    }
+  ],
+
+  faqs: [
+    {
+      question: "Can you automate legacy systems?",
+      answer: "Yes, we create bridging strategies to introduce automation even into existing, traditional environments."
+    },
+    {
+      question: "Which tools do you specialize in?",
+      answer: "We are platform-agnostic but specialize in standard industry tools like Docker, Kubernetes, and Cloud-native CI/CD solutions."
+    }
+  ],
+
+  seo: {
+    title: "DevOps Services | CI/CD, Automation & Cloud Operations",
+    description: "Scale your software delivery with expert DevOps services, including CI/CD pipeline automation and infrastructure management."
+  },
+
+  cta: {
+    text: "Automate Your Workflow",
+    link: "/contact"
+  }
 };

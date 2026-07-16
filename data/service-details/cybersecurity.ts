@@ -1,30 +1,95 @@
-export const cyberSecurityService = {
-  title: "Cybersecurity & Compliance",
-  subtitle: "Proactive defense strategies to secure your digital assets.",
-  description: `In an era of evolving digital threats, Cosmolix provides a proactive security posture that goes beyond simple perimeter defense. We anchor our strategies in industry-recognized frameworks like OWASP, NIST, and ISO 27001 to ensure your infrastructure is secure by design.\n\nOur approach focuses on identifying vulnerabilities before they can be exploited. We provide comprehensive end-to-end security solutions, from initial threat modeling and architecture hardening to continuous monitoring and regulatory compliance, ensuring your enterprise maintains the highest levels of data integrity and client trust.`,
-  whyMatters: "Security is the foundation of digital trust. Proactive cybersecurity not only protects your assets from catastrophic breaches but also ensures seamless regulatory compliance and operational stability in a landscape of complex, persistent threats.",
+export const cybersecurityService = {
+  title: "Cybersecurity & Resilience",
+  subtitle: "Protecting your digital assets with proactive, end-to-end security.",
+  description: "We provide comprehensive cybersecurity services to protect your infrastructure, data, and applications from sophisticated threats in an evolving digital landscape.",
+  whyMatters: "In a world of frequent cyber attacks, security is not just a defensive measure—it is a critical enabler of trust and business continuity.",
+
+  technologies: [
+    "AWS Security",
+    "Azure Sentinel",
+    "SIEM Solutions",
+    "OWASP Standards",
+    "Penetration Testing Tools",
+    "Identity Management"
+  ],
+
   capabilities: [
-    "Vulnerability Assessment & Penetration Testing (VAPT)",
-    "Cloud Infrastructure Hardening",
-    "API Security & Compliance Audits",
-    "Regulatory Framework Alignment (SOC 2, GDPR, HIPAA)",
-    "Threat Modeling & Risk Analysis",
-    "Secure-by-Design Architecture"
+    {
+      title: "Threat Assessment",
+      description: "Identifying vulnerabilities through advanced scanning and penetration testing.",
+      icon: "shieldCheck"
+    },
+    {
+      title: "Data Protection",
+      description: "Implementing robust encryption and access controls to secure sensitive information.",
+      icon: "database"
+    },
+    {
+      title: "Incident Response",
+      description: "Establishing rapid protocols to detect, neutralize, and recover from security breaches.",
+      icon: "rocket"
+    }
   ],
+
   process: [
-    { phase: "01", title: "Assessment", desc: "Performing deep audits and vulnerability scanning." },
-    { phase: "02", title: "Strategy", desc: "Developing a hardened security architecture." },
-    { phase: "03", title: "Implementation", desc: "Deploying security controls and hardening." },
-    { phase: "04", title: "Monitoring", desc: "Continuous threat detection and compliance." }
+    {
+      step: "01",
+      title: "Security Audit",
+      description: "Comprehensive review of existing infrastructure and security posture."
+    },
+    {
+      step: "02",
+      title: "Hardening Strategy",
+      description: "Applying security patches, configurations, and policy updates."
+    },
+    {
+      step: "03",
+      title: "Continuous Monitoring",
+      description: "Real-time threat detection and active defense management."
+    },
+    {
+      step: "04",
+      title: "Compliance & Reporting",
+      description: "Ensuring adherence to industry standards and regulatory requirements."
+    }
   ],
+
   benefits: [
-    "Reduced Breach Risk",
-    "Regulatory Compliance Assurance",
-    "Enhanced Stakeholder Trust",
-    "Operational Resilience"
+    {
+      title: "Risk Mitigation",
+      description: "Proactively reducing the likelihood and impact of security incidents.",
+      icon: "shieldCheck"
+    },
+    {
+      title: "Regulatory Compliance",
+      description: "Meeting global security standards to maintain customer trust and avoid penalties.",
+      icon: "layers3"
+    },
+    {
+      title: "Business Continuity",
+      description: "Ensuring minimal downtime during and after security events.",
+      icon: "trendingUp"
+    }
   ],
+
+  faqs: [
+    {
+      question: "Do you perform regular security audits?",
+      answer: "Yes, we offer both periodic security health checks and continuous monitoring services."
+    },
+    {
+      question: "How do you handle zero-day threats?",
+      answer: "We utilize proactive threat intelligence and heuristic-based monitoring to detect and block unknown threats."
+    }
+  ],
+
+  seo: {
+    title: "Cybersecurity Services | Threat Detection & Protection",
+    description: "Secure your business with our expert cybersecurity services, covering threat assessment, hardening, and incident response."
+  },
+
   cta: {
-    title: "Secure Your Enterprise",
-    description: "Schedule a comprehensive security audit with our experts."
+    text: "Secure Your Infrastructure",
+    link: "/contact"
   }
 };

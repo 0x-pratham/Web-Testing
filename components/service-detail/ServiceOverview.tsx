@@ -1,12 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Container from "@/components/shared/Container";
 import Button from "@/components/shared/Button";
 
-/**
- * Interfaces
- */
+// Agar tumne lib/motion.ts bana liya hai, toh yahan se import karo:
+// import { EASE } from "@/lib/motion";
+// Filhal ke liye yahan define kar rahe hain:
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 interface OverviewOutcome {
   title: string;
   description: string;
@@ -20,9 +22,6 @@ interface ServiceOverviewProps {
   };
 }
 
-/**
- * Constants
- */
 const DEFAULT_OUTCOMES: OverviewOutcome[] = [
   { title: "Business First", description: "Software engineered around your core business objectives, ensuring every line of code adds measurable value." },
   { title: "Security Built In", description: "Security is not an afterthought; it is integrated into every layer of our architectural design." },
@@ -30,92 +29,105 @@ const DEFAULT_OUTCOMES: OverviewOutcome[] = [
   { title: "Long-term Partnership", description: "We view our work as a continuous engagement, focusing on sustainable systems and ongoing support." }
 ];
 
-/**
- * Animation Variants
- */
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.55, 
+      ease: EASE 
+    } 
+  }
 };
 
 export default function ServiceOverview({ data }: ServiceOverviewProps) {
   const principles = data.outcomes?.length ? data.outcomes : DEFAULT_OUTCOMES;
+  
+  const paragraphs = (data.description ?? "").split('\n').filter(p => p.trim() !== '');
 
   return (
-    <section className="py-[120px] bg-white relative">
+    <section className="relative bg-white py-[120px]">
       <Container>
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid lg:grid-cols-12 gap-y-20 lg:gap-x-24"
+          className="grid gap-y-20 lg:grid-cols-12 lg:gap-x-24"
         >
           {/* Narrative Column */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <motion.div variants={itemVariants}>
-              <span className="text-[#E87830] font-semibold text-[15px] uppercase tracking-[0.18em] mb-8 block">
+              <span className="label mb-8 block uppercase text-[#E87830]">
                 Strategic Overview
               </span>
             </motion.div>
             
             <motion.h2 
               variants={itemVariants} 
-              className="text-[42px] md:text-[50px] lg:text-[64px] font-extrabold leading-[0.95] tracking-[-0.045em] text-neutral-900 mb-12 max-w-[420px]"
+              className="section-title mb-12 max-w-[420px] tracking-[-0.045em] text-neutral-900"
             >
               {data.heading}
             </motion.h2>
             
             <motion.div 
               variants={itemVariants} 
-              className="text-[17px] text-neutral-600 leading-[32px] max-w-[420px] mb-12"
+              className="body-lg mb-12 max-w-[420px] text-neutral-600 space-y-6"
             >
-              <span className="text-neutral-900 font-medium block mb-4">
-                {data.description.split('.')[0]}.
-              </span>
-              {data.description.split('.').slice(1).join('.')}
+              {paragraphs.map((text, idx) => (
+                <p key={idx} className={idx === 0 ? "font-medium text-neutral-900" : ""}>
+                  {text}
+                </p>
+              ))}
             </motion.div>
 
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="space-y-6">
+              <div className="h-px w-16 bg-neutral-300" />
               <Button href="/contact">Talk with our Architects</Button>
             </motion.div>
           </div>
 
           {/* Editorial Principles Column */}
           <div className="lg:col-span-7">
-            <div className="flex flex-col">
+            <ol className="flex flex-col">
               {principles.map((outcome, i) => (
-                <motion.div 
+                <motion.li 
                   key={i}
                   variants={itemVariants}
-                  className="group relative border-t border-neutral-200 py-[40px] first:pt-0 transition-all duration-500"
+                  className="group relative border-t border-neutral-200 py-[40px] transition-colors duration-500 first:border-none first:pt-0 hover:bg-orange-50/30"
                 >
-                  <div className="flex items-start gap-8">
+                  {/* Active Indicator */}
+                  <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-[#E87830] transition-transform duration-500 group-hover:scale-y-100" />
+                  
+                  <div className="flex items-start gap-8 pl-4">
                     {/* Number Badge */}
-                    <div className="flex flex-col items-center gap-2">
-                      <span className="text-[14px] font-bold text-neutral-900 transition-colors duration-500">
-                        0{i + 1}
-                      </span>
-                    </div>
+                    <span className="font-mono text-[16px] font-bold text-neutral-400 transition-colors duration-500 group-hover:text-[#E87830]">
+                      0{i + 1}
+                    </span>
 
                     {/* Principle Content */}
-                    <div className="flex-1">
-                      <h4 className="text-[28px] font-bold text-neutral-900 mb-4 transition-transform duration-500">
+                    <motion.div 
+                      className="flex-1"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h4 className="card-title mb-4 text-neutral-900 transition-transform duration-500 max-w-[360px]">
                         {outcome.title}
                       </h4>
-                      <p className="text-[17px] text-neutral-500 leading-[32px] max-w-[480px]">
+                      <p className="body max-w-[470px] text-neutral-500">
                         {outcome.description}
                       </p>
-                    </div>
+                    </motion.div>
                   </div>
-                </motion.div>
+                </motion.li>
               ))}
-            </div>
+            </ol>
           </div>
         </motion.div>
       </Container>

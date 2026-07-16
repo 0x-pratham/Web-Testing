@@ -2,34 +2,35 @@
   /* Brand */
   --color-primary: #E87830;
   --color-primary-light: #F29A52;
-
   --color-dark: #1A1714;
   --color-surface: #FFFFFF;
   --color-surface-alt: #F8F8F8;
 
-  --color-text: #171717;
-  --color-text-muted: #6B7280;
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 120px;
 
-  /* Radius */
+  /* Border Radius */
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 28px;
+  --radius-xl: 36px;
+  --radius-hero: 40px;
 
   /* Shadows */
-  --shadow-sm:
-    0 10px 30px rgba(0,0,0,0.06);
-
-  --shadow-md:
-    0 20px 60px rgba(0,0,0,0.08);
-
-  --shadow-lg:
-    0 30px 80px rgba(0,0,0,0.12);
+  --shadow-xs: 0 2px 4px rgba(0,0,0,0.03);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+  --shadow-xl: 0 30px 80px rgba(0,0,0,0.16);
 
   /* Motion */
-  --duration-fast: 180ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-
-  --ease-primary:
-    cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-default: 300ms ease-out;
 }

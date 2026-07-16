@@ -15,7 +15,7 @@ const PROCESS_DATA = [
     deliverables: ["Product Roadmap", "Scope Definition", "User Flows"],
     expectedOutcome: "Alignment on clear engineering goals without the guesswork.",
     svgAnimation: (
-      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+      <svg viewBox="0 0 100 30" className="h-auto w-24 stroke-[1] stroke-current fill-none text-[#E87830]">
         <path d="M10 15 H90" strokeDasharray="2 2" opacity="0.3" />
         <motion.circle 
           cx="10" cy="15" r="4" 
@@ -45,7 +45,7 @@ const PROCESS_DATA = [
     deliverables: ["System Architecture", "Database Schema", "UI/UX Wireframes"],
     expectedOutcome: "A complete bulletproof technical architecture blueprint.",
     svgAnimation: (
-      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+      <svg viewBox="0 0 100 30" className="h-auto w-24 stroke-[1] stroke-current fill-none text-[#E87830]">
         <rect x="10" y="5" width="20" height="20" strokeDasharray="1 1" />
         <rect x="70" y="5" width="20" height="20" strokeDasharray="1 1" />
         <motion.path 
@@ -67,7 +67,7 @@ const PROCESS_DATA = [
     deliverables: ["Production Codebase", "API Integration", "Automated Tests"],
     expectedOutcome: "Production-ready code deployed to live staging environment.",
     svgAnimation: (
-      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+      <svg viewBox="0 0 100 30" className="h-auto w-24 stroke-[1] stroke-current fill-none text-[#E87830]">
         <motion.path 
           d="M10 22 L25 8 L40 22 L55 8 L70 22 L85 8" 
           initial={{ pathLength: 0 }}
@@ -88,7 +88,7 @@ const PROCESS_DATA = [
     deliverables: ["Performance Audits", "Feature Iterations", "Security Patches"],
     expectedOutcome: "A platform that stays resilient, fast, and secure as you scale.",
     svgAnimation: (
-      <svg viewBox="0 0 100 30" className="w-24 h-auto text-[#E87830] stroke-current fill-none stroke-[1]">
+      <svg viewBox="0 0 100 30" className="h-auto w-24 stroke-[1] stroke-current fill-none text-[#E87830]">
         <motion.path 
           d="M10 25 Q 30 25, 50 15 T 90 5" 
           initial={{ pathLength: 0 }}
@@ -115,100 +115,100 @@ const METRICS_DATA = [
 
 export default function ProcessSection() {
   return (
-    <Section className="relative bg-white pt-24 pb-28 overflow-hidden border-b border-neutral-100">
+    <Section className="relative overflow-hidden border-b border-neutral-100 bg-white pb-28 pt-24">
       <Container>
-        <div className="max-w-xl mb-20 select-none">
-          <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-[-0.03em] leading-[1.1]">
+        <div className="mb-20 max-w-xl select-none">
+          <h2 className="section-title font-serif text-[42px] font-bold leading-[1.1] tracking-[-0.03em] text-neutral-900 sm:text-[50px] md:text-[58px]">
             Our Process
           </h2>
-          <p className="mt-4 text-[17px] md:text-[19px] text-[#5A5A5A] font-[var(--font-inter)]">
+          <p className="body-lg mt-4 font-sans text-[17px] text-[#5A5A5A] md:text-[19px]">
             Built around clarity, not complexity.
           </p>
         </div>
 
-        <div className="relative flex flex-col w-full border-t border-neutral-200/60 divide-y divide-neutral-200/60">
+        <div className="relative flex w-full flex-col divide-y divide-neutral-200/60 border-t border-neutral-200/60">
           {PROCESS_DATA.map((step) => (
-            <div 
+            <article 
               key={step.id} 
-              className="group relative py-12 grid lg:grid-cols-12 gap-8 items-start transition-colors duration-300 hover:bg-[#FCFAF8]/50 px-4"
+              className="group relative grid items-start gap-8 px-4 py-12 transition-colors duration-300 hover:bg-[#FCFAF8]/50 lg:grid-cols-12"
             >
-              <div className="lg:col-span-4 flex items-center gap-3">
-                <span className="text-[#E87830] text-sm animate-pulse">●</span>
-                <h3 className="text-[24px] sm:text-[30px] font-bold font-[var(--font-sora)] tracking-tight text-neutral-900 group-hover:text-[#E87830] transition-colors duration-300">
+              <div className="flex items-center gap-3 lg:col-span-4">
+                <span className="animate-pulse text-sm text-[#E87830]">●</span>
+                <h3 className="card-title font-serif text-[24px] font-bold tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#E87830] sm:text-[30px]">
                   {step.title}
                 </h3>
-                <span className="text-xs font-mono text-neutral-400 ml-auto lg:hidden">{step.timeline}</span>
+                <span className="ml-auto font-sans text-xs text-neutral-400 lg:hidden">{step.timeline}</span>
               </div>
 
-              <div className="lg:col-span-5 space-y-4">
+              <div className="space-y-4 lg:col-span-5">
                 <div>
-                  <span className="block text-[12px] font-mono italic text-[#E87830] mb-2">
+                  <span className="mb-2 block font-sans text-[12px] italic text-[#E87830]">
                     &ldquo;{step.phrase}&rdquo;
                   </span>
-                  <p className="text-[16px] md:text-[17px] font-[var(--font-inter)] text-[#5A5A5A] leading-relaxed">
+                  <p className="body mt-1 font-sans text-[16px] leading-relaxed text-[#5A5A5A] md:text-[17px]">
                     {step.desc}
                   </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-2">
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1.5">
+                    <span className="mb-1.5 block font-sans text-[10px] uppercase tracking-wider text-neutral-400">
                       You'll Receive:
                     </span>
-                    <div className="space-y-1">
+                    <ul className="space-y-1">
                       {step.deliverables.map((d, i) => (
-                        <div key={i} className="text-[13px] md:text-[14px] text-neutral-700 font-medium flex items-center gap-1.5">
+                        <li key={i} className="flex items-center gap-1.5 font-sans text-[13px] font-medium text-neutral-700 md:text-[14px]">
                           <span className="text-neutral-300">&rarr;</span>
                           <span>{d}</span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1.5">
+                    <span className="mb-1.5 block font-sans text-[10px] uppercase tracking-wider text-neutral-400">
                       Outcome:
                     </span>
-                    <span className="text-sm font-mono text-neutral-800 font-medium block">{step.outcome}</span>
-                    <p className="text-[13px] text-neutral-500 mt-1 font-[var(--font-inter)] leading-tight">{step.expectedOutcome}</p>
+                    <span className="block font-sans text-sm font-medium text-neutral-800">{step.outcome}</span>
+                    <p className="mt-1 font-sans text-[13px] leading-tight text-neutral-500">{step.expectedOutcome}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-3 flex flex-col items-end justify-between h-full min-h-[80px] lg:text-right">
-                <span className="hidden lg:block text-xs font-mono font-bold text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded-sm">{step.timeline}</span>
+              <div className="flex h-full min-h-[80px] flex-col items-end justify-between lg:col-span-3 lg:text-right">
+                <span className="hidden rounded-sm bg-neutral-100 px-2 py-0.5 font-sans text-xs font-bold text-neutral-400 lg:block">{step.timeline}</span>
                 <div className="mt-auto pt-4 lg:pt-0">
                   {step.svgAnimation}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-24 pt-12 border-t border-neutral-100 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left select-none">
+        <div className="mt-24 grid grid-cols-1 gap-8 border-t border-neutral-100 pt-12 text-center sm:grid-cols-3 sm:text-left">
           {METRICS_DATA.map((metric, index) => (
             <div key={index} className="flex flex-col gap-1">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 block">
+              <span className="block font-sans text-[11px] uppercase tracking-widest text-neutral-400">
                 {metric.label}
               </span>
-              <span className="text-[30px] font-bold font-[var(--font-sora)] text-neutral-900 tracking-tight block">
+              <span className="block font-serif text-[30px] font-bold tracking-tight text-neutral-900">
                 {metric.value}
               </span>
             </div>
           ))}
         </div>
 
-        <div className="mt-20 pt-10 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="mt-20 flex flex-col justify-between gap-6 border-t border-neutral-100 pt-10 sm:flex-row sm:items-center">
           <div>
-            <h4 className="text-[26px] font-bold text-neutral-900 font-[var(--font-sora)] tracking-tight">
+            <h4 className="card-title font-serif text-[26px] font-bold tracking-tight text-neutral-900">
               Every great product starts with clarity.
             </h4>
           </div>
           
           <a 
             href="/contact" 
-            className="inline-flex items-center justify-center px-5 py-3 text-xs font-mono font-bold tracking-widest text-white bg-neutral-900 uppercase hover:bg-[#E87830] transition-colors rounded-none shadow-sm"
+            className="inline-flex items-center justify-center bg-neutral-900 px-5 py-3 font-sans text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#E87830]"
           >
-            Talk to our engineers <span className="text-sm ml-2">&rarr;</span>
+            Talk to our engineers <span className="ml-2 text-sm">&rarr;</span>
           </a>
         </div>
       </Container>

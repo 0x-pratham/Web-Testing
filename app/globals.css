@@ -1,104 +1,105 @@
 @import "../styles/tokens.css";
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --cream: #f5f1ea;
-  --charcoal: #1a1714;
-  --deep-copper: #7a3206;
-  --amber: #e87830;
-  --burnt: #c45018;
-  --off-white: #fafaf8;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --font-body: var(--font-body);
-
-  --font-sans: var(--font-body);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--cream);
-  color: var(--charcoal);
-  font-family: var(--font-body);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Times New Roman", Times, serif;
-  letter-spacing: -0.03em;
-}
-
-section {
-  position: relative;
-}
-
-.section-padding {
-  padding-top: clamp(5rem, 8vw, 8rem);
-  padding-bottom: clamp(5rem, 8vw, 8rem);
-}
-
-::selection {
-  background: rgba(232, 120, 48, 0.25);
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f5f1ea;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #7a3206;
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #e87830;
-}
-
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --fs-hero: 40px;
+    --fs-section: 32px;
+    --fs-card: 22px;
+    --fs-body: 16px;
+    --fs-small: 14px;
+    --transition-default: 0.3s ease;
+  }
+
+  body {
+    background: #ffffff;
+    color: #1a1714;
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
   img {
-    @apply h-auto max-w-full;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  /* Typography Scale */
+  .hero-title { font-size: var(--fs-hero); font-weight: 700; letter-spacing: -0.05em; line-height: 1.05; }
+  .section-title { font-size: var(--fs-section); font-weight: 700; line-height: 1.15; }
+  .card-title { font-size: var(--fs-card); font-weight: 700; }
+  .body-lg { font-size: 18px; }
+  .body { font-size: var(--fs-body); }
+  .body-sm { font-size: var(--fs-small); }
+
+  @media (min-width: 768px) {
+    :root {
+      --fs-hero: 56px;
+      --fs-section: 44px;
+      --fs-card: 26px;
+      --fs-body: 17px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --fs-hero: 64px;
+      --fs-section: 54px;
+      --fs-card: 30px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --fs-hero: 72px;
+    }
   }
 }
 
-*:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
+@layer components {
+  .container-default { 
+    max-width: 1440px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
   }
+  
+  @media (min-width: 768px) { .container-default { padding: 0 32px; } }
+  @media (min-width: 1024px) { .container-default { padding: 0 48px; } }
+  @media (min-width: 1280px) { .container-default { padding: 0 64px; } }
+  
+  .section-padding { 
+    padding-top: 72px; padding-bottom: 72px; 
+  }
+  @media (min-width: 768px) { .section-padding { padding-top: 96px; padding-bottom: 96px; } }
+  @media (min-width: 1024px) { .section-padding { padding-top: 120px; padding-bottom: 120px; } }
+
+  .glass-card { border-radius: var(--radius-hero); backdrop-filter: blur(10px); }
+  .surface-card { border-radius: var(--radius-md); background: var(--color-surface); }
+  
+  .btn {
+    height: 52px;
+    padding: 0 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform var(--transition-default, 0.3s ease), box-shadow var(--transition-default, 0.3s ease);
+  }
+  .btn:hover { transform: translateY(-2px); }
 }
 
-@utility font-body {
-  font-family: var(--font-body);
-}
+.text-balance { text-wrap: balance; }

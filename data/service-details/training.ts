@@ -1,16 +1,90 @@
 export const trainingService = {
-  title: "Corporate Training & Upskilling",
-  subtitle: "Bridging the skills gap through industry-led training.",
-  description: "We translate our engineering experience into bespoke corporate training. Our curriculum is grounded in current industry technologies, emphasizing practical application over theory. Whether it's intensive bootcamps, executive workshops, or faculty development, we empower teams to adopt modern frameworks, secure coding, and cloud-native methodologies.",
-  whyMatters: "Technological pace requires a continuous learning culture. Our training empowers your internal teams to remain competitive, reducing dependency on external contractors.",
-  technologies: ["React/Next.js", "Cloud Architecture", "Cybersecurity", "AI Implementation", "DevOps"],
-  capabilities: ["Corporate Workshops", "Bootcamps", "Faculty Development", "Secure Coding", "Custom Curriculum"],
-  process: [
-    { phase: "01", title: "Assess", desc: "Identifying team skill gaps." },
-    { phase: "02", title: "Design", desc: "Tailoring the technical curriculum." },
-    { phase: "03", title: "Deliver", desc: "Expert-led sessions and hands-on labs." },
-    { phase: "04", title: "Certify", desc: "Assessment and skill verification." }
+  title: "Professional Technical Training",
+  subtitle: "Bridging the knowledge gap with industry-standard curriculum and hands-on expertise.",
+  description: "We empower engineering teams and organizations by delivering specialized training programs designed to accelerate development, improve code quality, and foster best practices in modern software engineering.",
+  
+  whyMatters: "In a fast-paced technology ecosystem, the difference between good and great engineering lies in continuous upskilling. Our training bridges the gap between theoretical knowledge and real-world execution.",
+
+  technologies: [
+    "TypeScript",
+    "React / Next.js",
+    "Node.js",
+    "Cloud Architecture",
+    "DevOps Pipelines",
+    "System Design"
   ],
-  benefits: ["Closing Skill Gaps", "Increased Retention", "Industry Readiness", "Certified Workforce"],
-  seo: { title: "Technical Upskilling | Cosmolix", description: "Expert corporate training for teams and students." }
+
+  capabilities: [
+    {
+      title: "Customized Learning Paths",
+      description: "Tailored curriculum based on your team's current stack and long-term project goals."
+    },
+    {
+      title: "Hands-on Workshops",
+      description: "Live coding sessions and project-based learning to ensure immediate practical application."
+    },
+    {
+      title: "Mentorship & Coaching",
+      description: "One-on-one sessions with senior engineers to accelerate individual growth and troubleshooting skills."
+    }
+  ],
+
+  process: [
+    {
+      step: "01",
+      title: "Assessment",
+      description: "Deep dive into your team's current technical proficiency and identifying specific skill gaps."
+    },
+    {
+      step: "02",
+      title: "Curriculum Design",
+      description: "Developing a structured, modular learning path aligned with your business objectives."
+    },
+    {
+      step: "03",
+      title: "Execution",
+      description: "Delivery of intensive workshops followed by hands-on code reviews and problem-solving."
+    },
+    {
+      step: "04",
+      title: "Evaluation",
+      description: "Measuring impact through post-training assessments and feedback loops."
+    }
+  ],
+
+  benefits: [
+    {
+      title: "Increased Velocity",
+      description: "Faster onboarding of new team members and reduced ramp-up time for new projects."
+    },
+    {
+      title: "Standardized Practices",
+      description: "Ensures the entire team follows the same design patterns and coding standards."
+    },
+    {
+      title: "Better Architecture",
+      description: "Empowers developers to make informed architectural decisions for scalable systems."
+    }
+  ],
+
+  faqs: [
+    {
+      question: "Can you customize the training for a specific stack?",
+      answer: "Absolutely. We specialize in building custom curriculums around your specific technology stack and team composition."
+    },
+    {
+      question: "Is this training onsite or remote?",
+      answer: "We offer both flexible options to accommodate your team's work environment."
+    }
+  ],
+
+  seo: {
+    title: "Expert Tech Training & Engineering Mentorship",
+    description: "Upskill your engineering team with hands-on training from industry experts."
+  },
+
+  cta: {
+    text: "Discuss Your Training Needs",
+    link: "/contact"
+  }
 };

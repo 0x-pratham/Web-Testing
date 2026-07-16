@@ -1,22 +1,95 @@
 export const softwareService = {
-  title: "Enterprise Software Engineering",
-  subtitle: "Scalable, cloud-native applications built for high-performance business.",
-  description: "We architect robust, high-availability software platforms that act as the digital backbone of your organization. Our engineering team specializes in modular architecture and secure-by-design principles, ensuring your software scales effortlessly as user demand grows. From custom SaaS platforms to complex enterprise-grade API integrations, we deliver clean, maintainable code that minimizes technical debt and accelerates your digital roadmap.",
-  whyMatters: "Software is the primary driver of operational efficiency. A well-architected platform not only solves current business challenges but provides the modular flexibility to pivot and innovate without requiring a complete rewrite of your core systems.",
-  technologies: ["React", "Next.js", "TypeScript", "Node.js", "NestJS", "Spring Boot", "PostgreSQL", "MongoDB"],
+  title: "Custom Software Development",
+  subtitle: "Scalable, secure, and tailor-made software solutions.",
+  description: "We engineer robust, high-performance software tailored to your specific business requirements, ensuring seamless integration and long-term maintainability.",
+  whyMatters: "Off-the-shelf software often forces you to adapt your business to the tool. Our custom software adapts to your business, giving you a unique competitive advantage.",
+
+  technologies: [
+    "TypeScript",
+    "Node.js",
+    "Python",
+    "Go",
+    "PostgreSQL",
+    "React / Next.js"
+  ],
+
   capabilities: [
-    "Custom Enterprise Applications", "SaaS Platform Development", "Microservices Architecture",
-    "REST & GraphQL API Design", "Legacy System Modernization", "Cloud-Native App Development",
-    "Database Architecture & Optimization", "Real-time Communication Systems", "Secure Authentication/SSO", "Performance Engineering"
+    {
+      title: "Enterprise Web Apps",
+      description: "High-scale, secure web platforms designed for complex business workflows.",
+      icon: "layers3"
+    },
+    {
+      title: "API Development",
+      description: "Building reliable, scalable APIs to connect your ecosystem seamlessly.",
+      icon: "database"
+    },
+    {
+      title: "System Integration",
+      description: "Connecting disparate systems to create a unified data flow across your organization.",
+      icon: "rocket"
+    }
   ],
+
   process: [
-    { phase: "01", title: "Discovery", desc: "Analyzing functional requirements and business objectives." },
-    { phase: "02", title: "Architecture", desc: "Designing scalable schemas and microservices topology." },
-    { phase: "03", title: "Implementation", desc: "Agile sprints focused on iterative, secure coding." },
-    { phase: "04", title: "Deployment", desc: "Rigorous QA and automated CI/CD pipeline handoff." }
+    {
+      step: "01",
+      title: "Discovery",
+      description: "Understanding your business goals and technical requirements."
+    },
+    {
+      step: "02",
+      title: "Architecture Design",
+      description: "Planning a scalable, secure, and efficient system architecture."
+    },
+    {
+      step: "03",
+      title: "Agile Development",
+      description: "Iterative development cycles with regular feedback and transparent progress."
+    },
+    {
+      step: "04",
+      title: "Delivery & Support",
+      description: "Seamless deployment followed by continuous maintenance and optimization."
+    }
   ],
-  benefits: ["Reduced Technical Debt", "High Availability Architecture", "Faster Time-to-Market", "Seamless System Integration", "Reliable Performance", "Improved Maintainability"],
-  faqs: [{ q: "What stack do you use?", a: "We primarily utilize a robust TypeScript/Node.js or Java Spring Boot stack tailored to enterprise scale." }],
-  seo: { title: "Enterprise Software Engineering | Cosmolix", description: "Build scalable, secure, and maintainable software platforms with Cosmolix engineering." },
-  cta: { title: "Engineer Your Platform", description: "Speak with our senior engineers about your project." }
+
+  benefits: [
+    {
+      title: "Tailored Functionality",
+      description: "Features built specifically for your unique operational needs.",
+      icon: "brainCircuit"
+    },
+    {
+      title: "Seamless Scalability",
+      description: "Architecture built to grow as your user base and demands increase.",
+      icon: "trendingUp"
+    },
+    {
+      title: "Enhanced Security",
+      description: "Security-first development approach to protect your sensitive data.",
+      icon: "shieldCheck"
+    }
+  ],
+
+  faqs: [
+    {
+      question: "What is your typical development cycle?",
+      answer: "We follow an Agile methodology with bi-weekly sprints to ensure transparency and rapid delivery."
+    },
+    {
+      question: "Do you provide source code ownership?",
+      answer: "Yes, our clients retain full ownership of all source code developed throughout the project."
+    }
+  ],
+
+  seo: {
+    title: "Custom Software Development | Scalable & Secure Solutions",
+    description: "Build robust, custom software tailored to your business needs. Expert development for enterprise web apps and API integration."
+  },
+
+  cta: {
+    text: "Discuss Your Project",
+    link: "/contact"
+  }
 };

@@ -1,16 +1,95 @@
 export const designService = {
-  title: "UI/UX Design Strategy",
-  subtitle: "User-centric design systems for enterprise.",
-  description: "Design is a strategic discipline that drives usability. We create cohesive design systems that maintain brand consistency across all touchpoints. Rooted in UX research, our process ensures every interface decision is backed by user intent. We specialize in accessibility, complex data visualization, and performance-optimized enterprise interfaces.",
-  whyMatters: "Intuitive design reduces friction, lowers training costs, and drastically increases user retention in complex enterprise applications.",
-  technologies: ["Figma", "Design Systems", "UX Research", "Accessibility Standards (WCAG)"],
-  capabilities: ["Enterprise UX Research", "Design Systems", "Accessibility Compliance", "Complex Data Viz", "Interaction Design"],
-  process: [
-    { phase: "01", title: "Research", desc: "User interviews and persona mapping." },
-    { phase: "02", title: "Wireframe", desc: "Iterative low-fidelity structural design." },
-    { phase: "03", title: "Prototyping", desc: "High-fidelity interactive prototypes." },
-    { phase: "04", title: "Handoff", desc: "Developer-ready design system documentation." }
+  title: "UI/UX Design Services",
+  subtitle: "Crafting intuitive experiences that users love.",
+  description: "We combine aesthetic excellence with data-driven UX research to build digital products that are not only beautiful but highly functional and conversion-oriented.",
+  whyMatters: "Great design is the bridge between user intent and business goals. A seamless interface reduces friction and significantly enhances brand loyalty.",
+
+  technologies: [
+    "Figma",
+    "Adobe XD",
+    "Framer",
+    "Protopie",
+    "Sketch",
+    "Webflow"
   ],
-  benefits: ["Higher Retention", "Increased Usability", "Cohesive Identity", "Faster Development Handoff"],
-  seo: { title: "Enterprise UI/UX Design | Cosmolix", description: "Strategic product design and design systems." }
+
+  capabilities: [
+    {
+      title: "User Research",
+      description: "Deep dive into user personas and behavior to inform design decisions.",
+      icon: "brainCircuit"
+    },
+    {
+      title: "Wireframing & Prototyping",
+      description: "Low to high-fidelity layouts that validate functionality before development.",
+      icon: "layers3"
+    },
+    {
+      title: "Design Systems",
+      description: "Creating a scalable design language to ensure consistency across products.",
+      icon: "shieldCheck"
+    }
+  ],
+
+  process: [
+    {
+      step: "01",
+      title: "Discovery",
+      description: "Understanding your vision, target audience, and competitive landscape."
+    },
+    {
+      step: "02",
+      title: "Ideation",
+      description: "Mapping user journeys and creating initial structural flows."
+    },
+    {
+      step: "03",
+      title: "Visual Design",
+      description: "Applying brand identity to create a polished, final interface."
+    },
+    {
+      step: "04",
+      title: "Testing & Handoff",
+      description: "Usability testing followed by developer-friendly design handoffs."
+    }
+  ],
+
+  benefits: [
+    {
+      title: "Enhanced User Retention",
+      description: "Intuitive interfaces keep users coming back.",
+      icon: "trendingUp"
+    },
+    {
+      title: "Reduced Development Cost",
+      description: "Clear design documentation prevents rework during the coding phase.",
+      icon: "database"
+    },
+    {
+      title: "Brand Consistency",
+      description: "Cohesive visual identity strengthens your market presence.",
+      icon: "rocket"
+    }
+  ],
+
+  faqs: [
+    {
+      question: "Do you provide design handoff to developers?",
+      answer: "Yes, we provide detailed style guides, assets, and specs tailored for developers."
+    },
+    {
+      question: "How long does a design cycle take?",
+      answer: "It depends on the project scope, but we typically work in agile two-week sprints."
+    }
+  ],
+
+  seo: {
+    title: "UI/UX Design Services | Bespoke Digital Experiences",
+    description: "Expert UI/UX design services to elevate your digital product. Research-driven, conversion-focused, and beautifully crafted."
+  },
+
+  cta: {
+    text: "Start Your Design Project",
+    link: "/contact"
+  }
 };

@@ -1,72 +1,98 @@
 export const aiMlService = {
-  // Hero
-  title: "Artificial Intelligence & Machine Learning",
-  subtitle: "Driving operational intelligence with scalable, high-performance AI architectures.",
-  
-  // Overview
-  description: `Cosmolix delivers enterprise-grade AI solutions that transform raw data into actionable intelligence. 
-  Our approach focuses on pragmatic AI integration, utilizing Retrieval-Augmented Generation (RAG) and specialized 
-  LLM pipelines to ensure accuracy and relevance. We support clients through the entire AI lifecycle—from 
-  data engineering and MLOps to model deployment and fine-tuning. By leveraging advanced frameworks like 
-  LangChain, PyTorch, and FastAPI, we build secure, scalable agents that integrate seamlessly into existing 
-  enterprise workflows, ensuring your organization remains competitive in an increasingly automated landscape.`,
+  title: "AI & Machine Learning",
+  subtitle: "Transforming raw data into actionable intelligence.",
+  description: "We build custom AI and Machine Learning solutions that optimize workflows, predict market trends, and automate complex decision-making processes. Our approach focuses on scalable models that integrate seamlessly into your existing architecture.",
+  whyMatters: "In an era of data-driven business, AI is not a luxury—it is the core engine for competitive advantage. By leveraging predictive analytics and intelligent automation, we help you reduce operational overhead and uncover new revenue streams.",
 
-  // Why it matters
-  whyMatters: "AI is no longer experimental; it is an operational imperative. Companies that successfully integrate AI-driven decision-making see exponential growth in efficiency and a significant reduction in operational latency, enabling them to outpace market competitors.",
-
-  // Technologies
   technologies: [
-    "Generative AI", "LLM Integration", "RAG (Retrieval-Augmented Generation)", 
-    "Python", "FastAPI", "TensorFlow", "PyTorch", "LangChain", "OpenCV"
+    "TensorFlow",
+    "PyTorch",
+    "Scikit-Learn",
+    "OpenAI API",
+    "LangChain",
+    "FastAPI"
   ],
 
-  // Capabilities (Extended list)
   capabilities: [
-    "Custom AI Agent Architecture",
-    "Enterprise LLM Fine-Tuning",
-    "Retrieval-Augmented Generation (RAG) Pipelines",
-    "Predictive Analytics & Forecasting",
-    "Computer Vision Solutions",
-    "Natural Language Processing (NLP)",
-    "MLOps & Model Lifecycle Management",
-    "Data Engineering & Pipeline Construction",
-    "Automated Decision Support Systems",
-    "Scalable API Deployment"
+    {
+      title: "Predictive Analytics",
+      description: "Leverage historical data to forecast trends and make informed business decisions with high precision.",
+      icon: "trendingUp"
+    },
+    {
+      title: "Natural Language Processing",
+      description: "Build intelligent chatbots, automated document analysis, and sentiment-aware customer support systems.",
+      icon: "messageSquare"
+    },
+    {
+      title: "Computer Vision",
+      description: "Automate visual quality control and object recognition using advanced neural network architectures.",
+      icon: "eye"
+    }
   ],
 
-  // Process
   process: [
-    { phase: "01", title: "Discovery", desc: "Mapping business pain points to AI-solvable problems." },
-    { phase: "02", title: "Data Strategy", desc: "Structuring and cleaning data for high-fidelity training." },
-    { phase: "03", title: "Implementation", desc: "Building, fine-tuning, and deploying the AI model." },
-    { phase: "04", title: "Support", desc: "Continuous MLOps monitoring and model retraining." }
+    {
+      step: "01",
+      title: "Data Strategy",
+      description: "Auditing your data ecosystem to ensure quality, security, and accessibility for model training."
+    },
+    {
+      step: "02",
+      title: "Model Development",
+      description: "Designing, training, and fine-tuning custom algorithms tailored to your specific business KPIs."
+    },
+    {
+      step: "03",
+      title: "Deployment & Integration",
+      description: "Deploying models as scalable APIs within your cloud infrastructure for real-time inference."
+    },
+    {
+      step: "04",
+      title: "Continuous Learning",
+      description: "Implementing MLOps pipelines to monitor performance and retrain models as new data arrives."
+    }
   ],
 
-  // Benefits
   benefits: [
-    "Enhanced Decision Accuracy",
-    "Autonomous Workflow Automation",
-    "Scalable Predictive Capabilities",
-    "Reduced Manual Processing Time",
-    "Optimized Resource Allocation",
-    "Improved User Experience Personalization"
+    {
+      title: "Operational Efficiency",
+      category: "Performance",
+      desc: "Automate repetitive tasks to free up your team for high-value strategic work.",
+      icon: "zap"
+    },
+    {
+      title: "Scalable Intelligence",
+      category: "Innovation",
+      desc: "Build models that grow alongside your business without requiring infrastructure overhauls.",
+      icon: "scale"
+    },
+    {
+      title: "Data-Driven Insights",
+      category: "Decision Making",
+      desc: "Turn fragmented data into clear, actionable intelligence that drives real ROI.",
+      icon: "database"
+    }
   ],
 
-  // FAQ
   faqs: [
-    { q: "How do you ensure AI data privacy?", a: "We utilize private, isolated infrastructure and rigorous PII redaction protocols." },
-    { q: "Can you integrate AI into legacy apps?", a: "Yes, we wrap existing logic in modern API layers to facilitate AI communication." }
+    {
+      question: "How long does it take to deploy an AI solution?",
+      answer: "Depending on complexity, a MVP can typically be deployed within 8-12 weeks, including data strategy and model training."
+    },
+    {
+      question: "Do I need a massive dataset to get started?",
+      answer: "Not necessarily. We specialize in transfer learning and synthetic data generation to deliver value even with limited initial datasets."
+    }
   ],
 
-  // SEO
   seo: {
-    title: "Enterprise AI & Machine Learning Solutions | Cosmolix",
-    description: "Build scalable AI agents, LLM pipelines, and predictive models with Cosmolix enterprise AI architects."
+    title: "AI & Machine Learning Development Services",
+    description: "Expert AI & ML development studio building custom predictive models, NLP solutions, and intelligent automation for modern enterprises."
   },
 
-  // CTA
   cta: {
-    title: "Scale Your Intelligence",
-    description: "Define your enterprise AI roadmap with our senior architects."
+    text: "Start Your AI Journey",
+    link: "/contact"
   }
-};  
+};

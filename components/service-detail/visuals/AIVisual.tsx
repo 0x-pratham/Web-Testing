@@ -1,6 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 
+const ORBIT_ANGLES = [0, 72, 144, 216, 288];
+
+const orbitNodes = ORBIT_ANGLES.map((angle) => ({
+  angle,
+  x: Number((100 + 58 * Math.cos((angle * Math.PI) / 180)).toFixed(2)),
+  y: Number((100 + 58 * Math.sin((angle * Math.PI) / 180)).toFixed(2)),
+}));
+
 export default function AIVisual() {
   return (
     <svg
@@ -40,21 +48,19 @@ export default function AIVisual() {
 
       {/* Orbit + node lattice */}
       <g>
-        {[0, 72, 144, 216, 288].map((angle, i) => {
-          const x = 100 + 58 * Math.cos((angle * Math.PI) / 180);
-          const y = 100 + 58 * Math.sin((angle * Math.PI) / 180);
+        {orbitNodes.map((node, i) => {
           return (
-            <g key={i}>
-              <line x1="100" y1="100" x2={x} y2={y} stroke="url(#ai-grad)" strokeWidth="1" strokeOpacity="0.35" />
+            <g key={node.angle}>
+              <line x1="100" y1="100" x2={node.x} y2={node.y} stroke="url(#ai-grad)" strokeWidth="1" strokeOpacity="0.35" />
               <motion.circle
-                cx={x} cy={y} r="3.2"
+                cx={node.x} cy={node.y} r="3.2"
                 fill="url(#ai-grad)"
                 animate={{ opacity: [0.35, 1, 0.35] }}
                 transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.35 }}
               />
               <motion.circle
                 r="1.6" fill="#F5EFE6"
-                animate={{ cx: [100, x], cy: [100, y], opacity: [0, 1, 0] }}
+                animate={{ cx: [100, node.x], cy: [100, node.y], opacity: [0, 1, 0] }}
                 transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.35, ease: "easeInOut" }}
               />
             </g>

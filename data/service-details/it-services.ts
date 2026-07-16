@@ -1,16 +1,95 @@
 export const itServicesService = {
-  title: "Managed IT Services",
-  subtitle: "Reliable infrastructure management for 24/7 business continuity.",
-  description: "Cosmolix provides proactive managed IT services designed to keep your enterprise operations running without interruption. We handle end-to-end infrastructure monitoring, remote support, and system maintenance. Our team ensures your servers, networks, and cloud environments are patched, secure, and optimized for peak performance, allowing your internal teams to focus on core business objectives rather than technical troubleshooting.",
-  whyMatters: "System downtime is a direct cost to your business. Our managed services provide the stability and expertise required to prevent failures before they occur, ensuring 24/7 operational continuity.",
-  technologies: ["System Monitoring", "Cloud Administration", "Remote Support Tools", "Network Management", "Proactive Patching"],
-  capabilities: ["Managed Infrastructure", "Remote IT Support", "System Maintenance", "Performance Monitoring", "Network Administration", "Server Optimization"],
-  process: [
-    { phase: "01", title: "Audit", desc: "Comprehensive review of current IT assets." },
-    { phase: "02", title: "Baseline", desc: "Establishing monitoring and security baselines." },
-    { phase: "03", title: "Maintain", desc: "Ongoing monitoring and routine maintenance." },
-    { phase: "04", title: "Optimize", desc: "Quarterly performance and scaling reviews." }
+  title: "IT Managed Services",
+  subtitle: "Reliable IT infrastructure to power your business operations.",
+  description: "We provide comprehensive IT managed services, ensuring your systems are secure, scalable, and always available to support your core business goals.",
+  whyMatters: "A robust IT foundation is the backbone of every modern enterprise. We manage the complexity of your technology landscape so you can focus on driving innovation.",
+
+  technologies: [
+    "Network Infrastructure",
+    "Server Management",
+    "Office 365",
+    "G-Suite Administration",
+    "IT Support Systems",
+    "VPN & Security"
   ],
-  benefits: ["Operational Continuity", "Reduced IT Overhead", "Proactive Issue Resolution", "Enhanced Security Posture"],
-  seo: { title: "Managed IT Services | Cosmolix", description: "Proactive IT infrastructure management and remote support." }
+
+  capabilities: [
+    {
+      title: "24/7 Monitoring",
+      description: "Proactive surveillance of your systems to detect and resolve issues before they escalate.",
+      icon: "brainCircuit"
+    },
+    {
+      title: "Network Optimization",
+      description: "Configuring high-performance network setups for seamless connectivity and security.",
+      icon: "layers3"
+    },
+    {
+      title: "IT Infrastructure Support",
+      description: "End-to-end management of hardware and software resources.",
+      icon: "database"
+    }
+  ],
+
+  process: [
+    {
+      step: "01",
+      title: "Infrastructure Audit",
+      description: "Assessing existing hardware and network configurations."
+    },
+    {
+      step: "02",
+      title: "Strategy Formulation",
+      description: "Designing a customized management roadmap tailored to your scale."
+    },
+    {
+      step: "03",
+      title: "Deployment & Setup",
+      description: "Implementing monitoring tools and standardizing IT policies."
+    },
+    {
+      step: "04",
+      title: "Ongoing Support",
+      description: "Delivering continuous maintenance and rapid troubleshooting."
+    }
+  ],
+
+  benefits: [
+    {
+      title: "Operational Stability",
+      description: "Reduced downtime through consistent system maintenance.",
+      icon: "shieldCheck"
+    },
+    {
+      title: "Cost Predictability",
+      description: "Fixed-cost management services simplify your IT budgeting.",
+      icon: "trendingUp"
+    },
+    {
+      title: "Scalable Growth",
+      description: "Flexible IT solutions that adapt to your business as you expand.",
+      icon: "rocket"
+    }
+  ],
+
+  faqs: [
+    {
+      question: "What is the scope of your managed services?",
+      answer: "We cover everything from network management and cloud administration to desktop support and security hardening."
+    },
+    {
+      question: "Do you provide emergency support?",
+      answer: "Yes, our team is equipped to provide rapid incident response to ensure minimal business impact."
+    }
+  ],
+
+  seo: {
+    title: "IT Managed Services | Reliable Infrastructure Support",
+    description: "Scale your business with professional IT managed services. From network optimization to 24/7 system monitoring."
+  },
+
+  cta: {
+    text: "Manage Your IT Today",
+    link: "/contact"
+  }
 };

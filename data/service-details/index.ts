@@ -1,7 +1,7 @@
 import { aiMlService } from "./ai-ml";
 import { softwareService } from "./software";
 import { cloudService } from "./cloud";
-import { cyberSecurityService } from "./cybersecurity";
+import { cybersecurityService } from "./cybersecurity";
 import { devopsService } from "./devops";
 import { gameDevService } from "./game-development";
 import { arVrService } from "./ar-vr";
@@ -11,11 +11,16 @@ import { itServicesService } from "./it-services";
 import { tenderService } from "./tenders";
 import { testingService } from "./testing";
 
+/**
+ * Service Details Registry
+ * Each service object follows the updated schema with structured benefits:
+ * { title: string, category: string, desc: string, icon: LucideIcon }
+ */
 export const serviceDetails: Record<string, any> = {
   "ai-ml": aiMlService,
   "software": softwareService,
   "cloud": cloudService,
-  "cybersecurity": cyberSecurityService,
+  "cybersecurity": cybersecurityService,
   "devops": devopsService,
   "game-development": gameDevService,
   "ar-vr": arVrService,

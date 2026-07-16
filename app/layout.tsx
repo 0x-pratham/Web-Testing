@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const manrope = Manrope({
+const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -54,24 +55,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} h-full antialiased scroll-smooth`}
+      className={`${openSans.variable} h-full antialiased scroll-smooth`}
     >
       <body
-        className={`
-          ${manrope.variable}
-          bg-[#F5F1EA]
-          text-neutral-900
-          h-full
-          flex
-          flex-col
-          m-0
-          p-0
-        `}
+        className={`font-sans bg-[#F5F1EA] text-neutral-900 h-full flex flex-col`}
       >
         <ScrollProgress />
         <Navbar />
-        {/* Anti-stretching clean matrix tracking layer */}
-        <main className="w-full flex-grow p-0 m-0 space-y-0 gap-0 block">
+        <main className="flex-grow w-full">
           {children}
         </main>
         <Footer />

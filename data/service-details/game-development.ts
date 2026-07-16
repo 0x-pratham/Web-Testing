@@ -1,16 +1,95 @@
 export const gameDevService = {
-  title: "Game Development & Simulation",
-  subtitle: "High-performance interactive experiences.",
-  description: "We build immersive experiences using Unity 6 and Unreal Engine 5. From multiplayer networking to complex backend integration with PlayFab/Photon, we handle the production lifecycle. We also specialize in high-fidelity industrial simulations and digital twins that utilize real-world data to create risk-free training environments.",
-  whyMatters: "High-performance simulation allows organizations to visualize complex systems and train personnel without real-world risk, driving higher engagement and learning retention.",
-  technologies: ["Unity 6", "Unreal Engine 5", "Photon Fusion", "PlayFab", "C#", "C++"],
-  capabilities: ["Multiplayer Development", "Industrial Simulation", "Digital Twin Creation", "Cross-Platform Optimization", "Physics Simulation"],
-  process: [
-    { phase: "01", title: "Concept", desc: "Defining game mechanics and simulation requirements." },
-    { phase: "02", title: "Pre-Prod", desc: "Technical prototyping and asset pipeline." },
-    { phase: "03", title: "Build", desc: "Development, networking, and integration." },
-    { phase: "04", title: "Launch", desc: "Final QA, platform deployment, and optimization." }
+  title: "Game Development",
+  subtitle: "Turning imaginative concepts into immersive interactive experiences.",
+  description: "From mobile casual games to high-fidelity PC and console titles, we combine storytelling, high-end 3D art, and seamless gameplay mechanics to build engaging gaming experiences.",
+  whyMatters: "Game development is the ultimate fusion of technology and art. We create worlds that don't just entertain, but captivate and retain users through deep interaction.",
+
+  technologies: [
+    "Unity",
+    "Unreal Engine",
+    "C#",
+    "C++",
+    "Blender",
+    "Photon Networking"
   ],
-  benefits: ["Immersive Engagement", "Robust Multiplayer Performance", "Scalable Simulation", "Real-world Visualization"],
-  seo: { title: "Game Development & Simulation | Cosmolix", description: "Interactive simulations and high-performance game dev." }
+
+  capabilities: [
+    {
+      title: "Full-Cycle Development",
+      description: "End-to-end support from pre-production concepts to final deployment.",
+      icon: "rocket"
+    },
+    {
+      title: "Multiplayer Integration",
+      description: "Building robust, real-time networking backends for competitive gaming.",
+      icon: "brainCircuit"
+    },
+    {
+      title: "Game Art & Animation",
+      description: "High-quality 3D modeling, texturing, and character animation services.",
+      icon: "layers3"
+    }
+  ],
+
+  process: [
+    {
+      step: "01",
+      title: "Concept & Prototyping",
+      description: "Defining core gameplay mechanics and visual styles."
+    },
+    {
+      step: "02",
+      title: "Asset Production",
+      description: "Creating characters, environments, and audio assets."
+    },
+    {
+      step: "03",
+      title: "Engine Implementation",
+      description: "Integrating assets into the game engine with optimized scripting."
+    },
+    {
+      step: "04",
+      title: "Polishing & QA",
+      description: "Performance optimization and rigorous bug testing across devices."
+    }
+  ],
+
+  benefits: [
+    {
+      title: "Deep User Engagement",
+      description: "Gamification and interactive design boost session times.",
+      icon: "trendingUp"
+    },
+    {
+      title: "High Performance",
+      description: "Optimized code ensures smooth performance across different hardware.",
+      icon: "database"
+    },
+    {
+      title: "Scalable Architecture",
+      description: "Design patterns that allow for easy content updates and expansion.",
+      icon: "shieldCheck"
+    }
+  ],
+
+  faqs: [
+    {
+      question: "Which game engines do you support?",
+      answer: "We primarily specialize in Unity and Unreal Engine, depending on the project requirements."
+    },
+    {
+      question: "Do you handle game publishing support?",
+      answer: "Yes, we assist with store submission guidelines and technical optimization for various app stores."
+    }
+  ],
+
+  seo: {
+    title: "Professional Game Development Services | Unity & Unreal",
+    description: "Expert game development studio creating engaging, high-performance mobile, PC, and console games."
+  },
+
+  cta: {
+    text: "Develop Your Game",
+    link: "/contact"
+  }
 };

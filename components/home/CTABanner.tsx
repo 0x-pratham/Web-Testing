@@ -3,16 +3,15 @@
 import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/shared/Container";
 import Button from "@/components/shared/Button";
 
 export default function CTABanner() {
-  // Mouse tracking for premium subtle pointer light
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // 3D Perspective Tilt Transform values for the blueprint container
   const blueprintRef = useRef<HTMLDivElement>(null);
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
@@ -22,7 +21,6 @@ export default function CTABanner() {
   const rotateX = useTransform(springTiltY, [-100, 100], [1, -1]);
   const rotateY = useTransform(springTiltX, [-100, 100], [-1, 1]);
 
-  // Track the active step sequence matching the traveling orange data token
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -58,7 +56,6 @@ export default function CTABanner() {
       currentBlueprint.addEventListener("mouseleave", resetBlueprintTilt);
     }
 
-    // Highly stable loop interval mapping the production tracking lifecycle
     const stepInterval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % 4);
     }, 4000);
@@ -83,135 +80,121 @@ export default function CTABanner() {
   ];
 
   return (
-    <>
-      <section 
-        ref={sectionRef}
-        className="relative bg-[#171412] text-white border-t border-neutral-800/60 overflow-hidden py-24 select-none"
-      >
-        {/* Subtle engineering grid layer mapped for premium aesthetic continuity */}
-        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(#ffffff00.8_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none" />
-        <motion.div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{ background: backgroundLight }} />
+    <section 
+      ref={sectionRef}
+      className="relative overflow-hidden border-t border-neutral-800/60 bg-[#171412] py-24 text-white select-none"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(#ffffff00.8_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
+      <motion.div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: backgroundLight }} />
 
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-            
-            {/* Left Content Pitch Block */}
-            <div className="lg:col-span-6 space-y-6">
-              <h2 className="text-[42px] sm:text-[50px] md:text-[58px] font-bold font-[var(--font-sora)] tracking-tight leading-[1.1] uppercase">
-                Ready to build <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
-                  beyond limits?
-                </span>
-              </h2>
+      <Container>
+        <div className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+          
+          <div className="space-y-6 lg:col-span-6">
+            <h2 className="section-title text-[42px] font-bold leading-[1.1] tracking-tight text-white uppercase sm:text-[50px] md:text-[58px]">
+              Ready to build <br />
+              <span className="bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+                beyond limits?
+              </span>
+            </h2>
 
-              <p className="text-[17px] md:text-[19px] text-neutral-400 font-normal leading-relaxed max-w-lg tracking-tight">
-                Let's architect digital products that perform. Partner with an elite engineering group committed to clean structures, robust execution, and transparent operations.
-              </p>
+            <p className="body-lg text-[17px] leading-relaxed text-neutral-400 tracking-tight md:text-[19px]">
+              Let's architect digital products that perform. Partner with an elite engineering group committed to clean structures, robust execution, and transparent operations.
+            </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-4">
-                <Button href="/contact" variant="primary">
-                  Initiate Project ↗
-                </Button>
-                <Link 
-                  href="/about" 
-                  className="text-[14px] font-mono text-neutral-400 hover:text-white uppercase tracking-widest transition-colors duration-200"
-                >
-                  Explore Capabilities
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Side: Ultra-Clean High-Fidelity Engineering Blueprint Box */}
-            <div className="lg:col-span-6 w-full flex justify-end">
-              <motion.div 
-                ref={blueprintRef}
-                style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                className="w-full max-w-lg bg-[#1A1714] border border-neutral-800 p-6 rounded-lg relative overflow-hidden flex flex-col justify-between shadow-2xl transition-shadow duration-300 hover:shadow-[#E87830]/2"
+            <div className="flex flex-wrap items-center gap-4 pt-4">
+              <Button href="/contact" variant="primary">
+                Initiate Project <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Link 
+                href="/about" 
+                className="text-[14px] uppercase tracking-widest text-neutral-400 transition-colors duration-200 hover:text-white"
               >
-                {/* 1% Accent Engineering Internal Grid Wireframe */}
-                <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff00.4_1px,transparent_1px),linear-gradient(to_bottom,#ffffff00.4_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-40 -z-10" />
-
-                {/* Header Module Meta Info */}
-                <div className="flex items-center justify-between border-b border-neutral-800/80 pb-4 mb-5 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-sm bg-[#E87830]/80" />
-                    <span className="text-[10px] font-mono text-neutral-400 tracking-wider font-semibold uppercase">PROJECT DELIVERY</span>
-                  </div>
-                </div>
-
-                {/* Central Adaptive Pipeline Matrix (The Stepper Grid) */}
-                <div className="relative z-10 flex-grow py-1">
-                  <div className="relative flex flex-col space-y-4">
-                    {/* Continuous trace pipeline background vector path */}
-                    <div className="absolute left-[7px] top-2 bottom-2 w-px bg-neutral-800/80" />
-
-                    {/* Active highlighted live track stream data vector line */}
-                    <motion.div 
-                      className="absolute left-[7px] top-2 w-px bg-[#E87830]"
-                      initial={{ height: "0%" }}
-                      animate={{ height: `${(activeStep / (STEPS.length - 1)) * 92}%` }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                    />
-
-                    {STEPS.map((step, idx) => {
-                      const isCurrent = activeStep === idx;
-                      return (
-                        <div 
-                          key={idx}
-                          className="flex items-start gap-4 group/item cursor-default select-none transition-all duration-300"
-                        >
-                          {/* Left node pulse beacon tracker layout */}
-                          <div className="relative flex items-center justify-center mt-1">
-                            <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all duration-300 z-10 ${
-                              isCurrent 
-                                ? "bg-[#1A1714] border-[#E87830] scale-105" 
-                                : "bg-[#1A1714] border-neutral-800 group-hover/item:border-neutral-700"
-                            }`}>
-                              <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                                isCurrent ? "bg-[#E87830]" : "bg-neutral-800 group-hover/item:bg-neutral-700"
-                              }`} />
-                            </div>
-                            {isCurrent && (
-                              <span className="absolute animate-ping inline-flex h-full w-full rounded-full bg-[#E87830]/20 opacity-70 z-0" />
-                            )}
-                          </div>
-
-                          {/* Technical Information Description Output Content Block */}
-                          <div className="flex-grow flex flex-col justify-center min-w-0">
-                            <div className="flex items-center justify-between">
-                              <h4 className={`text-[14px] font-mono tracking-wider font-bold transition-colors duration-300 ${
-                                isCurrent ? "text-[#E87830]" : "text-neutral-400 group-hover/item:text-neutral-300"
-                              }`}>
-                                {step.title}
-                              </h4>
-                              <span className={`text-[11px] font-mono transition-colors duration-300 ${
-                                isCurrent ? "text-[#E87830]/60" : "text-neutral-600"
-                              }`}>
-                                {step.id}
-                              </span>
-                            </div>
-                            <p className="text-[15px] text-neutral-500 font-sans mt-0.5 leading-normal tracking-tight min-h-[16px]">
-                              {step.desc}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Frame Stamp Production Footer Specifications */}
-                <div className="border-t border-neutral-800/80 pt-4 mt-5 flex items-center justify-between font-mono text-[9px] text-neutral-500 relative z-10 w-full">
-                  <span>EST. 2026</span>
-                  <span className="text-neutral-700">•</span>
-                  <span>PUNE, MAHARASHTRA, INDIA</span>
-                </div>
-              </motion.div>
+                Explore Capabilities
+              </Link>
             </div>
-
           </div>
-        </Container>
-      </section>
-    </>
+
+          <div className="flex w-full justify-end lg:col-span-6">
+            <motion.div 
+              ref={blueprintRef}
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              className="relative w-full max-w-lg rounded-lg border border-neutral-800 bg-[#1A1714] p-6 shadow-2xl transition-shadow duration-300 hover:shadow-[#E87830]/2"
+            >
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff00.4_1px,transparent_1px),linear-gradient(to_bottom,#ffffff00.4_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" />
+
+              <header className="relative z-10 mb-5 flex items-center justify-between border-b border-neutral-800/80 pb-4">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-sm bg-[#E87830]/80" />
+                  <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-neutral-400">PROJECT DELIVERY</span>
+                </div>
+              </header>
+
+              <div className="relative z-10 flex-grow py-1">
+                <div className="relative flex flex-col space-y-4">
+                  <div className="absolute bottom-2 left-[7px] top-2 w-px bg-neutral-800/80" />
+
+                  <motion.div 
+                    className="absolute left-[7px] top-2 w-px bg-[#E87830]"
+                    initial={{ height: "0%" }}
+                    animate={{ height: `${(activeStep / (STEPS.length - 1)) * 92}%` }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                  />
+
+                  {STEPS.map((step, idx) => {
+                    const isCurrent = activeStep === idx;
+                    return (
+                      <article 
+                        key={idx}
+                        className="group/item flex cursor-default select-none items-start gap-4 transition-all duration-300"
+                      >
+                        <div className="relative mt-1 flex items-center justify-center">
+                          <div className={`z-10 flex h-3.5 w-3.5 items-center justify-center rounded-full border transition-all duration-300 ${
+                            isCurrent 
+                              ? "border-[#E87830] bg-[#1A1714] scale-105" 
+                              : "border-neutral-800 bg-[#1A1714] group-hover/item:border-neutral-700"
+                          }`}>
+                            <div className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${
+                              isCurrent ? "bg-[#E87830]" : "bg-neutral-800 group-hover/item:bg-neutral-700"
+                            }`} />
+                          </div>
+                          {isCurrent && (
+                            <span className="absolute z-0 inline-flex h-full w-full animate-ping rounded-full bg-[#E87830]/20 opacity-70" />
+                          )}
+                        </div>
+
+                        <div className="flex min-w-0 flex-grow flex-col justify-center">
+                          <div className="flex items-center justify-between">
+                            <h4 className={`text-[14px] font-bold tracking-wider transition-colors duration-300 ${
+                              isCurrent ? "text-[#E87830]" : "text-neutral-400 group-hover/item:text-neutral-300"
+                            }`}>
+                              {step.title}
+                            </h4>
+                            <span className={`text-[11px] transition-colors duration-300 ${
+                              isCurrent ? "text-[#E87830]/60" : "text-neutral-600"
+                            }`}>
+                              {step.id}
+                            </span>
+                          </div>
+                          <p className="body mt-0.5 min-h-[16px] text-[15px] leading-normal text-neutral-500 tracking-tight">
+                            {step.desc}
+                          </p>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <footer className="relative z-10 mt-5 flex w-full items-center justify-between border-t border-neutral-800/80 pt-4 font-mono text-[12px] text-neutral-500">
+                <span>EST. 2026</span>
+                <span className="text-neutral-700">•</span>
+                <span>PUNE, MAHARASHTRA, INDIA</span>
+              </footer>
+            </motion.div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
